@@ -95,3 +95,51 @@ stages:
       hash: md5
       md5: 9053a606dafce7693f47f509a7217090
       size: 5262014
+  nsys-mod:
+    cmd: calkit slurm batch --name nsys-mod --environment clima --dep 
+      config/base.yml --dep config/smag.yml --dep ClimaAtmos.jl-mod/src --dep 
+      ClimaAtmos.jl-mod/toml --dep 
+      ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml --dep 
+      ClimaAtmos.jl/perf/benchmark_step.jl --out results/nsys/mod.nsys-rep -s 
+      --gpus=1 -s --time=60 -- scripts/run-nsys.sh results/nsys/mod 
+      ClimaAtmos.jl-mod/.buildkite config/base.yml config/smag.yml
+    deps:
+    - path: ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
+      hash: md5
+      md5: 960b94f8e8dc62e1ef00310b21171099
+      size: 106103
+    - path: ClimaAtmos.jl-mod/src
+      hash: md5
+      md5: b96bc17213628953a4cb6a94c991cf68.dir
+      size: 1317147
+      nfiles: 101
+    - path: ClimaAtmos.jl-mod/toml
+      hash: md5
+      md5: f6943f469c23e41ed04469503e7b9563.dir
+      size: 11921
+      nfiles: 36
+    - path: ClimaAtmos.jl/perf/benchmark_step.jl
+      hash: md5
+      md5: e4e56e0353b6c5130c4e3fc03082c211
+      size: 2082
+    - path: config/base.yml
+      hash: md5
+      md5: 4756cdb867a59bff0c1f2cb99084db18
+      size: 3659
+    - path: config/smag.yml
+      hash: md5
+      md5: d953bd59bd767f59488f1b95350864c4
+      size: 22
+    - path: scripts/run-nsys.sh
+      hash: md5
+      md5: f83d8ec0a4bd8e2cd5513b64079b7b02
+      size: 1546
+    outs:
+    - path: .calkit/slurm/logs/nsys-mod.out
+      hash: md5
+      md5: 310097688d7dfdc6ad8d2915789a7d0d
+      size: 13957
+    - path: results/nsys/mod.nsys-rep
+      hash: md5
+      md5: ede3c8a07bcd02a60cde45725bed7db7
+      size: 5219552

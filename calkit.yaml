@@ -55,3 +55,24 @@ pipeline:
         - ClimaAtmos.jl/perf/benchmark_step.jl
       outputs:
         - results/nsys/baseline.nsys-rep
+    nsys-mod:
+      kind: sbatch
+      environment: clima
+      script_path: scripts/run-nsys.sh
+      sbatch_options:
+        - --gpus=1
+        - --time=60
+      args:
+        - results/nsys/mod
+        - ClimaAtmos.jl-mod/.buildkite
+        - config/base.yml
+        - config/smag.yml
+      inputs:
+        - config/base.yml
+        - config/smag.yml
+        - ClimaAtmos.jl-mod/src
+        - ClimaAtmos.jl-mod/toml
+        - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
+        - ClimaAtmos.jl/perf/benchmark_step.jl
+      outputs:
+        - results/nsys/mod.nsys-rep
