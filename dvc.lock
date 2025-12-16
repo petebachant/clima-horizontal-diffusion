@@ -110,8 +110,8 @@ stages:
       size: 106103
     - path: ClimaAtmos.jl-mod/src
       hash: md5
-      md5: b96bc17213628953a4cb6a94c991cf68.dir
-      size: 1317147
+      md5: f93e75145256d8cfdea345ebe162185b.dir
+      size: 1318229
       nfiles: 101
     - path: ClimaAtmos.jl-mod/toml
       hash: md5
@@ -137,12 +137,12 @@ stages:
     outs:
     - path: .calkit/slurm/logs/nsys-mod.out
       hash: md5
-      md5: 310097688d7dfdc6ad8d2915789a7d0d
-      size: 13957
+      md5: ecb0728d6243c46b0fd57e8f1c4cb347
+      size: 14757
     - path: results/nsys/mod.nsys-rep
       hash: md5
-      md5: ede3c8a07bcd02a60cde45725bed7db7
-      size: 5219552
+      md5: fb7eac095e99d12705aff3941fda2ca3
+      size: 5329470
   nsys-baseline-to-sqlite:
     cmd: ' bash --noprofile --norc -c "nsys export results/nsys/baseline.nsys-rep
       -t sqlite -o results/nsys/baseline.sqlite"'
@@ -162,13 +162,13 @@ stages:
     deps:
     - path: results/nsys/mod.nsys-rep
       hash: md5
-      md5: ede3c8a07bcd02a60cde45725bed7db7
-      size: 5219552
+      md5: fb7eac095e99d12705aff3941fda2ca3
+      size: 5329470
     outs:
     - path: results/nsys/mod.sqlite
       hash: md5
-      md5: deee36f207011a9cbd93adee5cd52f6d
-      size: 10489856
+      md5: a234b40f49d33eff007270ccb25f3496
+      size: 10690560
   summarize:
     cmd: calkit xenv -n py --no-check -- python scripts/summarize.py
     deps:
@@ -183,8 +183,8 @@ stages:
       size: 10641408
     - path: results/nsys/mod.sqlite
       hash: md5
-      md5: deee36f207011a9cbd93adee5cd52f6d
-      size: 10489856
+      md5: a234b40f49d33eff007270ccb25f3496
+      size: 10690560
     - path: scripts/summarize.py
       hash: md5
       md5: 07c34af8e650da2ed6884efa945adf97
@@ -192,5 +192,5 @@ stages:
     outs:
     - path: results/summary.json
       hash: md5
-      md5: ed603f026e5488dd570ee11c4bdefd71
-      size: 380
+      md5: f8ca9498fae3780d86ec1cb6cd303cc3
+      size: 379
