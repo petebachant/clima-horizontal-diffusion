@@ -129,6 +129,34 @@ pipeline:
         - results/nsys/baseline-const.nsys-rep
       outputs:
         - results/nsys/baseline-const.sqlite
+    nsys-baseline-none:
+      kind: sbatch
+      environment: clima
+      script_path: scripts/run-nsys.sh
+      sbatch_options:
+        - --gpus=1
+        - --time=60
+      args:
+        - results/nsys/baseline-none
+        - ClimaAtmos.jl/.buildkite
+        - config/base.yml
+      inputs:
+        - config/base.yml
+        - ClimaAtmos.jl/src
+        - ClimaAtmos.jl/toml
+        - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+        - ClimaAtmos.jl/perf/benchmark_step.jl
+      outputs:
+        - results/nsys/baseline-none.nsys-rep
+    nsys-baseline-none-to-sqlite:
+      kind: shell-command
+      environment: _system
+      command: nsys export results/nsys/baseline-none.nsys-rep -t sqlite
+        -o results/nsys/baseline-none.sqlite
+      inputs:
+        - results/nsys/baseline-none.nsys-rep
+      outputs:
+        - results/nsys/baseline-none.sqlite
     summarize:
       kind: python-script
       environment: py
@@ -137,6 +165,7 @@ pipeline:
         - results/nsys/baseline.sqlite
         - results/nsys/mod.sqlite
         - results/nsys/baseline-const.sqlite
+        - results/nsys/baseline-none.sqlite
       outputs:
         - path: results/summary.csv
           storage: git

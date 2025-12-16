@@ -127,6 +127,40 @@ stages:
     desc: Automatically generated from the 
       'nsys-baseline-const-to-sqlite' stage in calkit.yaml. Changes 
       made here will be overwritten.
+  nsys-baseline-none:
+    cmd: calkit slurm batch --name nsys-baseline-none --environment 
+      clima --dep config/base.yml --dep ClimaAtmos.jl/src --dep 
+      ClimaAtmos.jl/toml --dep 
+      ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml --dep 
+      ClimaAtmos.jl/perf/benchmark_step.jl --out 
+      results/nsys/baseline-none.nsys-rep -s --gpus=1 -s --time=60 -- 
+      scripts/run-nsys.sh results/nsys/baseline-none 
+      ClimaAtmos.jl/.buildkite config/base.yml
+    deps:
+      - scripts/run-nsys.sh
+      - config/base.yml
+      - ClimaAtmos.jl/src
+      - ClimaAtmos.jl/toml
+      - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+      - ClimaAtmos.jl/perf/benchmark_step.jl
+    outs:
+      - results/nsys/baseline-none.nsys-rep:
+          persist: true
+      - .calkit/slurm/logs/nsys-baseline-none.out:
+          cache: false
+          persist: true
+    desc: Automatically generated from the 'nsys-baseline-none' stage 
+      in calkit.yaml. Changes made here will be overwritten.
+  nsys-baseline-none-to-sqlite:
+    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/baseline-none.nsys-rep
+      -t sqlite -o results/nsys/baseline-none.sqlite"'
+    deps:
+      - results/nsys/baseline-none.nsys-rep
+    outs:
+      - results/nsys/baseline-none.sqlite
+    desc: Automatically generated from the 
+      'nsys-baseline-none-to-sqlite' stage in calkit.yaml. Changes 
+      made here will be overwritten.
   summarize:
     cmd: calkit xenv -n py --no-check -- python scripts/summarize.py
     deps:

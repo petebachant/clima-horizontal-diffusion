@@ -2,3 +2,7 @@
 /mod.nsys-rep
 /mod.sqlite
 /baseline.sqlite
+/baseline-const.nsys-rep
+/baseline-const.sqlite
+/baseline-none.nsys-rep
+/baseline-none.sqlite

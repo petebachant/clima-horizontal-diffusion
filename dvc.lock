@@ -41,8 +41,8 @@ stages:
     outs:
     - path: .calkit/slurm/logs/gen-smag-state.out
       hash: md5
-      md5: 0679231e07bbaf36540d4e739ae05232
-      size: 10489
+      md5: 446a0448350a809551bbabbd0d012435
+      size: 10088
     - path: results/smag_fixture.jld2
       hash: md5
       md5: ee30c111977c5e5872148cda070a2480
@@ -89,12 +89,25 @@ stages:
     outs:
     - path: .calkit/slurm/logs/nsys-baseline.out
       hash: md5
-      md5: 8651a6a03280f023e171fb01c85142a5
-      size: 13894
+      md5: 48c15744d7c03efdb3719fc6a94751e3
+      size: 14113
     - path: results/nsys/baseline.nsys-rep
       hash: md5
-      md5: 9053a606dafce7693f47f509a7217090
-      size: 5262014
+      md5: 99bc83c8e8543c5723cbec15147d1113
+      size: 5379040
+  nsys-baseline-to-sqlite:
+    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/baseline.nsys-rep
+      -t sqlite -o results/nsys/baseline.sqlite"'
+    deps:
+    - path: results/nsys/baseline.nsys-rep
+      hash: md5
+      md5: 99bc83c8e8543c5723cbec15147d1113
+      size: 5379040
+    outs:
+    - path: results/nsys/baseline.sqlite
+      hash: md5
+      md5: 2e9785b1cd708f26415974b37f13d0fa
+      size: 10678272
   nsys-mod:
     cmd: calkit slurm batch --name nsys-mod --environment clima --dep 
       config/base.yml --dep config/smag.yml --dep ClimaAtmos.jl-mod/src --dep 
@@ -137,67 +150,25 @@ stages:
     outs:
     - path: .calkit/slurm/logs/nsys-mod.out
       hash: md5
-      md5: f5d3269d227163e965640716b5ac9eec
-      size: 14407
+      md5: d0a101e4ee2aadfb1a09d7b7a48d4925
+      size: 13841
     - path: results/nsys/mod.nsys-rep
       hash: md5
-      md5: cd766af05f64825837ce2f0c6622dd70
-      size: 5306065
-  nsys-baseline-to-sqlite:
-    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/baseline.nsys-rep
-      -t sqlite -o results/nsys/baseline.sqlite"'
-    deps:
-    - path: results/nsys/baseline.nsys-rep
-      hash: md5
-      md5: 9053a606dafce7693f47f509a7217090
-      size: 5262014
-    outs:
-    - path: results/nsys/baseline.sqlite
-      hash: md5
-      md5: a2d9b886f35645956dcef93a4eb3b892
-      size: 10641408
+      md5: 39a36761584e60449a61083980d59ddf
+      size: 5333348
   nsys-mod-to-sqlite:
     cmd: ' bash --noprofile --norc -c "nsys export results/nsys/mod.nsys-rep -t sqlite
       -o results/nsys/mod.sqlite"'
     deps:
     - path: results/nsys/mod.nsys-rep
       hash: md5
-      md5: cd766af05f64825837ce2f0c6622dd70
-      size: 5306065
+      md5: 39a36761584e60449a61083980d59ddf
+      size: 5333348
     outs:
     - path: results/nsys/mod.sqlite
       hash: md5
-      md5: 87128c0ba85b56e6ec91c2c99fb8c008
-      size: 10575872
-  summarize:
-    cmd: calkit xenv -n py --no-check -- python scripts/summarize.py
-    deps:
-    - path: .calkit/env-locks/py
-      hash: md5
-      md5: 996b8e3f972c2d2602957c2486ba7dc5.dir
-      size: 1011
-      nfiles: 1
-    - path: results/nsys/baseline-const.sqlite
-      hash: md5
-      md5: d4ff0eadc6229e083badd402c2f48098
-      size: 10108928
-    - path: results/nsys/baseline.sqlite
-      hash: md5
-      md5: a2d9b886f35645956dcef93a4eb3b892
-      size: 10641408
-    - path: results/nsys/mod.sqlite
-      hash: md5
-      md5: 87128c0ba85b56e6ec91c2c99fb8c008
-      size: 10575872
-    - path: scripts/summarize.py
-      hash: md5
-      md5: 13681cb6232bef37badfad4468c859f9
-      size: 820
-    outs:
-    - path: results/summary.csv
-      hash: md5
-      md5: 78958573f0d5f841bbca0bb179db0d68
-      size: 274
+      md5: d139485c9f40a6210b6a5f1416b1505b
+      size: 10612736
   nsys-baseline-const:
     cmd: calkit slurm batch --name nsys-baseline-const --environment clima --dep
       config/base.yml --dep config/const.yml --dep ClimaAtmos.jl/src --dep 
@@ -240,22 +211,108 @@ stages:
     outs:
     - path: .calkit/slurm/logs/nsys-baseline-const.out
       hash: md5
-      md5: 2174c693936afed2e5a69b7772c55751
-      size: 14271
+      md5: 86ebcd75197a56a1046f9e56e542f9de
+      size: 14292
     - path: results/nsys/baseline-const.nsys-rep
       hash: md5
-      md5: 334ee518efa2cc5711ca9c3d16685948
-      size: 5088917
+      md5: b5cce117bf44d6f2399db8d44fc2f684
+      size: 5076263
   nsys-baseline-const-to-sqlite:
     cmd: ' bash --noprofile --norc -c "nsys export results/nsys/baseline-const.nsys-rep
       -t sqlite -o results/nsys/baseline-const.sqlite"'
     deps:
     - path: results/nsys/baseline-const.nsys-rep
       hash: md5
-      md5: 334ee518efa2cc5711ca9c3d16685948
-      size: 5088917
+      md5: b5cce117bf44d6f2399db8d44fc2f684
+      size: 5076263
     outs:
     - path: results/nsys/baseline-const.sqlite
       hash: md5
-      md5: d4ff0eadc6229e083badd402c2f48098
-      size: 10108928
+      md5: a55bd541dea529b16df6e215e2b21472
+      size: 10121216
+  nsys-baseline-none:
+    cmd: calkit slurm batch --name nsys-baseline-none --environment clima --dep 
+      config/base.yml --dep ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml --dep 
+      ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml --dep 
+      ClimaAtmos.jl/perf/benchmark_step.jl --out 
+      results/nsys/baseline-none.nsys-rep -s --gpus=1 -s --time=60 -- 
+      scripts/run-nsys.sh results/nsys/baseline-none ClimaAtmos.jl/.buildkite 
+      config/base.yml
+    deps:
+    - path: ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+      hash: md5
+      md5: 960b94f8e8dc62e1ef00310b21171099
+      size: 106103
+    - path: ClimaAtmos.jl/perf/benchmark_step.jl
+      hash: md5
+      md5: e4e56e0353b6c5130c4e3fc03082c211
+      size: 2082
+    - path: ClimaAtmos.jl/src
+      hash: md5
+      md5: 01e1d1b04e003a8a54f22f5da3dc6465.dir
+      size: 1317233
+      nfiles: 101
+    - path: ClimaAtmos.jl/toml
+      hash: md5
+      md5: f6943f469c23e41ed04469503e7b9563.dir
+      size: 11921
+      nfiles: 36
+    - path: config/base.yml
+      hash: md5
+      md5: 4756cdb867a59bff0c1f2cb99084db18
+      size: 3659
+    - path: scripts/run-nsys.sh
+      hash: md5
+      md5: f83d8ec0a4bd8e2cd5513b64079b7b02
+      size: 1546
+    outs:
+    - path: .calkit/slurm/logs/nsys-baseline-none.out
+      hash: md5
+      md5: 268ed27dc982e8b4b162a45434c42d86
+      size: 13960
+    - path: results/nsys/baseline-none.nsys-rep
+      hash: md5
+      md5: 379b26cdc4f73f25d756279fc6bc89da
+      size: 5010493
+  nsys-baseline-none-to-sqlite:
+    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/baseline-none.nsys-rep
+      -t sqlite -o results/nsys/baseline-none.sqlite"'
+    deps:
+    - path: results/nsys/baseline-none.nsys-rep
+      hash: md5
+      md5: 379b26cdc4f73f25d756279fc6bc89da
+      size: 5010493
+    outs:
+    - path: results/nsys/baseline-none.sqlite
+      hash: md5
+      md5: 3bcf85c356fcdf3147b66512484d613e
+      size: 9949184
+  summarize:
+    cmd: calkit xenv -n py --no-check -- python scripts/summarize.py
+    deps:
+    - path: .calkit/env-locks/py
+      hash: md5
+      md5: 996b8e3f972c2d2602957c2486ba7dc5.dir
+      size: 1011
+      nfiles: 1
+    - path: results/nsys/baseline-const.sqlite
+      hash: md5
+      md5: a55bd541dea529b16df6e215e2b21472
+      size: 10121216
+    - path: results/nsys/baseline.sqlite
+      hash: md5
+      md5: 2e9785b1cd708f26415974b37f13d0fa
+      size: 10678272
+    - path: results/nsys/mod.sqlite
+      hash: md5
+      md5: d139485c9f40a6210b6a5f1416b1505b
+      size: 10612736
+    - path: scripts/summarize.py
+      hash: md5
+      md5: 9680b4b22573e920059ece0b52a99227
+      size: 837
+    outs:
+    - path: results/summary.csv
+      hash: md5
+      md5: cbc9a74b8f30d0c9e9d90e8fafa33341
+      size: 351
