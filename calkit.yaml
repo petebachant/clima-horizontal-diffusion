@@ -6,3 +6,31 @@ git_repo_url: https://github.com/petebachant/clima-horizontal-diffusion
 questions:
   - Why does horizontal diffusion slow down ClimaAtmos so much, and is there
     anything we can do about it?
+
+environments:
+  clima:
+    kind: slurm
+    host: clima.gps.caltech.edu
+
+pipeline:
+  stages:
+    gen-smag-state:
+      kind: sbatch
+      environment: clima
+      script_path: scripts/run.sh
+      sbatch_options:
+        - --gpus=1
+        - --time=30
+      args:
+        - ClimaAtmos.jl/.buildkite
+        - scripts/gen_smag_state.jl
+      inputs:
+        - scripts/gen_smag_state.jl
+        - config/base.yml
+        - config/smag.yml
+        - ClimaAtmos.jl/src
+        - ClimaAtmos.jl/toml
+        - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+      outputs:
+        - path: results/smag_fixture.jld2
+          storage: null

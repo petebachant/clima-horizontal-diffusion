@@ -1,0 +1,49 @@
+schema: '2.0'
+stages:
+  gen-smag-state:
+    cmd: calkit slurm batch --name gen-smag-state --environment clima --dep 
+      scripts/gen_smag_state.jl --dep config/base.yml --dep config/smag.yml 
+      --dep ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml --dep 
+      ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml --out 
+      results/smag_fixture.jld2 -s --gpus=1 -s --time=30 -- scripts/run.sh 
+      ClimaAtmos.jl/.buildkite scripts/gen_smag_state.jl
+    deps:
+    - path: ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+      hash: md5
+      md5: 960b94f8e8dc62e1ef00310b21171099
+      size: 106103
+    - path: ClimaAtmos.jl/src
+      hash: md5
+      md5: 01e1d1b04e003a8a54f22f5da3dc6465.dir
+      size: 1317233
+      nfiles: 101
+    - path: ClimaAtmos.jl/toml
+      hash: md5
+      md5: f6943f469c23e41ed04469503e7b9563.dir
+      size: 11921
+      nfiles: 36
+    - path: config/base.yml
+      hash: md5
+      md5: 4756cdb867a59bff0c1f2cb99084db18
+      size: 3659
+    - path: config/smag.yml
+      hash: md5
+      md5: d953bd59bd767f59488f1b95350864c4
+      size: 22
+    - path: scripts/gen_smag_state.jl
+      hash: md5
+      md5: 35245dd10e4970910f68f2b71d3e3ba4
+      size: 1449
+    - path: scripts/run.sh
+      hash: md5
+      md5: 55b895adbb65f6511b237e4d2cde9f25
+      size: 1014
+    outs:
+    - path: .calkit/slurm/logs/gen-smag-state.out
+      hash: md5
+      md5: 0679231e07bbaf36540d4e739ae05232
+      size: 10489
+    - path: results/smag_fixture.jld2
+      hash: md5
+      md5: ee30c111977c5e5872148cda070a2480
+      size: 1279337013

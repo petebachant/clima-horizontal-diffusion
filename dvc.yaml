@@ -1,0 +1,26 @@
+stages:
+  gen-smag-state:
+    cmd: calkit slurm batch --name gen-smag-state --environment clima 
+      --dep scripts/gen_smag_state.jl --dep config/base.yml --dep 
+      config/smag.yml --dep ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml
+      --dep ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml --out 
+      results/smag_fixture.jld2 -s --gpus=1 -s --time=30 -- 
+      scripts/run.sh ClimaAtmos.jl/.buildkite 
+      scripts/gen_smag_state.jl
+    deps:
+      - scripts/run.sh
+      - scripts/gen_smag_state.jl
+      - config/base.yml
+      - config/smag.yml
+      - ClimaAtmos.jl/src
+      - ClimaAtmos.jl/toml
+      - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+    outs:
+      - results/smag_fixture.jld2:
+          cache: false
+          persist: true
+      - .calkit/slurm/logs/gen-smag-state.out:
+          cache: false
+          persist: true
+    desc: Automatically generated from the 'gen-smag-state' stage in 
+      calkit.yaml. Changes made here will be overwritten.
