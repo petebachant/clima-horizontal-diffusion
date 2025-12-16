@@ -3,3 +3,6 @@ name: clima-horizontal-diffusion
 title: CliMA horizontal diffusion
 description: Optimizing performance of horizontal diffusion in ClimaAtmos.
 git_repo_url: https://github.com/petebachant/clima-horizontal-diffusion
+questions:
+  - Why does horizontal diffusion slow down ClimaAtmos so much, and is there
+    anything we can do about it?
