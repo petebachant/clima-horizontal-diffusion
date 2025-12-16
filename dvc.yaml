@@ -49,6 +49,15 @@ stages:
           persist: true
     desc: Automatically generated from the 'nsys-baseline' stage in 
       calkit.yaml. Changes made here will be overwritten.
+  nsys-baseline-to-sqlite:
+    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/baseline.nsys-rep
+      -t sqlite -o results/nsys/baseline.sqlite"'
+    deps:
+      - results/nsys/baseline.nsys-rep
+    outs:
+      - results/nsys/baseline.sqlite
+    desc: Automatically generated from the 'nsys-baseline-to-sqlite' 
+      stage in calkit.yaml. Changes made here will be overwritten.
   nsys-mod:
     cmd: calkit slurm batch --name nsys-mod --environment clima --dep 
       config/base.yml --dep config/smag.yml --dep 
@@ -73,4 +82,26 @@ stages:
           cache: false
           persist: true
     desc: Automatically generated from the 'nsys-mod' stage in 
+      calkit.yaml. Changes made here will be overwritten.
+  nsys-mod-to-sqlite:
+    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/mod.nsys-rep
+      -t sqlite -o results/nsys/mod.sqlite"'
+    deps:
+      - results/nsys/mod.nsys-rep
+    outs:
+      - results/nsys/mod.sqlite
+    desc: Automatically generated from the 'nsys-mod-to-sqlite' stage 
+      in calkit.yaml. Changes made here will be overwritten.
+  summarize:
+    cmd: calkit xenv -n py --no-check -- python scripts/summarize.py
+    deps:
+      - scripts/summarize.py
+      - results/nsys/baseline.sqlite
+      - results/nsys/mod.sqlite
+      - .calkit/env-locks/py
+    outs:
+      - results/summary.json:
+          cache: false
+          persist: false
+    desc: Automatically generated from the 'summarize' stage in 
       calkit.yaml. Changes made here will be overwritten.

@@ -11,6 +11,11 @@ environments:
   clima:
     kind: slurm
     host: clima.gps.caltech.edu
+  py:
+    path: requirements.txt
+    kind: uv-venv
+    prefix: .venv
+    python: "3.13"
 
 pipeline:
   stages:
@@ -55,6 +60,15 @@ pipeline:
         - ClimaAtmos.jl/perf/benchmark_step.jl
       outputs:
         - results/nsys/baseline.nsys-rep
+    nsys-baseline-to-sqlite:
+      kind: shell-command
+      environment: _system
+      command: nsys export results/nsys/baseline.nsys-rep -t sqlite
+        -o results/nsys/baseline.sqlite
+      inputs:
+        - results/nsys/baseline.nsys-rep
+      outputs:
+        - results/nsys/baseline.sqlite
     nsys-mod:
       kind: sbatch
       environment: clima
@@ -76,3 +90,22 @@ pipeline:
         - ClimaAtmos.jl/perf/benchmark_step.jl
       outputs:
         - results/nsys/mod.nsys-rep
+    nsys-mod-to-sqlite:
+      kind: shell-command
+      environment: _system
+      command: nsys export results/nsys/mod.nsys-rep -t sqlite
+        -o results/nsys/mod.sqlite
+      inputs:
+        - results/nsys/mod.nsys-rep
+      outputs:
+        - results/nsys/mod.sqlite
+    summarize:
+      kind: python-script
+      environment: py
+      script_path: scripts/summarize.py
+      inputs:
+        - results/nsys/baseline.sqlite
+        - results/nsys/mod.sqlite
+      outputs:
+        - path: results/summary.json
+          storage: git

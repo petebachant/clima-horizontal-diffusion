@@ -143,3 +143,54 @@ stages:
       hash: md5
       md5: ede3c8a07bcd02a60cde45725bed7db7
       size: 5219552
+  nsys-baseline-to-sqlite:
+    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/baseline.nsys-rep
+      -t sqlite -o results/nsys/baseline.sqlite"'
+    deps:
+    - path: results/nsys/baseline.nsys-rep
+      hash: md5
+      md5: 9053a606dafce7693f47f509a7217090
+      size: 5262014
+    outs:
+    - path: results/nsys/baseline.sqlite
+      hash: md5
+      md5: a2d9b886f35645956dcef93a4eb3b892
+      size: 10641408
+  nsys-mod-to-sqlite:
+    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/mod.nsys-rep -t sqlite
+      -o results/nsys/mod.sqlite"'
+    deps:
+    - path: results/nsys/mod.nsys-rep
+      hash: md5
+      md5: ede3c8a07bcd02a60cde45725bed7db7
+      size: 5219552
+    outs:
+    - path: results/nsys/mod.sqlite
+      hash: md5
+      md5: deee36f207011a9cbd93adee5cd52f6d
+      size: 10489856
+  summarize:
+    cmd: calkit xenv -n py --no-check -- python scripts/summarize.py
+    deps:
+    - path: .calkit/env-locks/py
+      hash: md5
+      md5: 6beae9447789bebe45f6f71283658a1e.dir
+      size: 970
+      nfiles: 1
+    - path: results/nsys/baseline.sqlite
+      hash: md5
+      md5: a2d9b886f35645956dcef93a4eb3b892
+      size: 10641408
+    - path: results/nsys/mod.sqlite
+      hash: md5
+      md5: deee36f207011a9cbd93adee5cd52f6d
+      size: 10489856
+    - path: scripts/summarize.py
+      hash: md5
+      md5: 07c34af8e650da2ed6884efa945adf97
+      size: 987
+    outs:
+    - path: results/summary.json
+      hash: md5
+      md5: ed603f026e5488dd570ee11c4bdefd71
+      size: 380
