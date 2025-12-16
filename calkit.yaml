@@ -34,3 +34,24 @@ pipeline:
       outputs:
         - path: results/smag_fixture.jld2
           storage: null
+    nsys-baseline:
+      kind: sbatch
+      environment: clima
+      script_path: scripts/run-nsys.sh
+      sbatch_options:
+        - --gpus=1
+        - --time=60
+      args:
+        - results/nsys/baseline
+        - ClimaAtmos.jl/.buildkite
+        - config/base.yml
+        - config/smag.yml
+      inputs:
+        - config/base.yml
+        - config/smag.yml
+        - ClimaAtmos.jl/src
+        - ClimaAtmos.jl/toml
+        - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+        - ClimaAtmos.jl/perf/benchmark_step.jl
+      outputs:
+        - results/nsys/baseline.nsys-rep
