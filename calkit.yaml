@@ -1,0 +1,5 @@
+owner: petebachant
+name: clima-horizontal-diffusion
+title: CliMA horizontal diffusion
+description: Optimizing performance of horizontal diffusion in ClimaAtmos.
+git_repo_url: https://github.com/petebachant/clima-horizontal-diffusion
