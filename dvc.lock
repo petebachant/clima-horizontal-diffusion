@@ -174,9 +174,13 @@ stages:
     deps:
     - path: .calkit/env-locks/py
       hash: md5
-      md5: 6beae9447789bebe45f6f71283658a1e.dir
-      size: 970
+      md5: 996b8e3f972c2d2602957c2486ba7dc5.dir
+      size: 1011
       nfiles: 1
+    - path: results/nsys/baseline-const.sqlite
+      hash: md5
+      md5: d4ff0eadc6229e083badd402c2f48098
+      size: 10108928
     - path: results/nsys/baseline.sqlite
       hash: md5
       md5: a2d9b886f35645956dcef93a4eb3b892
@@ -187,10 +191,71 @@ stages:
       size: 10575872
     - path: scripts/summarize.py
       hash: md5
-      md5: 07c34af8e650da2ed6884efa945adf97
-      size: 987
+      md5: 13681cb6232bef37badfad4468c859f9
+      size: 820
     outs:
-    - path: results/summary.json
+    - path: results/summary.csv
       hash: md5
-      md5: 9bf5eae6e3a486689a40cb2a023892c8
-      size: 381
+      md5: 78958573f0d5f841bbca0bb179db0d68
+      size: 274
+  nsys-baseline-const:
+    cmd: calkit slurm batch --name nsys-baseline-const --environment clima --dep
+      config/base.yml --dep config/const.yml --dep ClimaAtmos.jl/src --dep 
+      ClimaAtmos.jl/toml --dep ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml 
+      --dep ClimaAtmos.jl/perf/benchmark_step.jl --out 
+      results/nsys/baseline-const.nsys-rep -s --gpus=1 -s --time=60 -- 
+      scripts/run-nsys.sh results/nsys/baseline-const ClimaAtmos.jl/.buildkite 
+      config/base.yml config/const.yml
+    deps:
+    - path: ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+      hash: md5
+      md5: 960b94f8e8dc62e1ef00310b21171099
+      size: 106103
+    - path: ClimaAtmos.jl/perf/benchmark_step.jl
+      hash: md5
+      md5: e4e56e0353b6c5130c4e3fc03082c211
+      size: 2082
+    - path: ClimaAtmos.jl/src
+      hash: md5
+      md5: 01e1d1b04e003a8a54f22f5da3dc6465.dir
+      size: 1317233
+      nfiles: 101
+    - path: ClimaAtmos.jl/toml
+      hash: md5
+      md5: f6943f469c23e41ed04469503e7b9563.dir
+      size: 11921
+      nfiles: 36
+    - path: config/base.yml
+      hash: md5
+      md5: 4756cdb867a59bff0c1f2cb99084db18
+      size: 3659
+    - path: config/const.yml
+      hash: md5
+      md5: 77bc7b925c754338d9602a945c8888ce
+      size: 36
+    - path: scripts/run-nsys.sh
+      hash: md5
+      md5: f83d8ec0a4bd8e2cd5513b64079b7b02
+      size: 1546
+    outs:
+    - path: .calkit/slurm/logs/nsys-baseline-const.out
+      hash: md5
+      md5: 2174c693936afed2e5a69b7772c55751
+      size: 14271
+    - path: results/nsys/baseline-const.nsys-rep
+      hash: md5
+      md5: 334ee518efa2cc5711ca9c3d16685948
+      size: 5088917
+  nsys-baseline-const-to-sqlite:
+    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/baseline-const.nsys-rep
+      -t sqlite -o results/nsys/baseline-const.sqlite"'
+    deps:
+    - path: results/nsys/baseline-const.nsys-rep
+      hash: md5
+      md5: 334ee518efa2cc5711ca9c3d16685948
+      size: 5088917
+    outs:
+    - path: results/nsys/baseline-const.sqlite
+      hash: md5
+      md5: d4ff0eadc6229e083badd402c2f48098
+      size: 10108928

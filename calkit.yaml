@@ -136,6 +136,7 @@ pipeline:
       inputs:
         - results/nsys/baseline.sqlite
         - results/nsys/mod.sqlite
+        - results/nsys/baseline-const.sqlite
       outputs:
-        - path: results/summary.json
+        - path: results/summary.csv
           storage: git

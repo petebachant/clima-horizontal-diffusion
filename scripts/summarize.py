@@ -1,11 +1,8 @@
 """Extract a summary from an nsys report file."""
 
-import json
 import sqlite3
 
-fpath_in_baseline = "results/nsys/baseline.sqlite"
-fpath_in_mod = "results/nsys/mod.sqlite"
-fpath_out = "results/summary.json"
+import polars as pl
 
 
 def get_summary(fpath_in) -> dict:
@@ -21,17 +18,13 @@ def get_summary(fpath_in) -> dict:
     return summary
 
 
-baseline = get_summary(fpath_in_baseline)
-mod = get_summary(fpath_in_mod)
+configs = ["baseline", "mod", "baseline-const"]
+results = []
 
-results = {
-    "speedup_pct": (1 - mod["duration"] / baseline["duration"]) * 100,
-    "baseline": baseline,
-    "mod": mod,
-}
+for config in configs:
+    fpath_in = f"results/nsys/{config}.sqlite"
+    summary = {"case": config} | get_summary(fpath_in)
+    results.append(summary)
 
-
-with open(fpath_out, "w") as f:
-    json.dump(results, f, indent=2)
-
-print(f"🚀 Speedup: {results['speedup_pct']:.1f}%")
+df = pl.DataFrame(results)
+df.write_csv("results/summary.csv")

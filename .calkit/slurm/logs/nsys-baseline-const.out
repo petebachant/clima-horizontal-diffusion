@@ -1,0 +1,244 @@
+Loading climacommon/2025_05_15
+  Loading requirement: climaauth/2025_05_15 openmpi/4.1.5-mpitrampoline
+    julia/1.11.5 cuda/julia-pref
+Precompiling project...
+  16402.8 ms  ✓ ClimaAtmos
+  41537.1 ms  ✓ PrecompileCI
+  2 dependencies successfully precompiled in 67 seconds. 551 already precompiled.
+┌ Warning: CUDA runtime library `libcublasLt.so.13` was loaded from a system path, `/usr/local/cuda/lib64/libcublasLt.so.13`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDA ~/.julia/packages/CUDA/TPbi4/src/initialization.jl:218
+┌ Warning: CUDA runtime library `libnvJitLink.so.13` was loaded from a system path, `/usr/local/cuda/lib64/libnvJitLink.so.13`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDA ~/.julia/packages/CUDA/TPbi4/src/initialization.jl:218
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/usr/local/cuda/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDA ~/.julia/packages/CUDA/TPbi4/src/initialization.jl:218
+Status `~/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/.buildkite/Project.toml`
+  [c7e460c6] ArgParse v1.2.0
+  [a14bc488] ArtifactWrappers v0.2.0
+  [6e4b80f9] BenchmarkTools v1.6.3
+⌃ [052768ef] CUDA v5.8.5
+  [13f3f980] CairoMakie v0.15.8
+  [29b5916a] ClimaAnalysis v0.5.20
+  [b2c96348] ClimaAtmos v0.32.0 `..`
+  [3a4d1b5c] ClimaComms v0.6.10
+⌃ [d414da3d] ClimaCore v0.14.43
+  [c2caaa1d] ClimaCoreSpectra v0.1.4
+  [d934ef94] ClimaCoreTempestRemap v0.3.18
+⌅ [1ecacbb8] ClimaDiagnostics v0.2.15
+  [e0c89595] ClimaReproducibilityTests v0.1.1
+  [595c0a79] ClimaTimeSteppers v0.8.5
+  [b3f4f4ca] ClimaUtilities v0.1.27
+⌃ [2b5f629d] DiffEqBase v6.183.2
+  [f67ccb44] HDF5 v0.17.2
+⌅ [a98d9a8b] Interpolations v0.15.1
+  [8197267c] IntervalSets v0.7.13
+⌅ [c3a54625] JET v0.9.20
+  [033835bb] JLD2 v0.6.3
+  [682c06a0] JSON v1.3.0
+  [ba0b0d4f] Krylov v0.10.3
+  [da04e1cc] MPI v0.20.23
+⌃ [85f8d34a] NCDatasets v0.14.8
+  [0d71be07] NullBroadcasts v0.1.0
+  [bac558e1] OrderedCollections v1.8.1
+  [76d61242] PrecompileCI v0.1.0 `PrecompileCI`
+⌅ [08abe8d2] PrettyTables v2.4.0
+  [efd6af41] ProfileCanvas v0.1.7
+⌃ [295af30f] Revise v3.7.5
+⌅ [0bca4576] SciMLBase v2.112.0
+⌅ [aa65fe97] SnoopCompile v3.1.4
+⌅ [e2b509da] SnoopCompileCore v3.0.0
+  [10745b16] Statistics v1.11.1
+  [2913bbd2] StatsBase v0.34.9
+  [ddb6d928] YAML v0.4.16
+  [9c32591e] Poppler_jll v24.6.0+0
+  [9abbd945] Profile v1.11.0
+  [9a3f8284] Random v1.11.0
+  [8dfed614] Test v1.11.0
+Info Packages marked with ⌃ and ⌅ have new versions available. Those with ⌃ may be upgradable, but those with ⌅ are restricted by compatibility constraints from upgrading. To see why use `status --outdated`
+┌ Warning: CUDA runtime library `libcublasLt.so.13` was loaded from a system path, `/usr/local/cuda/lib64/libcublasLt.so.13`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDA ~/.julia/packages/CUDA/TPbi4/src/initialization.jl:218
+┌ Warning: CUDA runtime library `libnvJitLink.so.13` was loaded from a system path, `/usr/local/cuda/lib64/libnvJitLink.so.13`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDA ~/.julia/packages/CUDA/TPbi4/src/initialization.jl:218
+┌ Warning: CUDA runtime library `libcusparse.so.12` was loaded from a system path, `/usr/local/cuda/lib64/libcusparse.so.12`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDA ~/.julia/packages/CUDA/TPbi4/src/initialization.jl:218
+┌ Warning: CUDA runtime library `libcupti.so.13.1` was loaded from a system path, `/opt/nvidia/nsight-systems/2025.3.2/target-linux-x64/libcupti.so.13.1`.
+│ This may cause errors.
+│ 
+│ If you're running under a profiler, this situation is expected. Otherwise,
+│ ensure that your library path environment variable (e.g., `PATH` on Windows
+│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
+│ 
+│ In any other case, please file an issue.
+└ @ CUDA ~/.julia/packages/CUDA/TPbi4/src/initialization.jl:218
+┌ Warning: Failed to convert `config_dict["vert_diff"] = false` to default type String, keeping original value
+└ @ ClimaAtmos ~/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/src/solver/yaml_helper.jl:78
+┌ Info: Making AtmosConfig with config files: 
+│    /home/pbachant/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/src/solver/../../config/default_configs/default_config.yml
+│    config/base.yml
+└    config/const.yml
+[ Info: Running on CUDADevice
+[ Info: Setting up single-process ClimaAtmos run
+┌ Info: Time info:
+│   dt = "30secs"
+│   t_start = "0secs"
+│   t_end = "3days"
+└   floor_n_steps = 8640
+┌ Info: numerics 
+│        `energy_q_tot_upwinding`::`Val{:vanleer_limiter}`
+│              `tracer_upwinding`::`Val{:first_order}`
+│     `edmfx_mse_q_tot_upwinding`::`Val{:first_order}`
+│       `edmfx_sgsflux_upwinding`::`Val{:none}`
+│        `edmfx_tracer_upwinding`::`Val{:first_order}`
+│       `test_dycore_consistency`::`Nothing`
+│          `reproducible_restart`::`Nothing`
+│                       `limiter`::`Nothing`
+│                     `diff_mode`::`ClimaAtmos.Explicit`
+└                     `hyperdiff`::`ClimaAtmos.ClimaHyperdiffusion{Float32}`
+┌ Info: AtmosModel: 
+│ 
+│                             `water`::`ClimaAtmos.AtmosWater{ClimaAtmos.NonEquilMoistModel, ClimaAtmos.Microphysics1Moment, ClimaAtmos.GridScaleCloud, ClimaAtmos.Explicit, Nothing}`
+│                         `scm_setup`::`ClimaAtmos.SCMSetup{Nothing, Nothing, Nothing, Bool, Nothing}`
+│                         `radiation`::`ClimaAtmos.AtmosRadiation{Nothing, ClimaAtmos.IdealizedOzone, Nothing, ClimaAtmos.IdealizedInsolation}`
+│                          `turbconv`::`ClimaAtmos.AtmosTurbconv{ClimaAtmos.EDMFXModel{ClimaAtmos.PiGroupsEntrainment, ClimaAtmos.BuoyancyVelocityDetrainment, Val{true}, Val{true}, Val{true}, Val{false}, Val{false}, ClimaAtmos.SmoothMinimumBlending}, Nothing, ClimaAtmos.Explicit, ClimaAtmos.Explicit, ClimaAtmos.Explicit, ClimaAtmos.Explicit, ClimaAtmos.Explicit, Nothing, Nothing, ClimaAtmos.ConstantHorizontalDiffusion{Float32}}`
+│                   `prescribed_flow`::`Nothing`
+│                      `gravity_wave`::`ClimaAtmos.AtmosGravityWave{Nothing, Nothing}`
+│                `vertical_diffusion`::`Nothing`
+│                            `sponge`::`ClimaAtmos.AtmosSponge{Nothing, ClimaAtmos.RayleighSponge{Float32}}`
+│                           `surface`::`ClimaAtmos.AtmosSurface{ClimaAtmos.ZonallySymmetricSST, ClimaAtmos.SlabOceanSST{Int64}, ClimaAtmos.ConstantAlbedo{Float32}}`
+└                          `numerics`::`ClimaAtmos.AtmosNumerics{Val{:vanleer_limiter}, Val{:first_order}, Val{:first_order}, Val{:none}, Val{:first_order}, Nothing, Nothing, Nothing, ClimaAtmos.Explicit, ClimaAtmos.ClimaHyperdiffusion{Float32}}`
+[ Info: Using Hughes2023Topography orography
+[ Info: SLEVE mesh warp (eta=0.7, s=10.0)
+┌ Info: Simulation info
+│   job_id = "default_config"
+└   output_dir = "output/default_config/output_0004"
+┌ Info: Simulation Grid: ExtrudedFiniteDifferenceGrid:
+│   horizontal:
+│     context: SingletonCommsContext using CUDADevice
+│     mesh: 16×16×6-element EquiangularCubedSphere of SphereDomain: radius = 6.371e6
+│     quadrature: 4-point Gauss-Legendre-Lobatto quadrature
+│   vertical:
+└     mesh: 43-element IntervalMesh of IntervalDomain: z ∈ [0.0,30000.0] (:bottom, :top)
+[ Info: Allocating Y: 12.892 s (17853682 allocations: 838.2 MiB)
+[ Info: using deep atmosphere
+[ Info: Allocating cache (p): 77.1 s (136000182 allocations: 7.05 GiB)
+[ Info: Using ODE config: `ClimaTimeSteppers.ARS343`
+[ Info: ode_configuration: 833.364 ms (1383750 allocations: 68.55 MiB)
+[ Info: Progress logging enabled
+[ Info: Checking NaNs in the state every 1024 steps
+[ Info: get_callbacks: 316.276 ms (402325 allocations: 20.6 MiB)
+[ Info: Saving accumulated diagnostics to disk with frequency: 
+[ Info: DictWriter: String[]
+[ Info: HDF5Writer: String[]
+[ Info: NetCDFWriter: ["rhoa_60d_inst", "ua_60d_inst", "va_60d_inst", "wa_60d_inst", "ta_60d_inst", "hus_60d_inst", "clw_60d_inst", "cli_60d_inst", "hussn_60d_inst", "husra_60d_inst"]
+[ Info: initializing diagnostics: 7.517 s (14974293 allocations: 1.51 GiB)
+[ Info: Prepared SciMLBase.CallbackSet callbacks: 11.345 ms (561 allocations: 27.34 KiB)
+[ Info: n_steps_per_cycle_per_cb (non diagnostics): [1024, 1, 360]
+[ Info: n_steps_per_cycle (non diagnostics): 46080
+┌ Info: Jacobian algorithm: ManualSparseJacobian(
+│   topography_flag = ClimaAtmos.UseDerivative(),
+│   diffusion_flag = ClimaAtmos.IgnoreDerivative(),
+│   sgs_advection_flag = ClimaAtmos.IgnoreDerivative(),
+│   sgs_entr_detr_flag = ClimaAtmos.IgnoreDerivative(),
+│   sgs_mass_flux_flag = ClimaAtmos.IgnoreDerivative(),
+│   sgs_nh_pressure_flag = ClimaAtmos.IgnoreDerivative(),
+│   sgs_vertdiff_flag = ClimaAtmos.IgnoreDerivative(),
+│   approximate_solve_iters = 2,
+└ )
+[ Info: Define ode function: 1.605 s (1839780 allocations: 78.37 MiB)
+[ Info: init integrator: 15.886 s (18082557 allocations: 922.95 MiB)
+[ Info: Added diagnostics: 126.128 s (28839431 allocations: 12.64 GiB)
+[ Info: Compiling benchmark_step!...
+┌ Info: Progress
+│   simulation_time = "30 seconds, 1 microsecond"
+│   n_steps_completed = 1
+│   wall_time_per_step = "0 seconds"
+│   wall_time_total = "0 seconds"
+│   wall_time_remaining = "0 seconds"
+│   wall_time_spent = "0 seconds"
+│   percent_complete = "0.0%"
+│   estimated_sypd = "Inf"
+│   date_now = 2025-12-16T14:11:59.501
+└   estimated_finish_date = 2025-12-16T14:11:59.501
+┌ Info: Progress
+│   simulation_time = "1 minute, 2 microseconds"
+│   n_steps_completed = 2
+│   wall_time_per_step = "15 seconds, 588 milliseconds"
+│   wall_time_total = "1 day, 13 hours"
+│   wall_time_remaining = "1 day, 13 hours"
+│   wall_time_spent = "31 seconds, 177 milliseconds"
+│   percent_complete = "0.0%"
+│   estimated_sypd = "0.005 (sdpd_estimate = 1.924)"
+│   date_now = 2025-12-16T14:12:15.106
+└   estimated_finish_date = 2025-12-18T03:36:29.106
+┌ Info: Progress
+│   simulation_time = "2 minutes, 4 microseconds"
+│   n_steps_completed = 4
+│   wall_time_per_step = "7 seconds, 880 milliseconds"
+│   wall_time_total = "18 hours, 54 minutes"
+│   wall_time_remaining = "18 hours, 54 minutes"
+│   wall_time_spent = "31 seconds, 521 milliseconds"
+│   percent_complete = "0.0%"
+│   estimated_sypd = "0.01"
+│   date_now = 2025-12-16T14:12:15.277
+└   estimated_finish_date = 2025-12-17T09:06:30.277
+┌ Info: Progress
+│   simulation_time = "4 minutes, 8 microseconds"
+│   n_steps_completed = 8
+│   wall_time_per_step = "3 seconds, 978 milliseconds"
+│   wall_time_total = "9 hours, 32 minutes"
+│   wall_time_remaining = "9 hours, 32 minutes"
+│   wall_time_spent = "31 seconds, 826 milliseconds"
+│   percent_complete = "0.1%"
+│   estimated_sypd = "0.021"
+│   date_now = 2025-12-16T14:12:15.582
+└   estimated_finish_date = 2025-12-16T23:44:36.582
+[ Info: Running benchmark_step!...
+[ Info: Using external CUDA profiler
+Capture range started in the application.
+Capture range ended in the application.
+Generating '/tmp/nsys-report-f2f8.qdstrm'
+[1/1] [0%                          ] baseline-const.nsys-repProcessing events...
+[1/1] [0%                          ] baseline-const.nsys-rep[1/1] [5%                          ] baseline-const.nsys-rep[1/1] [5%                          ] baseline-const.nsys-rep[1/1] [5%                          ] baseline-const.nsys-rep[1/1] [9%                          ] baseline-const.nsys-rep[1/1] [=16%                        ] baseline-const.nsys-rep[1/1] [===22%                      ] baseline-const.nsys-rep[1/1] [=====29%                    ] baseline-const.nsys-rep[1/1] [======35%                   ] baseline-const.nsys-rep[1/1] [========42%                 ] baseline-const.nsys-rep[1/1] [==========48%               ] baseline-const.nsys-rep[1/1] [============55%             ] baseline-const.nsys-rep[1/1] [==============61%           ] baseline-const.nsys-rep[1/1] [================68%         ] baseline-const.nsys-rep[1/1] [=================74%        ] baseline-const.nsys-rep[1/1] [===================81%      ] baseline-const.nsys-rep[1/1] [=====================87%    ] baseline-const.nsys-rep[1/1] [=======================94%  ] baseline-const.nsys-rep[1/1] [========================97% ] baseline-const.nsys-rep[1/1] [========================98% ] baseline-const.nsys-rep[1/1] [========================100%] baseline-const.nsys-rep[1/1] [========================100%] baseline-const.nsys-rep
+Generated:
+	/home/pbachant/calkit/clima-horizontal-diffusion/results/nsys/baseline-const.nsys-rep

@@ -92,15 +92,51 @@ stages:
       - results/nsys/mod.sqlite
     desc: Automatically generated from the 'nsys-mod-to-sqlite' stage 
       in calkit.yaml. Changes made here will be overwritten.
+  nsys-baseline-const:
+    cmd: calkit slurm batch --name nsys-baseline-const --environment 
+      clima --dep config/base.yml --dep config/const.yml --dep 
+      ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml --dep 
+      ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml --dep 
+      ClimaAtmos.jl/perf/benchmark_step.jl --out 
+      results/nsys/baseline-const.nsys-rep -s --gpus=1 -s --time=60 --
+      scripts/run-nsys.sh results/nsys/baseline-const 
+      ClimaAtmos.jl/.buildkite config/base.yml config/const.yml
+    deps:
+      - scripts/run-nsys.sh
+      - config/base.yml
+      - config/const.yml
+      - ClimaAtmos.jl/src
+      - ClimaAtmos.jl/toml
+      - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+      - ClimaAtmos.jl/perf/benchmark_step.jl
+    outs:
+      - results/nsys/baseline-const.nsys-rep:
+          persist: true
+      - .calkit/slurm/logs/nsys-baseline-const.out:
+          cache: false
+          persist: true
+    desc: Automatically generated from the 'nsys-baseline-const' stage
+      in calkit.yaml. Changes made here will be overwritten.
+  nsys-baseline-const-to-sqlite:
+    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/baseline-const.nsys-rep
+      -t sqlite -o results/nsys/baseline-const.sqlite"'
+    deps:
+      - results/nsys/baseline-const.nsys-rep
+    outs:
+      - results/nsys/baseline-const.sqlite
+    desc: Automatically generated from the 
+      'nsys-baseline-const-to-sqlite' stage in calkit.yaml. Changes 
+      made here will be overwritten.
   summarize:
     cmd: calkit xenv -n py --no-check -- python scripts/summarize.py
     deps:
       - scripts/summarize.py
       - results/nsys/baseline.sqlite
       - results/nsys/mod.sqlite
+      - results/nsys/baseline-const.sqlite
       - .calkit/env-locks/py
     outs:
-      - results/summary.json:
+      - results/summary.csv:
           cache: false
           persist: false
     desc: Automatically generated from the 'summarize' stage in 
