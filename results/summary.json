@@ -1,5 +1,5 @@
 {
-  "speedup_pct": -22.3364940983235,
+  "speedup_pct": -3.7607407606961685,
   "baseline": {
     "globalVid": 281474976710656,
     "duration": 704756182,
@@ -9,9 +9,9 @@
   },
   "mod": {
     "globalVid": 281474976710656,
-    "duration": 862174005,
-    "startTime": 767943404271,
-    "stopTime": 768805578276,
-    "duration_s": 0.862174005
+    "duration": 731260235,
+    "startTime": 763321609505,
+    "stopTime": 764052869740,
+    "duration_s": 0.731260235
   }
 }
