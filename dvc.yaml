@@ -106,11 +106,7 @@ stages:
     cmd: calkit xenv -n py --no-check -- python scripts/summarize.py
     deps:
       - scripts/summarize.py
-      - results/nsys/baseline.sqlite
-      - results/nsys/mod.sqlite
-      - results/nsys/baseline-const.sqlite
-      - results/nsys/baseline-none.sqlite
-      - results/nsys/mod-const.sqlite
+      - results/nsys
       - .calkit/env-locks/py
     outs:
       - results/summary.csv:

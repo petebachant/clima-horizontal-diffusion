@@ -295,35 +295,20 @@ stages:
       md5: b11b4b2793ead33aa1d1a841df65bc83.dir
       size: 2037
       nfiles: 2
-    - path: results/nsys/baseline-const.sqlite
+    - path: results/nsys
       hash: md5
-      md5: b01e1233bda857e35241befa9fd26c8e
-      size: 10166272
-    - path: results/nsys/baseline-none.sqlite
-      hash: md5
-      md5: cf6d599d2bcf92725ad8b73ad7159c25
-      size: 9965568
-    - path: results/nsys/baseline.sqlite
-      hash: md5
-      md5: e0f708c0d8ebdd8f4e1ca91b3708a998
-      size: 10686464
-    - path: results/nsys/mod-const.sqlite
-      hash: md5
-      md5: b350ced34092857500d97df7b04e4fd3
-      size: 10149888
-    - path: results/nsys/mod.sqlite
-      hash: md5
-      md5: 77c36a2674d311717bde7e3caadfc139
-      size: 10678272
+      md5: 25d72dc6fc6708620bb84972446c3538.dir
+      size: 45481942
+      nfiles: 8
     - path: scripts/summarize.py
       hash: md5
-      md5: 48def53e3e46f52efdbaf352971d2a78
-      size: 850
+      md5: 86e594fac13f0a04b7c45f18888f0fad
+      size: 1027
     outs:
     - path: results/summary.csv
       hash: md5
-      md5: 48240663b62429c362e954e79b500a2c
-      size: 426
+      md5: 669956da213a0da535490ab806d6942a
+      size: 285
   nsys-mod-const:
     cmd: calkit slurm batch --name nsys-mod-const --environment clima --dep 
       config/base.yml --dep config/const.yml --dep ClimaAtmos.jl-mod/src --dep 

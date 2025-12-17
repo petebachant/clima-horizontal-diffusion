@@ -192,11 +192,7 @@ pipeline:
       environment: py
       script_path: scripts/summarize.py
       inputs:
-        - results/nsys/baseline.sqlite
-        - results/nsys/mod.sqlite
-        - results/nsys/baseline-const.sqlite
-        - results/nsys/baseline-none.sqlite
-        - results/nsys/mod-const.sqlite
+        - results/nsys
       outputs:
         - path: results/summary.csv
           storage: git
