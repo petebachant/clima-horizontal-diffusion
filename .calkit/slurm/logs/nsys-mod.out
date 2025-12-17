@@ -1,6 +1,10 @@
 Loading climacommon/2025_05_15
   Loading requirement: climaauth/2025_05_15 openmpi/4.1.5-mpitrampoline
     julia/1.11.5 cuda/julia-pref
+Precompiling project...
+  16185.7 ms  ✓ ClimaAtmos
+  40522.0 ms  ✓ PrecompileCI
+  2 dependencies successfully precompiled in 66 seconds. 551 already precompiled.
 ┌ Warning: CUDA runtime library `libcublasLt.so.13` was loaded from a system path, `/usr/local/cuda/lib64/libcublasLt.so.13`.
 │ This may cause errors.
 │ 
@@ -147,7 +151,7 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 [ Info: SLEVE mesh warp (eta=0.7, s=10.0)
 ┌ Info: Simulation info
 │   job_id = "default_config"
-└   output_dir = "output/default_config/output_0010"
+└   output_dir = "output/default_config/output_0013"
 ┌ Info: Simulation Grid: ExtrudedFiniteDifferenceGrid:
 │   horizontal:
 │     context: SingletonCommsContext using CUDADevice
@@ -155,20 +159,20 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │     quadrature: 4-point Gauss-Legendre-Lobatto quadrature
 │   vertical:
 └     mesh: 43-element IntervalMesh of IntervalDomain: z ∈ [0.0,30000.0] (:bottom, :top)
-[ Info: Allocating Y: 12.92 s (17856575 allocations: 838.15 MiB)
+[ Info: Allocating Y: 12.698 s (17854662 allocations: 837.87 MiB)
 [ Info: using deep atmosphere
-[ Info: Allocating cache (p): 97.599 s (220812030 allocations: 10.84 GiB)
+[ Info: Allocating cache (p): 96.387 s (220804795 allocations: 10.84 GiB)
 [ Info: Using ODE config: `ClimaTimeSteppers.ARS343`
-[ Info: ode_configuration: 839.308 ms (1383753 allocations: 68.56 MiB)
+[ Info: ode_configuration: 799.731 ms (1383751 allocations: 68.54 MiB)
 [ Info: Progress logging enabled
 [ Info: Checking NaNs in the state every 1024 steps
-[ Info: get_callbacks: 316.28 ms (402319 allocations: 20.55 MiB)
+[ Info: get_callbacks: 301.204 ms (402322 allocations: 20.57 MiB)
 [ Info: Saving accumulated diagnostics to disk with frequency: 
 [ Info: DictWriter: String[]
 [ Info: HDF5Writer: String[]
 [ Info: NetCDFWriter: ["rhoa_60d_inst", "ua_60d_inst", "va_60d_inst", "wa_60d_inst", "ta_60d_inst", "hus_60d_inst", "clw_60d_inst", "cli_60d_inst", "hussn_60d_inst", "husra_60d_inst"]
-[ Info: initializing diagnostics: 7.575 s (14945013 allocations: 1.51 GiB)
-[ Info: Prepared SciMLBase.CallbackSet callbacks: 10.562 ms (561 allocations: 27.34 KiB)
+[ Info: initializing diagnostics: 7.23 s (14995388 allocations: 1.51 GiB)
+[ Info: Prepared SciMLBase.CallbackSet callbacks: 11.066 ms (561 allocations: 27.34 KiB)
 [ Info: n_steps_per_cycle_per_cb (non diagnostics): [1024, 1, 360]
 [ Info: n_steps_per_cycle (non diagnostics): 46080
 ┌ Info: Jacobian algorithm: ManualSparseJacobian(
@@ -181,9 +185,9 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │   sgs_vertdiff_flag = ClimaAtmos.IgnoreDerivative(),
 │   approximate_solve_iters = 2,
 └ )
-[ Info: Define ode function: 1.598 s (1839779 allocations: 78.35 MiB)
-[ Info: init integrator: 16.025 s (18455525 allocations: 951.65 MiB)
-[ Info: Added diagnostics: 127.94 s (28801891 allocations: 12.64 GiB)
+[ Info: Define ode function: 1.668 s (1839775 allocations: 78.35 MiB)
+[ Info: init integrator: 16.332 s (18455298 allocations: 952.03 MiB)
+[ Info: Added diagnostics: 127.722 s (28801883 allocations: 12.64 GiB)
 [ Info: Compiling benchmark_step!...
 ┌ Info: Progress
 │   simulation_time = "30 seconds, 1 microsecond"
@@ -194,47 +198,47 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │   wall_time_spent = "0 seconds"
 │   percent_complete = "0.0%"
 │   estimated_sypd = "Inf"
-│   date_now = 2025-12-17T11:44:11.314
-└   estimated_finish_date = 2025-12-17T11:44:11.314
+│   date_now = 2025-12-17T12:42:01.878
+└   estimated_finish_date = 2025-12-17T12:42:01.877
 ┌ Info: Progress
 │   simulation_time = "1 minute, 2 microseconds"
 │   n_steps_completed = 2
-│   wall_time_per_step = "15 seconds, 512 milliseconds"
+│   wall_time_per_step = "15 seconds, 632 milliseconds"
 │   wall_time_total = "1 day, 13 hours"
 │   wall_time_remaining = "1 day, 13 hours"
-│   wall_time_spent = "31 seconds, 24 milliseconds"
+│   wall_time_spent = "31 seconds, 265 milliseconds"
 │   percent_complete = "0.0%"
-│   estimated_sypd = "0.005 (sdpd_estimate = 1.934)"
-│   date_now = 2025-12-17T11:44:26.829
-└   estimated_finish_date = 2025-12-19T00:57:43.829
+│   estimated_sypd = "0.005 (sdpd_estimate = 1.919)"
+│   date_now = 2025-12-17T12:42:17.511
+└   estimated_finish_date = 2025-12-19T02:12:51.511
 ┌ Info: Progress
 │   simulation_time = "2 minutes, 4 microseconds"
 │   n_steps_completed = 4
-│   wall_time_per_step = "7 seconds, 837 milliseconds"
-│   wall_time_total = "18 hours, 48 minutes"
-│   wall_time_remaining = "18 hours, 48 minutes"
-│   wall_time_spent = "31 seconds, 348 milliseconds"
+│   wall_time_per_step = "7 seconds, 895 milliseconds"
+│   wall_time_total = "18 hours, 56 minutes"
+│   wall_time_remaining = "18 hours, 56 minutes"
+│   wall_time_spent = "31 seconds, 583 milliseconds"
 │   percent_complete = "0.0%"
 │   estimated_sypd = "0.01"
-│   date_now = 2025-12-17T11:44:26.996
-└   estimated_finish_date = 2025-12-18T06:32:28.996
+│   date_now = 2025-12-17T12:42:17.676
+└   estimated_finish_date = 2025-12-18T07:38:46.676
 ┌ Info: Progress
 │   simulation_time = "4 minutes, 8 microseconds"
 │   n_steps_completed = 8
-│   wall_time_per_step = "3 seconds, 959 milliseconds"
-│   wall_time_total = "9 hours, 30 minutes"
-│   wall_time_remaining = "9 hours, 29 minutes"
-│   wall_time_spent = "31 seconds, 678 milliseconds"
+│   wall_time_per_step = "3 seconds, 997 milliseconds"
+│   wall_time_total = "9 hours, 35 minutes"
+│   wall_time_remaining = "9 hours, 35 minutes"
+│   wall_time_spent = "31 seconds, 982 milliseconds"
 │   percent_complete = "0.1%"
 │   estimated_sypd = "0.021"
-│   date_now = 2025-12-17T11:44:27.327
-└   estimated_finish_date = 2025-12-17T21:14:09.327
+│   date_now = 2025-12-17T12:42:18.075
+└   estimated_finish_date = 2025-12-17T22:17:27.075
 [ Info: Running benchmark_step!...
 [ Info: Using external CUDA profiler
 Capture range started in the application.
 Capture range ended in the application.
-Generating '/tmp/nsys-report-20ec.qdstrm'
+Generating '/tmp/nsys-report-fd55.qdstrm'
 [1/1] [0%                          ] mod.nsys-repProcessing events...
-[1/1] [0%                          ] mod.nsys-rep[1/1] [6%                          ] mod.nsys-rep[1/1] [6%                          ] mod.nsys-rep[1/1] [6%                          ] mod.nsys-rep[1/1] [5%                          ] mod.nsys-rep[1/1] [6%                          ] mod.nsys-rep[1/1] [5%                          ] mod.nsys-rep[1/1] [6%                          ] mod.nsys-rep[1/1] [7%                          ] mod.nsys-rep[1/1] [6%                          ] mod.nsys-rep[1/1] [5%                          ] mod.nsys-rep[1/1] [9%                          ] mod.nsys-rep[1/1] [=15%                        ] mod.nsys-rep[1/1] [==21%                       ] mod.nsys-rep[1/1] [====28%                     ] mod.nsys-rep[1/1] [======34%                   ] mod.nsys-rep[1/1] [========40%                 ] mod.nsys-rep[1/1] [=========46%                ] mod.nsys-rep[1/1] [===========52%              ] mod.nsys-rep[1/1] [=============58%            ] mod.nsys-rep[1/1] [===============65%          ] mod.nsys-rep[1/1] [================71%         ] mod.nsys-rep[1/1] [==================77%       ] mod.nsys-rep[1/1] [====================83%     ] mod.nsys-rep[1/1] [======================90%   ] mod.nsys-rep[1/1] [=======================96%  ] mod.nsys-rep[1/1] [========================97% ] mod.nsys-rep[1/1] [========================98% ] mod.nsys-rep[1/1] [========================100%] mod.nsys-rep[1/1] [========================100%] mod.nsys-rep
+[1/1] [0%                          ] mod.nsys-rep[1/1] [6%                          ] mod.nsys-rep[1/1] [5%                          ] mod.nsys-rep[1/1] [5%                          ] mod.nsys-rep[1/1] [6%                          ] mod.nsys-rep[1/1] [7%                          ] mod.nsys-rep[1/1] [6%                          ] mod.nsys-rep[1/1] [5%                          ] mod.nsys-rep[1/1] [9%                          ] mod.nsys-rep[1/1] [=15%                        ] mod.nsys-rep[1/1] [==21%                       ] mod.nsys-rep[1/1] [====27%                     ] mod.nsys-rep[1/1] [======34%                   ] mod.nsys-rep[1/1] [========40%                 ] mod.nsys-rep[1/1] [=========46%                ] mod.nsys-rep[1/1] [===========52%              ] mod.nsys-rep[1/1] [=============58%            ] mod.nsys-rep[1/1] [===============65%          ] mod.nsys-rep[1/1] [================71%         ] mod.nsys-rep[1/1] [==================77%       ] mod.nsys-rep[1/1] [====================83%     ] mod.nsys-rep[1/1] [=====================89%    ] mod.nsys-rep[1/1] [=======================95%  ] mod.nsys-rep[1/1] [========================97% ] mod.nsys-rep[1/1] [========================98% ] mod.nsys-rep[1/1] [========================100%] mod.nsys-rep[1/1] [========================100%] mod.nsys-rep
 Generated:
 	/home/pbachant/calkit/clima-horizontal-diffusion/results/nsys/mod.nsys-rep
