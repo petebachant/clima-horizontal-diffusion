@@ -168,6 +168,7 @@ stages:
       - results/nsys/baseline.sqlite
       - results/nsys/mod.sqlite
       - results/nsys/baseline-const.sqlite
+      - results/nsys/baseline-none.sqlite
       - .calkit/env-locks/py
     outs:
       - results/summary.csv:
