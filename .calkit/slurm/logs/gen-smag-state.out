@@ -138,7 +138,7 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 [ Info: SLEVE mesh warp (eta=0.7, s=10.0)
 ┌ Info: Simulation info
 │   job_id = "smag_fixture"
-└   output_dir = "output/smag_fixture/output_0002"
+└   output_dir = "output/smag_fixture/output_0003"
 ┌ Info: Simulation Grid: ExtrudedFiniteDifferenceGrid:
 │   horizontal:
 │     context: SingletonCommsContext using CUDADevice
@@ -146,20 +146,20 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │     quadrature: 4-point Gauss-Legendre-Lobatto quadrature
 │   vertical:
 └     mesh: 43-element IntervalMesh of IntervalDomain: z ∈ [0.0,30000.0] (:bottom, :top)
-[ Info: Allocating Y: 11.642 s (17852919 allocations: 838.17 MiB)
+[ Info: Allocating Y: 12.389 s (17853298 allocations: 837.79 MiB)
 [ Info: using deep atmosphere
-[ Info: Allocating cache (p): 88.93 s (220777322 allocations: 10.85 GiB)
+[ Info: Allocating cache (p): 91.556 s (220781421 allocations: 10.84 GiB)
 [ Info: Using ODE config: `ClimaTimeSteppers.ARS343`
-[ Info: ode_configuration: 712.285 ms (1383257 allocations: 68.55 MiB)
+[ Info: ode_configuration: 789.105 ms (1383257 allocations: 68.55 MiB)
 [ Info: Progress logging enabled
 [ Info: Checking NaNs in the state every 1024 steps
-[ Info: get_callbacks: 271.336 ms (402322 allocations: 20.57 MiB)
+[ Info: get_callbacks: 298.138 ms (402322 allocations: 20.57 MiB)
 [ Info: Saving accumulated diagnostics to disk with frequency: 
 [ Info: DictWriter: String[]
 [ Info: HDF5Writer: String[]
 [ Info: NetCDFWriter: ["rhoa_60d_inst", "ua_60d_inst", "va_60d_inst", "wa_60d_inst", "ta_60d_inst", "hus_60d_inst", "clw_60d_inst", "cli_60d_inst", "hussn_60d_inst", "husra_60d_inst"]
-[ Info: initializing diagnostics: 6.724 s (14796850 allocations: 1.5 GiB)
-[ Info: Prepared SciMLBase.CallbackSet callbacks: 9.168 ms (561 allocations: 27.34 KiB)
+[ Info: initializing diagnostics: 6.916 s (14796813 allocations: 1.5 GiB)
+[ Info: Prepared SciMLBase.CallbackSet callbacks: 10.615 ms (561 allocations: 27.34 KiB)
 [ Info: n_steps_per_cycle_per_cb (non diagnostics): [1024, 1, 360]
 [ Info: n_steps_per_cycle (non diagnostics): 46080
 ┌ Info: Jacobian algorithm: ManualSparseJacobian(
@@ -172,7 +172,7 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │   sgs_vertdiff_flag = ClimaAtmos.IgnoreDerivative(),
 │   approximate_solve_iters = 2,
 └ )
-[ Info: Define ode function: 1.68 s (1839777 allocations: 78.34 MiB)
-[ Info: init integrator: 15.991 s (18453052 allocations: 951.74 MiB)
-[ Info: Added diagnostics: 122.31 s (28772926 allocations: 12.63 GiB)
+[ Info: Define ode function: 1.595 s (1839777 allocations: 78.34 MiB)
+[ Info: init integrator: 15.815 s (18452675 allocations: 951.8 MiB)
+[ Info: Added diagnostics: 125.616 s (28772728 allocations: 12.63 GiB)
 [ Info: Saved Smagorinsky fixture → /home/pbachant/calkit/clima-horizontal-diffusion/results/smag_fixture.jld2
