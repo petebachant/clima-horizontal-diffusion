@@ -1,97 +1,4 @@
 stages:
-  gen-smag-state:
-    cmd: calkit slurm batch --name gen-smag-state --environment clima 
-      --dep scripts/gen_smag_state.jl --dep config/base.yml --dep 
-      config/smag.yml --dep ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml
-      --dep ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml --out 
-      results/smag_fixture.jld2 -s --gpus=1 -s --time=30 -- 
-      scripts/run.sh ClimaAtmos.jl/.buildkite 
-      scripts/gen_smag_state.jl
-    deps:
-      - scripts/run.sh
-      - scripts/gen_smag_state.jl
-      - config/base.yml
-      - config/smag.yml
-      - ClimaAtmos.jl/src
-      - ClimaAtmos.jl/toml
-      - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
-    outs:
-      - results/smag_fixture.jld2:
-          cache: false
-          persist: true
-      - .calkit/slurm/logs/gen-smag-state.out:
-          cache: false
-          persist: true
-    desc: Automatically generated from the 'gen-smag-state' stage in 
-      calkit.yaml. Changes made here will be overwritten.
-  nsys-baseline:
-    cmd: calkit slurm batch --name nsys-baseline --environment clima 
-      --dep config/base.yml --dep config/smag.yml --dep 
-      ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml --dep 
-      ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml --dep 
-      ClimaAtmos.jl/perf/benchmark_step.jl --out 
-      results/nsys/baseline.nsys-rep -s --gpus=1 -s --time=60 -- 
-      scripts/run-nsys.sh results/nsys/baseline 
-      ClimaAtmos.jl/.buildkite config/base.yml config/smag.yml
-    deps:
-      - scripts/run-nsys.sh
-      - config/base.yml
-      - config/smag.yml
-      - ClimaAtmos.jl/src
-      - ClimaAtmos.jl/toml
-      - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
-      - ClimaAtmos.jl/perf/benchmark_step.jl
-    outs:
-      - results/nsys/baseline.nsys-rep:
-          persist: true
-      - .calkit/slurm/logs/nsys-baseline.out:
-          cache: false
-          persist: true
-    desc: Automatically generated from the 'nsys-baseline' stage in 
-      calkit.yaml. Changes made here will be overwritten.
-  nsys-baseline-to-sqlite:
-    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/baseline.nsys-rep
-      -t sqlite -o results/nsys/baseline.sqlite"'
-    deps:
-      - results/nsys/baseline.nsys-rep
-    outs:
-      - results/nsys/baseline.sqlite
-    desc: Automatically generated from the 'nsys-baseline-to-sqlite' 
-      stage in calkit.yaml. Changes made here will be overwritten.
-  nsys-mod:
-    cmd: calkit slurm batch --name nsys-mod --environment clima --dep 
-      config/base.yml --dep config/smag.yml --dep 
-      ClimaAtmos.jl-mod/src --dep ClimaAtmos.jl-mod/toml --dep 
-      ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml --dep 
-      ClimaAtmos.jl/perf/benchmark_step.jl --out 
-      results/nsys/mod.nsys-rep -s --gpus=1 -s --time=60 -- 
-      scripts/run-nsys.sh results/nsys/mod 
-      ClimaAtmos.jl-mod/.buildkite config/base.yml config/smag.yml
-    deps:
-      - scripts/run-nsys.sh
-      - config/base.yml
-      - config/smag.yml
-      - ClimaAtmos.jl-mod/src
-      - ClimaAtmos.jl-mod/toml
-      - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
-      - ClimaAtmos.jl/perf/benchmark_step.jl
-    outs:
-      - results/nsys/mod.nsys-rep:
-          persist: true
-      - .calkit/slurm/logs/nsys-mod.out:
-          cache: false
-          persist: true
-    desc: Automatically generated from the 'nsys-mod' stage in 
-      calkit.yaml. Changes made here will be overwritten.
-  nsys-mod-to-sqlite:
-    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/mod.nsys-rep
-      -t sqlite -o results/nsys/mod.sqlite"'
-    deps:
-      - results/nsys/mod.nsys-rep
-    outs:
-      - results/nsys/mod.sqlite
-    desc: Automatically generated from the 'nsys-mod-to-sqlite' stage 
-      in calkit.yaml. Changes made here will be overwritten.
   nsys-baseline-const:
     cmd: calkit slurm batch --name nsys-baseline-const --environment 
       clima --dep config/base.yml --dep config/const.yml --dep 
@@ -127,6 +34,40 @@ stages:
     desc: Automatically generated from the 
       'nsys-baseline-const-to-sqlite' stage in calkit.yaml. Changes 
       made here will be overwritten.
+  nsys-mod-const:
+    cmd: calkit slurm batch --name nsys-mod-const --environment clima 
+      --dep config/base.yml --dep config/const.yml --dep 
+      ClimaAtmos.jl-mod/src --dep ClimaAtmos.jl-mod/toml --dep 
+      ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml --dep 
+      ClimaAtmos.jl/perf/benchmark_step.jl --out 
+      results/nsys/mod-const.nsys-rep -s --gpus=1 -s --time=60 -- 
+      scripts/run-nsys.sh results/nsys/mod-const 
+      ClimaAtmos.jl-mod/.buildkite config/base.yml config/const.yml
+    deps:
+      - scripts/run-nsys.sh
+      - config/base.yml
+      - config/const.yml
+      - ClimaAtmos.jl-mod/src
+      - ClimaAtmos.jl-mod/toml
+      - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
+      - ClimaAtmos.jl/perf/benchmark_step.jl
+    outs:
+      - results/nsys/mod-const.nsys-rep:
+          persist: true
+      - .calkit/slurm/logs/nsys-mod-const.out:
+          cache: false
+          persist: true
+    desc: Automatically generated from the 'nsys-mod-const' stage in 
+      calkit.yaml. Changes made here will be overwritten.
+  nsys-mod-const-to-sqlite:
+    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/mod-const.nsys-rep
+      -t sqlite -o results/nsys/mod-const.sqlite"'
+    deps:
+      - results/nsys/mod-const.nsys-rep
+    outs:
+      - results/nsys/mod-const.sqlite
+    desc: Automatically generated from the 'nsys-mod-const-to-sqlite' 
+      stage in calkit.yaml. Changes made here will be overwritten.
   nsys-baseline-none:
     cmd: calkit slurm batch --name nsys-baseline-none --environment 
       clima --dep config/base.yml --dep ClimaAtmos.jl/src --dep 
@@ -169,6 +110,7 @@ stages:
       - results/nsys/mod.sqlite
       - results/nsys/baseline-const.sqlite
       - results/nsys/baseline-none.sqlite
+      - results/nsys/mod-const.sqlite
       - .calkit/env-locks/py
     outs:
       - results/summary.csv:

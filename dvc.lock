@@ -307,16 +307,81 @@ stages:
       hash: md5
       md5: e0f708c0d8ebdd8f4e1ca91b3708a998
       size: 10686464
+    - path: results/nsys/mod-const.sqlite
+      hash: md5
+      md5: b350ced34092857500d97df7b04e4fd3
+      size: 10149888
     - path: results/nsys/mod.sqlite
       hash: md5
       md5: 77c36a2674d311717bde7e3caadfc139
       size: 10678272
     - path: scripts/summarize.py
       hash: md5
-      md5: 9680b4b22573e920059ece0b52a99227
-      size: 837
+      md5: 48def53e3e46f52efdbaf352971d2a78
+      size: 850
     outs:
     - path: results/summary.csv
       hash: md5
-      md5: 11c8421e29348d50f02ec1af93039d96
-      size: 352
+      md5: 48240663b62429c362e954e79b500a2c
+      size: 426
+  nsys-mod-const:
+    cmd: calkit slurm batch --name nsys-mod-const --environment clima --dep 
+      config/base.yml --dep config/const.yml --dep ClimaAtmos.jl-mod/src --dep 
+      ClimaAtmos.jl-mod/toml --dep 
+      ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml --dep 
+      ClimaAtmos.jl/perf/benchmark_step.jl --out results/nsys/mod-const.nsys-rep
+      -s --gpus=1 -s --time=60 -- scripts/run-nsys.sh results/nsys/mod-const 
+      ClimaAtmos.jl-mod/.buildkite config/base.yml config/const.yml
+    deps:
+    - path: ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
+      hash: md5
+      md5: 960b94f8e8dc62e1ef00310b21171099
+      size: 106103
+    - path: ClimaAtmos.jl-mod/src
+      hash: md5
+      md5: 08cc17f3a7d54f870af28527d940ceee.dir
+      size: 1317242
+      nfiles: 101
+    - path: ClimaAtmos.jl-mod/toml
+      hash: md5
+      md5: f6943f469c23e41ed04469503e7b9563.dir
+      size: 11921
+      nfiles: 36
+    - path: ClimaAtmos.jl/perf/benchmark_step.jl
+      hash: md5
+      md5: e4e56e0353b6c5130c4e3fc03082c211
+      size: 2082
+    - path: config/base.yml
+      hash: md5
+      md5: 4756cdb867a59bff0c1f2cb99084db18
+      size: 3659
+    - path: config/const.yml
+      hash: md5
+      md5: 77bc7b925c754338d9602a945c8888ce
+      size: 36
+    - path: scripts/run-nsys.sh
+      hash: md5
+      md5: f83d8ec0a4bd8e2cd5513b64079b7b02
+      size: 1546
+    outs:
+    - path: .calkit/slurm/logs/nsys-mod-const.out
+      hash: md5
+      md5: d5d305d9376c7072123eb62194232d72
+      size: 14055
+    - path: results/nsys/mod-const.nsys-rep
+      hash: md5
+      md5: 84480760691f07da0dfcf4c7ebd4962f
+      size: 5095530
+  nsys-mod-const-to-sqlite:
+    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/mod-const.nsys-rep
+      -t sqlite -o results/nsys/mod-const.sqlite"'
+    deps:
+    - path: results/nsys/mod-const.nsys-rep
+      hash: md5
+      md5: 84480760691f07da0dfcf4c7ebd4962f
+      size: 5095530
+    outs:
+    - path: results/nsys/mod-const.sqlite
+      hash: md5
+      md5: b350ced34092857500d97df7b04e4fd3
+      size: 10149888

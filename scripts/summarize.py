@@ -18,7 +18,7 @@ def get_summary(fpath_in) -> dict:
     return summary
 
 
-configs = ["baseline", "mod", "baseline-const", "baseline-none"]
+configs = ["baseline", "mod", "baseline-const", "baseline-none", "mod-const"]
 results = []
 
 for config in configs:
