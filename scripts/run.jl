@@ -44,6 +44,9 @@ implicit_fun(i) = i.sol.prob.f.f1
 remaining_fun(i::CTS.DistributedODEIntegrator) = i.sol.prob.f.T_exp_T_lim!
 remaining_fun(i) = i.sol.prob.f.f2
 
+project_dir = dirname(Base.active_project())
+@info "Active project: $project_dir"
+
 (; config_file, job_id) = CA.commandline_kwargs()
 config = CA.AtmosConfig(config_file; job_id)
 
@@ -51,8 +54,12 @@ simulation = CA.get_simulation(config)
 (; integrator) = simulation;
 Y₀ = deepcopy(integrator.u);
 
-n_steps = 8625
+n_steps = 2048
 
-for n in 1:n_steps
-    step!(integrator)
+e = CUDA.@elapsed begin
+    for n in 1:n_steps
+        step!(integrator)
+    end
 end
+
+@info "Ran step! $n_steps times in $e s, ($(CA.prettytime(e/n_steps*1e9)) per step)"

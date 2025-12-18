@@ -132,8 +132,8 @@ stages:
       ClimaAtmos.jl-mod/toml --dep 
       ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s 
       --time=60 -- scripts/run.sh ClimaAtmos.jl-mod/.buildkite 
-      scripts/run.jl --job_id baseline_const --config_file 
-      config/base.yml --config_file config/const.yml
+      scripts/run.jl --job_id mod_const --config_file config/base.yml 
+      --config_file config/const.yml
     deps:
       - scripts/run.sh
       - scripts/run.jl

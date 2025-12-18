@@ -403,8 +403,8 @@ stages:
       size: 36
     - path: scripts/run.jl
       hash: md5
-      md5: 80e6cf842a9b9310569a08c0dc008956
-      size: 1771
+      md5: c812073d3c855294204c691ab6b9bb6e
+      size: 1980
     - path: scripts/run.sh
       hash: md5
       md5: 55b895adbb65f6511b237e4d2cde9f25
@@ -412,16 +412,15 @@ stages:
     outs:
     - path: .calkit/slurm/logs/run-baseline-const.out
       hash: md5
-      md5: cca0d88b26a3420e14957a59e478ebb2
-      size: 24588
+      md5: 35764f02f0bc2fae9be86a9c24785264
+      size: 17130
   run-mod-const:
     cmd: calkit slurm batch --name run-mod-const --environment clima --dep 
       scripts/run.jl --dep config/base.yml --dep config/const.yml --dep 
       ClimaAtmos.jl-mod/src --dep ClimaAtmos.jl-mod/toml --dep 
       ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s --time=60 
       -- scripts/run.sh ClimaAtmos.jl-mod/.buildkite scripts/run.jl --job_id 
-      baseline_const --config_file config/base.yml --config_file 
-      config/const.yml
+      mod_const --config_file config/base.yml --config_file config/const.yml
     deps:
     - path: ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
       hash: md5
@@ -447,8 +446,8 @@ stages:
       size: 36
     - path: scripts/run.jl
       hash: md5
-      md5: 80e6cf842a9b9310569a08c0dc008956
-      size: 1771
+      md5: c812073d3c855294204c691ab6b9bb6e
+      size: 1980
     - path: scripts/run.sh
       hash: md5
       md5: 55b895adbb65f6511b237e4d2cde9f25
@@ -456,5 +455,5 @@ stages:
     outs:
     - path: .calkit/slurm/logs/run-mod-const.out
       hash: md5
-      md5: 41bab1fb218cdcba4407fd25e675a95f
-      size: 24409
+      md5: dbd2ef871c03dccc431909086b9c6a2c
+      size: 17134
