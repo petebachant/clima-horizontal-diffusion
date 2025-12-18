@@ -102,6 +102,52 @@ stages:
     desc: Automatically generated from the 
       'nsys-baseline-none-to-sqlite' stage in calkit.yaml. Changes 
       made here will be overwritten.
+  run-baseline-const:
+    cmd: calkit slurm batch --name run-baseline-const --environment 
+      clima --dep scripts/run.jl --dep config/base.yml --dep 
+      config/const.yml --dep ClimaAtmos.jl/src --dep 
+      ClimaAtmos.jl/toml --dep 
+      ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s 
+      --time=60 -- scripts/run.sh ClimaAtmos.jl/.buildkite 
+      scripts/run.jl --job_id baseline_const --config_file 
+      config/base.yml --config_file config/const.yml
+    deps:
+      - scripts/run.sh
+      - scripts/run.jl
+      - config/base.yml
+      - config/const.yml
+      - ClimaAtmos.jl/src
+      - ClimaAtmos.jl/toml
+      - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+    outs:
+      - .calkit/slurm/logs/run-baseline-const.out:
+          cache: false
+          persist: true
+    desc: Automatically generated from the 'run-baseline-const' stage 
+      in calkit.yaml. Changes made here will be overwritten.
+  run-mod-const:
+    cmd: calkit slurm batch --name run-mod-const --environment clima 
+      --dep scripts/run.jl --dep config/base.yml --dep 
+      config/const.yml --dep ClimaAtmos.jl-mod/src --dep 
+      ClimaAtmos.jl-mod/toml --dep 
+      ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s 
+      --time=60 -- scripts/run.sh ClimaAtmos.jl-mod/.buildkite 
+      scripts/run.jl --job_id baseline_const --config_file 
+      config/base.yml --config_file config/const.yml
+    deps:
+      - scripts/run.sh
+      - scripts/run.jl
+      - config/base.yml
+      - config/const.yml
+      - ClimaAtmos.jl-mod/src
+      - ClimaAtmos.jl-mod/toml
+      - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
+    outs:
+      - .calkit/slurm/logs/run-mod-const.out:
+          cache: false
+          persist: true
+    desc: Automatically generated from the 'run-mod-const' stage in 
+      calkit.yaml. Changes made here will be overwritten.
   summarize:
     cmd: calkit xenv -n py --no-check -- python scripts/summarize.py
     deps:
