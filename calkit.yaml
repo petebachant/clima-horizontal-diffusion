@@ -187,6 +187,26 @@ pipeline:
         - results/nsys/baseline-none.nsys-rep
       outputs:
         - results/nsys/baseline-none.sqlite
+    run-baseline-none:
+      kind: sbatch
+      environment: clima
+      sbatch_options:
+        - --gpus=1
+        - --time=60
+      script_path: scripts/run.sh
+      args:
+        - ClimaAtmos.jl/.buildkite
+        - scripts/run.jl
+        - --job_id
+        - baseline_none
+        - --config_file
+        - config/base.yml
+      inputs:
+        - scripts/run.jl
+        - config/base.yml
+        - ClimaAtmos.jl/src
+        - ClimaAtmos.jl/toml
+        - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
     run-baseline-const:
       kind: sbatch
       environment: clima
@@ -207,6 +227,29 @@ pipeline:
         - scripts/run.jl
         - config/base.yml
         - config/const.yml
+        - ClimaAtmos.jl/src
+        - ClimaAtmos.jl/toml
+        - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+    run-baseline-smag:
+      kind: sbatch
+      environment: clima
+      sbatch_options:
+        - --gpus=1
+        - --time=60
+      script_path: scripts/run.sh
+      args:
+        - ClimaAtmos.jl/.buildkite
+        - scripts/run.jl
+        - --job_id
+        - baseline_smag
+        - --config_file
+        - config/base.yml
+        - --config_file
+        - config/smag.yml
+      inputs:
+        - scripts/run.jl
+        - config/base.yml
+        - config/smag.yml
         - ClimaAtmos.jl/src
         - ClimaAtmos.jl/toml
         - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml

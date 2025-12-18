@@ -102,6 +102,27 @@ stages:
     desc: Automatically generated from the 
       'nsys-baseline-none-to-sqlite' stage in calkit.yaml. Changes 
       made here will be overwritten.
+  run-baseline-none:
+    cmd: calkit slurm batch --name run-baseline-none --environment 
+      clima --dep scripts/run.jl --dep config/base.yml --dep 
+      ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml --dep 
+      ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s 
+      --time=60 -- scripts/run.sh ClimaAtmos.jl/.buildkite 
+      scripts/run.jl --job_id baseline_none --config_file 
+      config/base.yml
+    deps:
+      - scripts/run.sh
+      - scripts/run.jl
+      - config/base.yml
+      - ClimaAtmos.jl/src
+      - ClimaAtmos.jl/toml
+      - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+    outs:
+      - .calkit/slurm/logs/run-baseline-none.out:
+          cache: false
+          persist: true
+    desc: Automatically generated from the 'run-baseline-none' stage 
+      in calkit.yaml. Changes made here will be overwritten.
   run-baseline-const:
     cmd: calkit slurm batch --name run-baseline-const --environment 
       clima --dep scripts/run.jl --dep config/base.yml --dep 
@@ -124,6 +145,28 @@ stages:
           cache: false
           persist: true
     desc: Automatically generated from the 'run-baseline-const' stage 
+      in calkit.yaml. Changes made here will be overwritten.
+  run-baseline-smag:
+    cmd: calkit slurm batch --name run-baseline-smag --environment 
+      clima --dep scripts/run.jl --dep config/base.yml --dep 
+      config/smag.yml --dep ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml
+      --dep ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml -s --gpus=1 
+      -s --time=60 -- scripts/run.sh ClimaAtmos.jl/.buildkite 
+      scripts/run.jl --job_id baseline_smag --config_file 
+      config/base.yml --config_file config/smag.yml
+    deps:
+      - scripts/run.sh
+      - scripts/run.jl
+      - config/base.yml
+      - config/smag.yml
+      - ClimaAtmos.jl/src
+      - ClimaAtmos.jl/toml
+      - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+    outs:
+      - .calkit/slurm/logs/run-baseline-smag.out:
+          cache: false
+          persist: true
+    desc: Automatically generated from the 'run-baseline-smag' stage 
       in calkit.yaml. Changes made here will be overwritten.
   run-mod-const:
     cmd: calkit slurm batch --name run-mod-const --environment clima 

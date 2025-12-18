@@ -54,6 +54,9 @@ simulation = CA.get_simulation(config)
 (; integrator) = simulation;
 Y₀ = deepcopy(integrator.u);
 
+# Step once to compile
+step!(integrator)
+
 n_steps = 2048
 
 e = CUDA.@elapsed begin

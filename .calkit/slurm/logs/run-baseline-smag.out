@@ -28,7 +28,7 @@ Loading climacommon/2025_05_15
 │ 
 │ In any other case, please file an issue.
 └ @ CUDA ~/.julia/packages/CUDA/TPbi4/src/initialization.jl:218
-Status `~/calkit/clima-horizontal-diffusion/ClimaAtmos.jl-mod/.buildkite/Project.toml`
+Status `~/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/.buildkite/Project.toml`
   [c7e460c6] ArgParse v1.2.0
   [a14bc488] ArtifactWrappers v0.2.0
   [6e4b80f9] BenchmarkTools v1.6.3
@@ -98,21 +98,13 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │ 
 │ In any other case, please file an issue.
 └ @ CUDA ~/.julia/packages/CUDA/TPbi4/src/initialization.jl:218
-┌ Warning: CUDA runtime library `libcupti.so.13.1` was loaded from a system path, `/opt/nvidia/nsight-systems/2025.3.2/target-linux-x64/libcupti.so.13.1`.
-│ This may cause errors.
-│ 
-│ If you're running under a profiler, this situation is expected. Otherwise,
-│ ensure that your library path environment variable (e.g., `PATH` on Windows
-│ or `LD_LIBRARY_PATH` on Linux) does not include CUDA library paths.
-│ 
-│ In any other case, please file an issue.
-└ @ CUDA ~/.julia/packages/CUDA/TPbi4/src/initialization.jl:218
+[ Info: Active project: /home/pbachant/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/.buildkite
 ┌ Warning: Failed to convert `config_dict["vert_diff"] = false` to default type String, keeping original value
-└ @ ClimaAtmos ~/calkit/clima-horizontal-diffusion/ClimaAtmos.jl-mod/src/solver/yaml_helper.jl:78
+└ @ ClimaAtmos ~/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/src/solver/yaml_helper.jl:78
 ┌ Info: Making AtmosConfig with config files: 
-│    /home/pbachant/calkit/clima-horizontal-diffusion/ClimaAtmos.jl-mod/src/solver/../../config/default_configs/default_config.yml
+│    /home/pbachant/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/src/solver/../../config/default_configs/default_config.yml
 │    config/base.yml
-└    config/const.yml
+└    config/smag.yml
 [ Info: Running on CUDADevice
 [ Info: Setting up single-process ClimaAtmos run
 ┌ Info: Time info:
@@ -136,7 +128,7 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │                             `water`::`ClimaAtmos.AtmosWater{ClimaAtmos.NonEquilMoistModel, ClimaAtmos.Microphysics1Moment, ClimaAtmos.GridScaleCloud, ClimaAtmos.Explicit, Nothing}`
 │                         `scm_setup`::`ClimaAtmos.SCMSetup{Nothing, Nothing, Nothing, Bool, Nothing}`
 │                         `radiation`::`ClimaAtmos.AtmosRadiation{Nothing, ClimaAtmos.IdealizedOzone, Nothing, ClimaAtmos.IdealizedInsolation}`
-│                          `turbconv`::`ClimaAtmos.AtmosTurbconv{ClimaAtmos.EDMFXModel{ClimaAtmos.PiGroupsEntrainment, ClimaAtmos.BuoyancyVelocityDetrainment, Val{true}, Val{true}, Val{true}, Val{false}, Val{false}, ClimaAtmos.SmoothMinimumBlending}, Nothing, ClimaAtmos.Explicit, ClimaAtmos.Explicit, ClimaAtmos.Explicit, ClimaAtmos.Explicit, ClimaAtmos.Explicit, Nothing, Nothing, ClimaAtmos.ConstantHorizontalDiffusion{Float32}}`
+│                          `turbconv`::`ClimaAtmos.AtmosTurbconv{ClimaAtmos.EDMFXModel{ClimaAtmos.PiGroupsEntrainment, ClimaAtmos.BuoyancyVelocityDetrainment, Val{true}, Val{true}, Val{true}, Val{false}, Val{false}, ClimaAtmos.SmoothMinimumBlending}, Nothing, ClimaAtmos.Explicit, ClimaAtmos.Explicit, ClimaAtmos.Explicit, ClimaAtmos.Explicit, ClimaAtmos.Explicit, ClimaAtmos.SmagorinskyLilly{:UV}, Nothing, Nothing}`
 │                   `prescribed_flow`::`Nothing`
 │                      `gravity_wave`::`ClimaAtmos.AtmosGravityWave{Nothing, Nothing}`
 │                `vertical_diffusion`::`Nothing`
@@ -146,8 +138,8 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 [ Info: Using Hughes2023Topography orography
 [ Info: SLEVE mesh warp (eta=0.7, s=10.0)
 ┌ Info: Simulation info
-│   job_id = "default_config"
-└   output_dir = "output/default_config/output_0018"
+│   job_id = "baseline_smag"
+└   output_dir = "output/baseline_smag/output_0000"
 ┌ Info: Simulation Grid: ExtrudedFiniteDifferenceGrid:
 │   horizontal:
 │     context: SingletonCommsContext using CUDADevice
@@ -155,20 +147,20 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │     quadrature: 4-point Gauss-Legendre-Lobatto quadrature
 │   vertical:
 └     mesh: 43-element IntervalMesh of IntervalDomain: z ∈ [0.0,30000.0] (:bottom, :top)
-[ Info: Allocating Y: 12.394 s (17856154 allocations: 839.08 MiB)
+[ Info: Allocating Y: 12.439 s (17854324 allocations: 838.14 MiB)
 [ Info: using deep atmosphere
-[ Info: Allocating cache (p): 71.395 s (136000597 allocations: 7.06 GiB)
+[ Info: Allocating cache (p): 92.914 s (220799153 allocations: 10.84 GiB)
 [ Info: Using ODE config: `ClimaTimeSteppers.ARS343`
-[ Info: ode_configuration: 775.284 ms (1383750 allocations: 68.55 MiB)
+[ Info: ode_configuration: 843.415 ms (1383750 allocations: 68.54 MiB)
 [ Info: Progress logging enabled
 [ Info: Checking NaNs in the state every 1024 steps
-[ Info: get_callbacks: 295.66 ms (402322 allocations: 20.59 MiB)
+[ Info: get_callbacks: 293.729 ms (402319 allocations: 20.57 MiB)
 [ Info: Saving accumulated diagnostics to disk with frequency: 
 [ Info: DictWriter: String[]
 [ Info: HDF5Writer: String[]
 [ Info: NetCDFWriter: ["rhoa_60d_inst", "ua_60d_inst", "va_60d_inst", "wa_60d_inst", "ta_60d_inst", "hus_60d_inst", "clw_60d_inst", "cli_60d_inst", "hussn_60d_inst", "husra_60d_inst"]
-[ Info: initializing diagnostics: 6.779 s (14974008 allocations: 1.51 GiB)
-[ Info: Prepared SciMLBase.CallbackSet callbacks: 10.632 ms (561 allocations: 27.34 KiB)
+[ Info: initializing diagnostics: 6.962 s (14994644 allocations: 1.51 GiB)
+[ Info: Prepared SciMLBase.CallbackSet callbacks: 10.171 ms (561 allocations: 27.34 KiB)
 [ Info: n_steps_per_cycle_per_cb (non diagnostics): [1024, 1, 360]
 [ Info: n_steps_per_cycle (non diagnostics): 46080
 ┌ Info: Jacobian algorithm: ManualSparseJacobian(
@@ -181,10 +173,9 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │   sgs_vertdiff_flag = ClimaAtmos.IgnoreDerivative(),
 │   approximate_solve_iters = 2,
 └ )
-[ Info: Define ode function: 1.543 s (1839780 allocations: 78.37 MiB)
-[ Info: init integrator: 15.166 s (18082763 allocations: 922.71 MiB)
-[ Info: Added diagnostics: 123.071 s (28846515 allocations: 12.64 GiB)
-[ Info: Compiling benchmark_step!...
+[ Info: Define ode function: 1.634 s (1839772 allocations: 78.34 MiB)
+[ Info: init integrator: 15.686 s (18453431 allocations: 952.21 MiB)
+[ Info: Added diagnostics: 123.613 s (28799679 allocations: 12.64 GiB)
 ┌ Info: Progress
 │   simulation_time = "30 seconds, 1 microsecond"
 │   n_steps_completed = 1
@@ -194,47 +185,184 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │   wall_time_spent = "0 seconds"
 │   percent_complete = "0.0%"
 │   estimated_sypd = "Inf"
-│   date_now = 2025-12-18T07:05:52.819
-└   estimated_finish_date = 2025-12-18T07:05:52.819
+│   date_now = 2025-12-18T06:56:21.748
+└   estimated_finish_date = 2025-12-18T06:56:21.748
 ┌ Info: Progress
 │   simulation_time = "1 minute, 2 microseconds"
 │   n_steps_completed = 2
-│   wall_time_per_step = "14 seconds, 860 milliseconds"
-│   wall_time_total = "1 day, 11 hours"
-│   wall_time_remaining = "1 day, 11 hours"
-│   wall_time_spent = "29 seconds, 721 milliseconds"
+│   wall_time_per_step = "15 seconds, 248 milliseconds"
+│   wall_time_total = "1 day, 12 hours"
+│   wall_time_remaining = "1 day, 12 hours"
+│   wall_time_spent = "30 seconds, 497 milliseconds"
 │   percent_complete = "0.0%"
-│   estimated_sypd = "0.006 (sdpd_estimate = 2.019)"
-│   date_now = 2025-12-18T07:06:07.687
-└   estimated_finish_date = 2025-12-19T18:45:33.687
+│   estimated_sypd = "0.005 (sdpd_estimate = 1.967)"
+│   date_now = 2025-12-18T06:56:37.008
+└   estimated_finish_date = 2025-12-19T19:31:55.008
 ┌ Info: Progress
 │   simulation_time = "2 minutes, 4 microseconds"
 │   n_steps_completed = 4
-│   wall_time_per_step = "7 seconds, 504 milliseconds"
-│   wall_time_total = "18 hours, 37 seconds"
-│   wall_time_remaining = "18 hours, 7 seconds"
-│   wall_time_spent = "30 seconds, 17 milliseconds"
+│   wall_time_per_step = "7 seconds, 704 milliseconds"
+│   wall_time_total = "18 hours, 29 minutes"
+│   wall_time_remaining = "18 hours, 28 minutes"
+│   wall_time_spent = "30 seconds, 819 milliseconds"
 │   percent_complete = "0.0%"
 │   estimated_sypd = "0.011"
-│   date_now = 2025-12-18T07:06:07.846
-└   estimated_finish_date = 2025-12-19T01:06:15.846
+│   date_now = 2025-12-18T06:56:37.176
+└   estimated_finish_date = 2025-12-19T01:25:37.176
 ┌ Info: Progress
 │   simulation_time = "4 minutes, 8 microseconds"
 │   n_steps_completed = 8
-│   wall_time_per_step = "3 seconds, 789 milliseconds"
-│   wall_time_total = "9 hours, 5 minutes"
-│   wall_time_remaining = "9 hours, 5 minutes"
-│   wall_time_spent = "30 seconds, 318 milliseconds"
+│   wall_time_per_step = "3 seconds, 894 milliseconds"
+│   wall_time_total = "9 hours, 20 minutes"
+│   wall_time_remaining = "9 hours, 20 minutes"
+│   wall_time_spent = "31 seconds, 153 milliseconds"
 │   percent_complete = "0.1%"
-│   estimated_sypd = "0.022"
-│   date_now = 2025-12-18T07:06:08.146
-└   estimated_finish_date = 2025-12-18T16:11:22.146
-[ Info: Running benchmark_step!...
-[ Info: Using external CUDA profiler
-Capture range started in the application.
-Capture range ended in the application.
-Generating '/tmp/nsys-report-e897.qdstrm'
-[1/1] [0%                          ] mod-const.nsys-repProcessing events...
-[1/1] [0%                          ] mod-const.nsys-rep[1/1] [8%                          ] mod-const.nsys-rep[1/1] [0%                          ] mod-const.nsys-rep[1/1] [9%                          ] mod-const.nsys-rep[1/1] [=15%                        ] mod-const.nsys-rep[1/1] [===22%                      ] mod-const.nsys-rep[1/1] [====28%                     ] mod-const.nsys-rep[1/1] [======35%                   ] mod-const.nsys-rep[1/1] [========41%                 ] mod-const.nsys-rep[1/1] [==========48%               ] mod-const.nsys-rep[1/1] [============54%             ] mod-const.nsys-rep[1/1] [==============61%           ] mod-const.nsys-rep[1/1] [===============67%          ] mod-const.nsys-rep[1/1] [=================74%        ] mod-const.nsys-rep[1/1] [===================81%      ] mod-const.nsys-rep[1/1] [=====================87%    ] mod-const.nsys-rep[1/1] [=======================94%  ] mod-const.nsys-rep[1/1] [========================97% ] mod-const.nsys-rep[1/1] [========================98% ] mod-const.nsys-rep[1/1] [========================100%] mod-const.nsys-rep[1/1] [========================100%] mod-const.nsys-rep
-Generated:
-	/home/pbachant/calkit/clima-horizontal-diffusion/results/nsys/mod-const.nsys-rep
+│   estimated_sypd = "0.021"
+│   date_now = 2025-12-18T06:56:37.510
+└   estimated_finish_date = 2025-12-18T16:16:52.510
+┌ Info: Progress
+│   simulation_time = "8 minutes, 16 microseconds"
+│   n_steps_completed = 16
+│   wall_time_per_step = "1 second, 988 milliseconds"
+│   wall_time_total = "4 hours, 46 minutes"
+│   wall_time_remaining = "4 hours, 45 minutes"
+│   wall_time_spent = "31 seconds, 815 milliseconds"
+│   percent_complete = "0.2%"
+│   estimated_sypd = "0.041"
+│   date_now = 2025-12-18T06:56:38.172
+└   estimated_finish_date = 2025-12-18T11:42:27.172
+┌ Info: Progress
+│   simulation_time = "16 minutes, 32 microseconds"
+│   n_steps_completed = 32
+│   wall_time_per_step = "1 second, 35 milliseconds"
+│   wall_time_total = "2 hours, 29 minutes"
+│   wall_time_remaining = "2 hours, 28 minutes"
+│   wall_time_spent = "33 seconds, 145 milliseconds"
+│   percent_complete = "0.4%"
+│   estimated_sypd = "0.079"
+│   date_now = 2025-12-18T06:56:39.503
+└   estimated_finish_date = 2025-12-18T09:25:16.503
+┌ Info: Progress
+│   simulation_time = "32 minutes, 65 microseconds"
+│   n_steps_completed = 64
+│   wall_time_per_step = "559 milliseconds, 583 microseconds"
+│   wall_time_total = "1 hour, 20 minutes"
+│   wall_time_remaining = "1 hour, 19 minutes"
+│   wall_time_spent = "35 seconds, 813 milliseconds"
+│   percent_complete = "0.7%"
+│   estimated_sypd = "0.147"
+│   date_now = 2025-12-18T06:56:42.170
+└   estimated_finish_date = 2025-12-18T08:16:41.170
+┌ Info: Progress
+│   simulation_time = "1 hour, 4 minutes"
+│   n_steps_completed = 128
+│   wall_time_per_step = "323 milliseconds, 461 microseconds"
+│   wall_time_total = "46 minutes, 34 seconds"
+│   wall_time_remaining = "45 minutes, 53 seconds"
+│   wall_time_spent = "41 seconds, 403 milliseconds"
+│   percent_complete = "1.5%"
+│   estimated_sypd = "0.254"
+│   date_now = 2025-12-18T06:56:47.760
+└   estimated_finish_date = 2025-12-18T07:42:41.760
+┌ Info: Progress
+│   simulation_time = "2 hours, 8 minutes"
+│   n_steps_completed = 256
+│   wall_time_per_step = "203 milliseconds, 476 microseconds"
+│   wall_time_total = "29 minutes, 18 seconds"
+│   wall_time_remaining = "28 minutes, 25 seconds"
+│   wall_time_spent = "52 seconds, 90 milliseconds"
+│   percent_complete = "3.0%"
+│   estimated_sypd = "0.404"
+│   date_now = 2025-12-18T06:56:58.447
+└   estimated_finish_date = 2025-12-18T07:25:24.447
+┌ Info: Progress
+│   simulation_time = "4 hours, 16 minutes"
+│   n_steps_completed = 512
+│   wall_time_per_step = "144 milliseconds, 119 microseconds"
+│   wall_time_total = "20 minutes, 45 seconds"
+│   wall_time_remaining = "19 minutes, 31 seconds"
+│   wall_time_spent = "1 minute, 13 seconds"
+│   percent_complete = "5.9%"
+│   estimated_sypd = "0.57"
+│   date_now = 2025-12-18T06:57:20.146
+└   estimated_finish_date = 2025-12-18T07:16:52.146
+┌ Info: Progress
+│   simulation_time = "7 hours, 52 minutes"
+│   n_steps_completed = 945
+│   wall_time_per_step = "116 milliseconds, 841 microseconds"
+│   wall_time_total = "16 minutes, 49 seconds"
+│   wall_time_remaining = "14 minutes, 59 seconds"
+│   wall_time_spent = "1 minute, 50 seconds"
+│   percent_complete = "10.9%"
+│   estimated_sypd = "0.703"
+│   date_now = 2025-12-18T06:57:56.772
+└   estimated_finish_date = 2025-12-18T07:12:56.772
+┌ Info: Progress
+│   simulation_time = "8 hours, 32 minutes"
+│   n_steps_completed = 1024
+│   wall_time_per_step = "114 milliseconds, 271 microseconds"
+│   wall_time_total = "16 minutes, 27 seconds"
+│   wall_time_remaining = "14 minutes, 30 seconds"
+│   wall_time_spent = "1 minute, 57 seconds"
+│   percent_complete = "11.9%"
+│   estimated_sypd = "0.719"
+│   date_now = 2025-12-18T06:58:03.371
+└   estimated_finish_date = 2025-12-18T07:12:34.371
+┌ Info: Progress
+│   simulation_time = "12 hours, 8 minutes"
+│   n_steps_completed = 1457
+│   wall_time_per_step = "105 milliseconds, 432 microseconds"
+│   wall_time_total = "15 minutes, 10 seconds"
+│   wall_time_remaining = "12 minutes, 37 seconds"
+│   wall_time_spent = "2 minutes, 33 seconds"
+│   percent_complete = "16.9%"
+│   estimated_sypd = "0.779"
+│   date_now = 2025-12-18T06:58:39.973
+└   estimated_finish_date = 2025-12-18T07:11:17.973
+┌ Info: Progress
+│   simulation_time = "15 hours, 44 minutes"
+│   n_steps_completed = 1890
+│   wall_time_per_step = "100 milliseconds, 501 microseconds"
+│   wall_time_total = "14 minutes, 28 seconds"
+│   wall_time_remaining = "11 minutes, 18 seconds"
+│   wall_time_spent = "3 minutes, 9 seconds"
+│   percent_complete = "21.9%"
+│   estimated_sypd = "0.817"
+│   date_now = 2025-12-18T06:59:16.306
+└   estimated_finish_date = 2025-12-18T07:10:35.306
+┌ Info: Progress
+│   simulation_time = "17 hours, 4 minutes"
+│   n_steps_completed = 2048
+│   wall_time_per_step = "99 milliseconds, 223 microseconds"
+│   wall_time_total = "14 minutes, 17 seconds"
+│   wall_time_remaining = "10 minutes, 54 seconds"
+│   wall_time_spent = "3 minutes, 23 seconds"
+│   percent_complete = "23.7%"
+│   estimated_sypd = "0.828"
+│   date_now = 2025-12-18T06:59:29.568
+└   estimated_finish_date = 2025-12-18T07:10:24.568
+ERROR: LoadError: Found NaN
+Stacktrace:
+  [1] error(s::String)
+    @ Base ./error.jl:35
+  [2] check_nans
+    @ ~/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/src/callbacks/callbacks.jl:332 [inlined]
+  [3] #519
+    @ ~/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/src/callbacks/get_callbacks.jl:254 [inlined]
+  [4] AtmosCallback
+    @ ~/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/src/solver/types.jl:1182 [inlined]
+  [5] unrolled_foreach
+    @ ~/.julia/packages/ClimaTimeSteppers/o2zml/src/integrators.jl:224 [inlined]
+  [6] unrolled_foreach
+    @ ~/.julia/packages/ClimaTimeSteppers/o2zml/src/integrators.jl:229 [inlined]
+  [7] unrolled_foreach
+    @ ~/.julia/packages/ClimaTimeSteppers/o2zml/src/integrators.jl:230 [inlined]
+  [8] __step!(integrator::ClimaTimeSteppers.DistributedODEIntegrator{…})
+    @ ClimaTimeSteppers ~/.julia/packages/ClimaTimeSteppers/o2zml/src/integrators.jl:255
+  [9] step!(integrator::ClimaTimeSteppers.DistributedODEIntegrator{…})
+    @ ClimaTimeSteppers ~/.julia/packages/ClimaTimeSteppers/o2zml/src/integrators.jl:200
+ [10] macro expansion
+    @ ~/calkit/clima-horizontal-diffusion/scripts/run.jl:64 [inlined]
+ [11] top-level scope
+    @ ~/.julia/packages/CUDA/TPbi4/lib/cudadrv/events.jl:121
+in expression starting at /home/pbachant/calkit/clima-horizontal-diffusion/scripts/run.jl:62
