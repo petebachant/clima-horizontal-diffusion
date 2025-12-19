@@ -7,6 +7,7 @@ questions:
   - Why does horizontal diffusion slow down ClimaAtmos so much, and is there
     anything we can do about it?
 
+  - What is the computational cost of constant horizontal diffusion?
 environments:
   clima:
     kind: slurm
@@ -153,8 +154,8 @@ pipeline:
     nsys-mod-const-to-sqlite:
       kind: shell-command
       environment: _system
-      command: nsys export results/nsys/mod-const.nsys-rep -t sqlite
-        -o results/nsys/mod-const.sqlite
+      command: nsys export results/nsys/mod-const.nsys-rep -t sqlite -o
+        results/nsys/mod-const.sqlite
       inputs:
         - results/nsys/mod-const.nsys-rep
       outputs:
