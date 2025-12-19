@@ -146,7 +146,7 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 [ Info: SLEVE mesh warp (eta=0.7, s=10.0)
 ┌ Info: Simulation info
 │   job_id = "default_config"
-└   output_dir = "output/default_config/output_0012"
+└   output_dir = "output/default_config/output_0021"
 ┌ Info: Simulation Grid: ExtrudedFiniteDifferenceGrid:
 │   horizontal:
 │     context: SingletonCommsContext using CUDADevice
@@ -154,20 +154,20 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │     quadrature: 4-point Gauss-Legendre-Lobatto quadrature
 │   vertical:
 └     mesh: 43-element IntervalMesh of IntervalDomain: z ∈ [0.0,30000.0] (:bottom, :top)
-[ Info: Allocating Y: 12.257 s (17832966 allocations: 837.11 MiB)
+[ Info: Allocating Y: 13.087 s (17834991 allocations: 838.03 MiB)
 [ Info: using deep atmosphere
-[ Info: Allocating cache (p): 73.696 s (135993458 allocations: 7.06 GiB)
+[ Info: Allocating cache (p): 74.022 s (136010917 allocations: 7.05 GiB)
 [ Info: Using ODE config: `ClimaTimeSteppers.ARS343`
-[ Info: ode_configuration: 830.028 ms (1383750 allocations: 68.54 MiB)
+[ Info: ode_configuration: 783.258 ms (1383750 allocations: 68.54 MiB)
 [ Info: Progress logging enabled
 [ Info: Checking NaNs in the state every 1024 steps
-[ Info: get_callbacks: 311.285 ms (402325 allocations: 20.6 MiB)
+[ Info: get_callbacks: 292.201 ms (402322 allocations: 20.59 MiB)
 [ Info: Saving accumulated diagnostics to disk with frequency: 
 [ Info: DictWriter: String[]
 [ Info: HDF5Writer: String[]
 [ Info: NetCDFWriter: ["rhoa_60d_inst", "ua_60d_inst", "va_60d_inst", "wa_60d_inst", "ta_60d_inst", "hus_60d_inst", "clw_60d_inst", "cli_60d_inst", "hussn_60d_inst", "husra_60d_inst"]
-[ Info: initializing diagnostics: 7.062 s (14974248 allocations: 1.51 GiB)
-[ Info: Prepared SciMLBase.CallbackSet callbacks: 10.665 ms (561 allocations: 27.34 KiB)
+[ Info: initializing diagnostics: 6.934 s (14973971 allocations: 1.51 GiB)
+[ Info: Prepared SciMLBase.CallbackSet callbacks: 10.639 ms (561 allocations: 27.34 KiB)
 [ Info: n_steps_per_cycle_per_cb (non diagnostics): [1024, 1, 360]
 [ Info: n_steps_per_cycle (non diagnostics): 46080
 ┌ Info: Jacobian algorithm: ManualSparseJacobian(
@@ -180,9 +180,9 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │   sgs_vertdiff_flag = ClimaAtmos.IgnoreDerivative(),
 │   approximate_solve_iters = 2,
 └ )
-[ Info: Define ode function: 1.594 s (1839778 allocations: 78.35 MiB)
-[ Info: init integrator: 15.286 s (18082125 allocations: 922.62 MiB)
-[ Info: Added diagnostics: 127.352 s (28841415 allocations: 12.64 GiB)
+[ Info: Define ode function: 1.589 s (1839778 allocations: 78.35 MiB)
+[ Info: init integrator: 15.819 s (18085944 allocations: 923.39 MiB)
+[ Info: Added diagnostics: 119.192 s (28839432 allocations: 12.64 GiB)
 [ Info: Compiling benchmark_step!...
 ┌ Info: Progress
 │   simulation_time = "30 seconds, 1 microsecond"
@@ -193,47 +193,47 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │   wall_time_spent = "0 seconds"
 │   percent_complete = "0.0%"
 │   estimated_sypd = "Inf"
-│   date_now = 2025-12-17T12:10:54.040
-└   estimated_finish_date = 2025-12-17T12:10:54.040
+│   date_now = 2025-12-18T17:50:36.703
+└   estimated_finish_date = 2025-12-18T17:50:36.703
 ┌ Info: Progress
 │   simulation_time = "1 minute, 2 microseconds"
 │   n_steps_completed = 2
-│   wall_time_per_step = "15 seconds, 429 milliseconds"
-│   wall_time_total = "1 day, 13 hours"
-│   wall_time_remaining = "1 day, 13 hours"
-│   wall_time_spent = "30 seconds, 859 milliseconds"
+│   wall_time_per_step = "15 seconds, 223 milliseconds"
+│   wall_time_total = "1 day, 12 hours"
+│   wall_time_remaining = "1 day, 12 hours"
+│   wall_time_spent = "30 seconds, 447 milliseconds"
 │   percent_complete = "0.0%"
-│   estimated_sypd = "0.005 (sdpd_estimate = 1.944)"
-│   date_now = 2025-12-17T12:11:09.472
-└   estimated_finish_date = 2025-12-19T01:12:32.472
+│   estimated_sypd = "0.005 (sdpd_estimate = 1.971)"
+│   date_now = 2025-12-18T17:50:51.926
+└   estimated_finish_date = 2025-12-20T06:22:34.925
 ┌ Info: Progress
 │   simulation_time = "2 minutes, 4 microseconds"
 │   n_steps_completed = 4
-│   wall_time_per_step = "7 seconds, 791 milliseconds"
-│   wall_time_total = "18 hours, 42 minutes"
-│   wall_time_remaining = "18 hours, 41 minutes"
-│   wall_time_spent = "31 seconds, 167 milliseconds"
+│   wall_time_per_step = "7 seconds, 690 milliseconds"
+│   wall_time_total = "18 hours, 27 minutes"
+│   wall_time_remaining = "18 hours, 26 minutes"
+│   wall_time_spent = "30 seconds, 762 milliseconds"
 │   percent_complete = "0.0%"
 │   estimated_sypd = "0.011"
-│   date_now = 2025-12-17T12:11:09.633
-└   estimated_finish_date = 2025-12-18T06:52:41.633
+│   date_now = 2025-12-18T17:50:52.088
+└   estimated_finish_date = 2025-12-19T12:17:49.088
 ┌ Info: Progress
 │   simulation_time = "4 minutes, 8 microseconds"
 │   n_steps_completed = 8
-│   wall_time_per_step = "3 seconds, 933 milliseconds"
-│   wall_time_total = "9 hours, 26 minutes"
-│   wall_time_remaining = "9 hours, 25 minutes"
-│   wall_time_spent = "31 seconds, 471 milliseconds"
+│   wall_time_per_step = "3 seconds, 883 milliseconds"
+│   wall_time_total = "9 hours, 19 minutes"
+│   wall_time_remaining = "9 hours, 18 minutes"
+│   wall_time_spent = "31 seconds, 65 milliseconds"
 │   percent_complete = "0.1%"
 │   estimated_sypd = "0.021"
-│   date_now = 2025-12-17T12:11:09.937
-└   estimated_finish_date = 2025-12-17T21:37:07.937
+│   date_now = 2025-12-18T17:50:52.391
+└   estimated_finish_date = 2025-12-19T03:09:32.391
 [ Info: Running benchmark_step!...
 [ Info: Using external CUDA profiler
 Capture range started in the application.
 Capture range ended in the application.
-Generating '/tmp/nsys-report-ab13.qdstrm'
+Generating '/tmp/nsys-report-dcde.qdstrm'
 [1/1] [0%                          ] baseline-none.nsys-repProcessing events...
-[1/1] [0%                          ] baseline-none.nsys-rep[1/1] [0%                          ] baseline-none.nsys-rep[1/1] [0%                          ] baseline-none.nsys-rep[1/1] [9%                          ] baseline-none.nsys-rep[1/1] [=16%                        ] baseline-none.nsys-rep[1/1] [===23%                      ] baseline-none.nsys-rep[1/1] [=====29%                    ] baseline-none.nsys-rep[1/1] [=======36%                  ] baseline-none.nsys-rep[1/1] [========42%                 ] baseline-none.nsys-rep[1/1] [==========49%               ] baseline-none.nsys-rep[1/1] [============56%             ] baseline-none.nsys-rep[1/1] [==============62%           ] baseline-none.nsys-rep[1/1] [================69%         ] baseline-none.nsys-rep[1/1] [==================75%       ] baseline-none.nsys-rep[1/1] [===================82%      ] baseline-none.nsys-rep[1/1] [=====================89%    ] baseline-none.nsys-rep[1/1] [=======================95%  ] baseline-none.nsys-rep[1/1] [========================97% ] baseline-none.nsys-rep[1/1] [========================98% ] baseline-none.nsys-rep[1/1] [========================100%] baseline-none.nsys-rep[1/1] [========================100%] baseline-none.nsys-rep
+[1/1] [0%                          ] baseline-none.nsys-rep[1/1] [6%                          ] baseline-none.nsys-rep[1/1] [6%                          ] baseline-none.nsys-rep[1/1] [8%                          ] baseline-none.nsys-rep[1/1] [9%                          ] baseline-none.nsys-rep[1/1] [=16%                        ] baseline-none.nsys-rep[1/1] [===22%                      ] baseline-none.nsys-rep[1/1] [=====29%                    ] baseline-none.nsys-rep[1/1] [=======36%                  ] baseline-none.nsys-rep[1/1] [========42%                 ] baseline-none.nsys-rep[1/1] [==========49%               ] baseline-none.nsys-rep[1/1] [============55%             ] baseline-none.nsys-rep[1/1] [==============62%           ] baseline-none.nsys-rep[1/1] [================69%         ] baseline-none.nsys-rep[1/1] [==================75%       ] baseline-none.nsys-rep[1/1] [===================82%      ] baseline-none.nsys-rep[1/1] [=====================89%    ] baseline-none.nsys-rep[1/1] [=======================95%  ] baseline-none.nsys-rep[1/1] [========================97% ] baseline-none.nsys-rep[1/1] [========================98% ] baseline-none.nsys-rep[1/1] [========================100%] baseline-none.nsys-rep[1/1] [========================100%] baseline-none.nsys-rep
 Generated:
 	/home/pbachant/calkit/clima-horizontal-diffusion/results/nsys/baseline-none.nsys-rep

@@ -211,25 +211,25 @@ stages:
     outs:
     - path: .calkit/slurm/logs/nsys-baseline-const.out
       hash: md5
-      md5: bf7c614f14560f843d2aeaf3a3e11d9f
-      size: 13983
+      md5: d628b2223f18a1873ffb113d7390c25b
+      size: 13984
     - path: results/nsys/baseline-const.nsys-rep
       hash: md5
-      md5: e4792ada9a368bb7b2129838f3b8f657
-      size: 5093662
+      md5: 4373a9b46ece42e6192ee42301fc67ac
+      size: 5044711
   nsys-baseline-const-to-sqlite:
     cmd: ' bash --noprofile --norc -c "nsys export results/nsys/baseline-const.nsys-rep
       -t sqlite -o results/nsys/baseline-const.sqlite"'
     deps:
     - path: results/nsys/baseline-const.nsys-rep
       hash: md5
-      md5: e4792ada9a368bb7b2129838f3b8f657
-      size: 5093662
+      md5: 4373a9b46ece42e6192ee42301fc67ac
+      size: 5044711
     outs:
     - path: results/nsys/baseline-const.sqlite
       hash: md5
-      md5: b01e1233bda857e35241befa9fd26c8e
-      size: 10166272
+      md5: 0de0c4a4e817ea3349f8082cd60b2d1a
+      size: 10121216
   nsys-baseline-none:
     cmd: calkit slurm batch --name nsys-baseline-none --environment clima --dep 
       config/base.yml --dep ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml --dep 
@@ -268,25 +268,25 @@ stages:
     outs:
     - path: .calkit/slurm/logs/nsys-baseline-none.out
       hash: md5
-      md5: 198aa68fec5549ef9e105c7e07fc8315
-      size: 13961
+      md5: 34c1bb3eea66fec5aad9ce8618fd9da7
+      size: 14021
     - path: results/nsys/baseline-none.nsys-rep
       hash: md5
-      md5: 81f4276a83f6ab7956cb95bc1be91095
-      size: 5010828
+      md5: 588cb9d3732562724a839cf7c0f40d5d
+      size: 4976203
   nsys-baseline-none-to-sqlite:
     cmd: ' bash --noprofile --norc -c "nsys export results/nsys/baseline-none.nsys-rep
       -t sqlite -o results/nsys/baseline-none.sqlite"'
     deps:
     - path: results/nsys/baseline-none.nsys-rep
       hash: md5
-      md5: 81f4276a83f6ab7956cb95bc1be91095
-      size: 5010828
+      md5: 588cb9d3732562724a839cf7c0f40d5d
+      size: 4976203
     outs:
     - path: results/nsys/baseline-none.sqlite
       hash: md5
-      md5: cf6d599d2bcf92725ad8b73ad7159c25
-      size: 9965568
+      md5: b95b3cec873056e370ff4b4a892c8755
+      size: 9932800
   summarize:
     cmd: calkit xenv -n py --no-check -- python scripts/summarize.py
     deps:
@@ -297,8 +297,8 @@ stages:
       nfiles: 2
     - path: results/nsys
       hash: md5
-      md5: d108ce2bfdbe4ae31325eccd0bb179cd.dir
-      size: 45447629
+      md5: 2eafb7f681bc2e0317c127b59293c1b6.dir
+      size: 45115231
       nfiles: 8
     - path: scripts/summarize.py
       hash: md5
@@ -307,7 +307,7 @@ stages:
     outs:
     - path: results/summary.csv
       hash: md5
-      md5: 8c26e1a04dd1f69859f294f400d22524
+      md5: 08ff79b513e54f58de4a1a5ccaa8fa4b
       size: 285
   nsys-mod-const:
     cmd: calkit slurm batch --name nsys-mod-const --environment clima --dep 
@@ -351,25 +351,25 @@ stages:
     outs:
     - path: .calkit/slurm/logs/nsys-mod-const.out
       hash: md5
-      md5: 8b83e3b7f77d781d3582f0afcf733216
-      size: 13941
+      md5: 12b5ccb8fc73cf3f6cdfb30b3959767c
+      size: 13889
     - path: results/nsys/mod-const.nsys-rep
       hash: md5
-      md5: b55a1d407d7e7b221a955a9348e19833
-      size: 5048929
+      md5: f2eecd2c94844a937226dfbcf8671ef1
+      size: 5000811
   nsys-mod-const-to-sqlite:
     cmd: ' bash --noprofile --norc -c "nsys export results/nsys/mod-const.nsys-rep
       -t sqlite -o results/nsys/mod-const.sqlite"'
     deps:
     - path: results/nsys/mod-const.nsys-rep
       hash: md5
-      md5: b55a1d407d7e7b221a955a9348e19833
-      size: 5048929
+      md5: f2eecd2c94844a937226dfbcf8671ef1
+      size: 5000811
     outs:
     - path: results/nsys/mod-const.sqlite
       hash: md5
-      md5: bd430e67be41bc6bf3f1731e7ccfce4c
-      size: 10162176
+      md5: 7757e078f71853c8c658a0a526ac6162
+      size: 10039296
   run-baseline-const:
     cmd: calkit slurm batch --name run-baseline-const --environment clima --dep 
       scripts/run.jl --dep config/base.yml --dep config/const.yml --dep 
@@ -574,8 +574,8 @@ stages:
     outs:
     - path: .calkit/slurm/logs/baseline-none.out
       hash: md5
-      md5: 8f4cae4d8599d1a490a5888e38172315
-      size: 17059
+      md5: af0247864d7f58b52ee4c332653bdf56
+      size: 17055
   baseline-const:
     cmd: calkit slurm batch --name baseline-const --environment clima --dep 
       scripts/run.jl --dep config/base.yml --dep config/const.yml --dep 
@@ -618,8 +618,8 @@ stages:
     outs:
     - path: .calkit/slurm/logs/baseline-const.out
       hash: md5
-      md5: a5aba4ec1c932d9c1390108e56926094
-      size: 17131
+      md5: 3662ea1faf5cfb15da2a5aaf000cd81c
+      size: 17123
   baseline-smag:
     cmd: calkit slurm batch --name baseline-smag --environment clima --dep 
       scripts/run.jl --dep config/base.yml --dep config/smag.yml --dep 
@@ -661,8 +661,8 @@ stages:
     outs:
     - path: .calkit/slurm/logs/baseline-smag.out
       hash: md5
-      md5: ac9583250710be12fb69ec5b3c9fa938
-      size: 18376
+      md5: e68737b7ed3d2c8cb96a0ca3b2b4d46c
+      size: 18386
   mod-const:
     cmd: calkit slurm batch --name mod-const --environment clima --dep 
       scripts/run.jl --dep config/base.yml --dep config/const.yml --dep 
@@ -704,5 +704,5 @@ stages:
     outs:
     - path: .calkit/slurm/logs/mod-const.out
       hash: md5
-      md5: 5b538d81bbb95ae0e017769b889498b3
+      md5: 2cde1fdf1d95058477cc8effa68eb71a
       size: 17132
