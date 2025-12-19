@@ -282,6 +282,9 @@ pipeline:
       script_path: scripts/summarize.py
       inputs:
         - results/nsys
+        - from_stage_outputs: baseline-none
+        - from_stage_outputs: baseline-const
+        - from_stage_outputs: mod-const
       outputs:
         - path: results/summary.csv
           storage: git

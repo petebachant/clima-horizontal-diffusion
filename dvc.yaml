@@ -196,6 +196,9 @@ stages:
       - scripts/summarize.py
       - results/nsys
       - .calkit/env-locks/py
+      - .calkit/slurm/logs/baseline-none.out
+      - .calkit/slurm/logs/baseline-const.out
+      - .calkit/slurm/logs/mod-const.out
     outs:
       - results/summary.csv:
           cache: false

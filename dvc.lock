@@ -295,6 +295,18 @@ stages:
       md5: b11b4b2793ead33aa1d1a841df65bc83.dir
       size: 2037
       nfiles: 2
+    - path: .calkit/slurm/logs/baseline-const.out
+      hash: md5
+      md5: 3662ea1faf5cfb15da2a5aaf000cd81c
+      size: 17123
+    - path: .calkit/slurm/logs/baseline-none.out
+      hash: md5
+      md5: af0247864d7f58b52ee4c332653bdf56
+      size: 17055
+    - path: .calkit/slurm/logs/mod-const.out
+      hash: md5
+      md5: 2cde1fdf1d95058477cc8effa68eb71a
+      size: 17132
     - path: results/nsys
       hash: md5
       md5: 2eafb7f681bc2e0317c127b59293c1b6.dir
