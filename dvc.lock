@@ -302,13 +302,13 @@ stages:
       nfiles: 8
     - path: scripts/summarize.py
       hash: md5
-      md5: 86e594fac13f0a04b7c45f18888f0fad
-      size: 1027
+      md5: dc1349eafb9265a935a1b6823c715da8
+      size: 2418
     outs:
     - path: results/summary.csv
       hash: md5
-      md5: 08ff79b513e54f58de4a1a5ccaa8fa4b
-      size: 285
+      md5: 06b1d9e704d3eb396a232dad1d589698
+      size: 386
   nsys-mod-const:
     cmd: calkit slurm batch --name nsys-mod-const --environment clima --dep 
       config/base.yml --dep config/const.yml --dep ClimaAtmos.jl-mod/src --dep 
