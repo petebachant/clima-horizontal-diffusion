@@ -8,13 +8,21 @@ questions:
   - question: Why does horizontal diffusion (Smagorinsky and AMD)
       slow down ClimaAtmos so much, and is there anything we can do about it?
   - question: What is the computational cost of constant horizontal diffusion?
-    answer: It's about 1%.
+    answer: It's about 1--2%.
+    evidence:
+      - kind: result
+        path: results/summary.csv
+        description: Results from profiling runs with and without
+          constant horizontal diffusion enabled.
+  - question: Can we speed up constant horizontal diffusion?
+    answer: By approximately 1%.
     evidence:
       - kind: git-diff
         repo_path: ClimaAtmos.jl-mod
         base_ref: 9f3e2b4
         compare_ref: main
         paths: []
+        description: These are some changes made that produced a small speedup.
       - kind: result
 
 environments:
