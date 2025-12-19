@@ -538,3 +538,171 @@ stages:
       hash: md5
       md5: 747f2246c720c9dcc2f7887a1b71a3ca
       size: 18385
+  baseline-none:
+    cmd: calkit slurm batch --name baseline-none --environment clima --dep 
+      scripts/run.jl --dep config/base.yml --dep ClimaAtmos.jl/src --dep 
+      ClimaAtmos.jl/toml --dep ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml -s 
+      --gpus=1 -s --time=60 -- scripts/run.sh ClimaAtmos.jl/.buildkite 
+      scripts/run.jl --job_id baseline_none --config_file config/base.yml
+    deps:
+    - path: ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+      hash: md5
+      md5: 960b94f8e8dc62e1ef00310b21171099
+      size: 106103
+    - path: ClimaAtmos.jl/src
+      hash: md5
+      md5: 01e1d1b04e003a8a54f22f5da3dc6465.dir
+      size: 1317233
+      nfiles: 101
+    - path: ClimaAtmos.jl/toml
+      hash: md5
+      md5: f6943f469c23e41ed04469503e7b9563.dir
+      size: 11921
+      nfiles: 36
+    - path: config/base.yml
+      hash: md5
+      md5: 4756cdb867a59bff0c1f2cb99084db18
+      size: 3659
+    - path: scripts/run.jl
+      hash: md5
+      md5: 937ff7c7000ed62e98b4420a57d01208
+      size: 2022
+    - path: scripts/run.sh
+      hash: md5
+      md5: 55b895adbb65f6511b237e4d2cde9f25
+      size: 1014
+    outs:
+    - path: .calkit/slurm/logs/baseline-none.out
+      hash: md5
+      md5: 8f4cae4d8599d1a490a5888e38172315
+      size: 17059
+  baseline-const:
+    cmd: calkit slurm batch --name baseline-const --environment clima --dep 
+      scripts/run.jl --dep config/base.yml --dep config/const.yml --dep 
+      ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml --dep 
+      ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s --time=60 -- 
+      scripts/run.sh ClimaAtmos.jl/.buildkite scripts/run.jl --job_id 
+      baseline_const --config_file config/base.yml --config_file 
+      config/const.yml
+    deps:
+    - path: ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+      hash: md5
+      md5: 960b94f8e8dc62e1ef00310b21171099
+      size: 106103
+    - path: ClimaAtmos.jl/src
+      hash: md5
+      md5: 01e1d1b04e003a8a54f22f5da3dc6465.dir
+      size: 1317233
+      nfiles: 101
+    - path: ClimaAtmos.jl/toml
+      hash: md5
+      md5: f6943f469c23e41ed04469503e7b9563.dir
+      size: 11921
+      nfiles: 36
+    - path: config/base.yml
+      hash: md5
+      md5: 4756cdb867a59bff0c1f2cb99084db18
+      size: 3659
+    - path: config/const.yml
+      hash: md5
+      md5: 77bc7b925c754338d9602a945c8888ce
+      size: 36
+    - path: scripts/run.jl
+      hash: md5
+      md5: 937ff7c7000ed62e98b4420a57d01208
+      size: 2022
+    - path: scripts/run.sh
+      hash: md5
+      md5: 55b895adbb65f6511b237e4d2cde9f25
+      size: 1014
+    outs:
+    - path: .calkit/slurm/logs/baseline-const.out
+      hash: md5
+      md5: a5aba4ec1c932d9c1390108e56926094
+      size: 17131
+  baseline-smag:
+    cmd: calkit slurm batch --name baseline-smag --environment clima --dep 
+      scripts/run.jl --dep config/base.yml --dep config/smag.yml --dep 
+      ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml --dep 
+      ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s --time=60 -- 
+      scripts/run.sh ClimaAtmos.jl/.buildkite scripts/run.jl --job_id 
+      baseline_smag --config_file config/base.yml --config_file config/smag.yml
+    deps:
+    - path: ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+      hash: md5
+      md5: 960b94f8e8dc62e1ef00310b21171099
+      size: 106103
+    - path: ClimaAtmos.jl/src
+      hash: md5
+      md5: 01e1d1b04e003a8a54f22f5da3dc6465.dir
+      size: 1317233
+      nfiles: 101
+    - path: ClimaAtmos.jl/toml
+      hash: md5
+      md5: f6943f469c23e41ed04469503e7b9563.dir
+      size: 11921
+      nfiles: 36
+    - path: config/base.yml
+      hash: md5
+      md5: 4756cdb867a59bff0c1f2cb99084db18
+      size: 3659
+    - path: config/smag.yml
+      hash: md5
+      md5: d953bd59bd767f59488f1b95350864c4
+      size: 22
+    - path: scripts/run.jl
+      hash: md5
+      md5: 937ff7c7000ed62e98b4420a57d01208
+      size: 2022
+    - path: scripts/run.sh
+      hash: md5
+      md5: 55b895adbb65f6511b237e4d2cde9f25
+      size: 1014
+    outs:
+    - path: .calkit/slurm/logs/baseline-smag.out
+      hash: md5
+      md5: ac9583250710be12fb69ec5b3c9fa938
+      size: 18376
+  mod-const:
+    cmd: calkit slurm batch --name mod-const --environment clima --dep 
+      scripts/run.jl --dep config/base.yml --dep config/const.yml --dep 
+      ClimaAtmos.jl-mod/src --dep ClimaAtmos.jl-mod/toml --dep 
+      ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s --time=60 
+      -- scripts/run.sh ClimaAtmos.jl-mod/.buildkite scripts/run.jl --job_id 
+      mod_const --config_file config/base.yml --config_file config/const.yml
+    deps:
+    - path: ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
+      hash: md5
+      md5: 960b94f8e8dc62e1ef00310b21171099
+      size: 106103
+    - path: ClimaAtmos.jl-mod/src
+      hash: md5
+      md5: dbfe30503a02cfcbb6e13591ca80011a.dir
+      size: 1317154
+      nfiles: 101
+    - path: ClimaAtmos.jl-mod/toml
+      hash: md5
+      md5: f6943f469c23e41ed04469503e7b9563.dir
+      size: 11921
+      nfiles: 36
+    - path: config/base.yml
+      hash: md5
+      md5: 4756cdb867a59bff0c1f2cb99084db18
+      size: 3659
+    - path: config/const.yml
+      hash: md5
+      md5: 77bc7b925c754338d9602a945c8888ce
+      size: 36
+    - path: scripts/run.jl
+      hash: md5
+      md5: 937ff7c7000ed62e98b4420a57d01208
+      size: 2022
+    - path: scripts/run.sh
+      hash: md5
+      md5: 55b895adbb65f6511b237e4d2cde9f25
+      size: 1014
+    outs:
+    - path: .calkit/slurm/logs/mod-const.out
+      hash: md5
+      md5: 5b538d81bbb95ae0e017769b889498b3
+      size: 17132

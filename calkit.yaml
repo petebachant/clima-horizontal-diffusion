@@ -187,7 +187,7 @@ pipeline:
         - results/nsys/baseline-none.nsys-rep
       outputs:
         - results/nsys/baseline-none.sqlite
-    run-baseline-none:
+    baseline-none:
       kind: sbatch
       environment: clima
       sbatch_options:
@@ -207,7 +207,7 @@ pipeline:
         - ClimaAtmos.jl/src
         - ClimaAtmos.jl/toml
         - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
-    run-baseline-const:
+    baseline-const:
       kind: sbatch
       environment: clima
       sbatch_options:
@@ -230,7 +230,7 @@ pipeline:
         - ClimaAtmos.jl/src
         - ClimaAtmos.jl/toml
         - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
-    run-baseline-smag:
+    baseline-smag:
       kind: sbatch
       environment: clima
       sbatch_options:
@@ -253,7 +253,7 @@ pipeline:
         - ClimaAtmos.jl/src
         - ClimaAtmos.jl/toml
         - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
-    run-mod-const:
+    mod-const:
       kind: sbatch
       environment: clima
       sbatch_options:

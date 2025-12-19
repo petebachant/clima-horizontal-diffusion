@@ -102,9 +102,9 @@ stages:
     desc: Automatically generated from the 
       'nsys-baseline-none-to-sqlite' stage in calkit.yaml. Changes 
       made here will be overwritten.
-  run-baseline-none:
-    cmd: calkit slurm batch --name run-baseline-none --environment 
-      clima --dep scripts/run.jl --dep config/base.yml --dep 
+  baseline-none:
+    cmd: calkit slurm batch --name baseline-none --environment clima 
+      --dep scripts/run.jl --dep config/base.yml --dep 
       ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml --dep 
       ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s 
       --time=60 -- scripts/run.sh ClimaAtmos.jl/.buildkite 
@@ -118,14 +118,14 @@ stages:
       - ClimaAtmos.jl/toml
       - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
     outs:
-      - .calkit/slurm/logs/run-baseline-none.out:
+      - .calkit/slurm/logs/baseline-none.out:
           cache: false
           persist: true
-    desc: Automatically generated from the 'run-baseline-none' stage 
-      in calkit.yaml. Changes made here will be overwritten.
-  run-baseline-const:
-    cmd: calkit slurm batch --name run-baseline-const --environment 
-      clima --dep scripts/run.jl --dep config/base.yml --dep 
+    desc: Automatically generated from the 'baseline-none' stage in 
+      calkit.yaml. Changes made here will be overwritten.
+  baseline-const:
+    cmd: calkit slurm batch --name baseline-const --environment clima 
+      --dep scripts/run.jl --dep config/base.yml --dep 
       config/const.yml --dep ClimaAtmos.jl/src --dep 
       ClimaAtmos.jl/toml --dep 
       ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s 
@@ -141,17 +141,17 @@ stages:
       - ClimaAtmos.jl/toml
       - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
     outs:
-      - .calkit/slurm/logs/run-baseline-const.out:
+      - .calkit/slurm/logs/baseline-const.out:
           cache: false
           persist: true
-    desc: Automatically generated from the 'run-baseline-const' stage 
-      in calkit.yaml. Changes made here will be overwritten.
-  run-baseline-smag:
-    cmd: calkit slurm batch --name run-baseline-smag --environment 
-      clima --dep scripts/run.jl --dep config/base.yml --dep 
-      config/smag.yml --dep ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml
-      --dep ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml -s --gpus=1 
-      -s --time=60 -- scripts/run.sh ClimaAtmos.jl/.buildkite 
+    desc: Automatically generated from the 'baseline-const' stage in 
+      calkit.yaml. Changes made here will be overwritten.
+  baseline-smag:
+    cmd: calkit slurm batch --name baseline-smag --environment clima 
+      --dep scripts/run.jl --dep config/base.yml --dep config/smag.yml
+      --dep ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml --dep 
+      ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s 
+      --time=60 -- scripts/run.sh ClimaAtmos.jl/.buildkite 
       scripts/run.jl --job_id baseline_smag --config_file 
       config/base.yml --config_file config/smag.yml
     deps:
@@ -163,16 +163,15 @@ stages:
       - ClimaAtmos.jl/toml
       - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
     outs:
-      - .calkit/slurm/logs/run-baseline-smag.out:
+      - .calkit/slurm/logs/baseline-smag.out:
           cache: false
           persist: true
-    desc: Automatically generated from the 'run-baseline-smag' stage 
-      in calkit.yaml. Changes made here will be overwritten.
-  run-mod-const:
-    cmd: calkit slurm batch --name run-mod-const --environment clima 
-      --dep scripts/run.jl --dep config/base.yml --dep 
-      config/const.yml --dep ClimaAtmos.jl-mod/src --dep 
-      ClimaAtmos.jl-mod/toml --dep 
+    desc: Automatically generated from the 'baseline-smag' stage in 
+      calkit.yaml. Changes made here will be overwritten.
+  mod-const:
+    cmd: calkit slurm batch --name mod-const --environment clima --dep
+      scripts/run.jl --dep config/base.yml --dep config/const.yml 
+      --dep ClimaAtmos.jl-mod/src --dep ClimaAtmos.jl-mod/toml --dep 
       ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s 
       --time=60 -- scripts/run.sh ClimaAtmos.jl-mod/.buildkite 
       scripts/run.jl --job_id mod_const --config_file config/base.yml 
@@ -186,10 +185,10 @@ stages:
       - ClimaAtmos.jl-mod/toml
       - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
     outs:
-      - .calkit/slurm/logs/run-mod-const.out:
+      - .calkit/slurm/logs/mod-const.out:
           cache: false
           persist: true
-    desc: Automatically generated from the 'run-mod-const' stage in 
+    desc: Automatically generated from the 'mod-const' stage in 
       calkit.yaml. Changes made here will be overwritten.
   summarize:
     cmd: calkit xenv -n py --no-check -- python scripts/summarize.py
