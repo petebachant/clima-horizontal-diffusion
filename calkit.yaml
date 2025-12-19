@@ -7,6 +7,8 @@ git_repo_url: https://github.com/petebachant/clima-horizontal-diffusion
 questions:
   - question: Why does horizontal diffusion (Smagorinsky and AMD)
       slow down ClimaAtmos so much, and is there anything we can do about it?
+    hypothesis: There is probably some inefficiency in the CUDA kernels
+      implementing horizontal diffusion that can be improved.
   - question: What is the computational cost of constant horizontal diffusion?
     answer: It's about 1--2%.
     evidence:
