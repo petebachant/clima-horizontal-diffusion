@@ -50,6 +50,35 @@ pipeline:
         - results/nsys/baseline-smag.nsys-rep
       outputs:
         - results/nsys/baseline-smag.sqlite
+    # Nsight Compute for baseline Smagorinsky
+    ncu-baseline-smag:
+      kind: sbatch
+      environment: clima
+      script_path: scripts/run-ncu.sh
+      sbatch_options:
+        - --gpus=1
+        - --time=120
+      args:
+        - results/ncu/baseline-smag
+        - --kernel-name
+        - set_smagorinsky_lilly_precomputed_quantities__FILE_ClimaAtmos_jl_src_parameterized_tendencies_les_sgs_models_smagorinsky_lilly_jl_L66
+        - --project
+        - ClimaAtmos.jl/.buildkite
+        - --config_file
+        - config/base.yml
+        - --config_file
+        - config/smag.yml
+        - --launch-count
+        - "6"
+      inputs:
+        - config/base.yml
+        - config/smag.yml
+        - ClimaAtmos.jl/src
+        - ClimaAtmos.jl/toml
+        - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+        - ClimaAtmos.jl/perf/benchmark_step.jl
+      outputs:
+        - results/ncu/baseline-smag.ncu-rep
     nsys-mod-smag:
       kind: sbatch
       environment: clima

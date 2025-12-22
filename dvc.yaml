@@ -34,6 +34,33 @@ stages:
     desc: Automatically generated from the 
       'nsys-baseline-smag-to-sqlite' stage in calkit.yaml. Changes 
       made here will be overwritten.
+  ncu-baseline-smag:
+    cmd: calkit slurm batch --name ncu-baseline-smag --environment 
+      clima --dep config/base.yml --dep config/smag.yml --dep 
+      ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml --dep 
+      ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml --dep 
+      ClimaAtmos.jl/perf/benchmark_step.jl --out 
+      results/ncu/baseline-smag.ncu-rep -s --gpus=1 -s --time=120 -- 
+      scripts/run-ncu.sh results/ncu/baseline-smag --kernel-name 
+      set_smagorinsky_lilly_precomputed_quantities__FILE_ClimaAtmos_jl_src_parameterized_tendencies_les_sgs_models_smagorinsky_lilly_jl_L66
+      --project ClimaAtmos.jl/.buildkite --config_file config/base.yml
+      --config_file config/smag.yml --launch-count 6
+    deps:
+      - scripts/run-ncu.sh
+      - config/base.yml
+      - config/smag.yml
+      - ClimaAtmos.jl/src
+      - ClimaAtmos.jl/toml
+      - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+      - ClimaAtmos.jl/perf/benchmark_step.jl
+    outs:
+      - results/ncu/baseline-smag.ncu-rep:
+          persist: true
+      - .calkit/slurm/logs/ncu-baseline-smag.out:
+          cache: false
+          persist: true
+    desc: Automatically generated from the 'ncu-baseline-smag' stage 
+      in calkit.yaml. Changes made here will be overwritten.
   nsys-mod-smag:
     cmd: calkit slurm batch --name nsys-mod-smag --environment clima 
       --dep config/base.yml --dep config/smag.yml --dep 
