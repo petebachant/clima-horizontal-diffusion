@@ -71,13 +71,13 @@ Status `~/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/.buildkite/Project.tom
   [9a3f8284] Random v1.11.0
   [8dfed614] Test v1.11.0
 Info Packages marked with ⌃ and ⌅ have new versions available. Those with ⌃ may be upgradable, but those with ⌅ are restricted by compatibility constraints from upgrading. To see why use `status --outdated`
-==PROF== Connected to process 2988134 (/clima/software/julia/julia-1.11.5/bin/julia)
+==PROF== Connected to process 3246038 (/clima/software/julia/julia-1.11.5/bin/julia)
 ==PROF== Profiling "set_smagorinsky_lilly_precomputed_quantities__FILE_ClimaAtmos_jl_src_parameterized_tendencies_les_sgs_models_smagorinsky_lilly_jl_L66": 0%....50%....100% - 51 passes
 ==PROF== Profiling "set_smagorinsky_lilly_precomputed_quantities__FILE_ClimaAtmos_jl_src_parameterized_tendencies_les_sgs_models_smagorinsky_lilly_jl_L66": 0%....50%....100% - 51 passes
-==PROF== Profiling "set_smagorinsky_lilly_precomputed_quantities__FILE_ClimaAtmos_jl_src_parameterized_tendencies_les_sgs_models_smagorinsky_lilly_jl_L66": 0%....50%....100% - 51 passes
-==PROF== Profiling "set_smagorinsky_lilly_precomputed_quantities__FILE_ClimaAtmos_jl_src_parameterized_tendencies_les_sgs_models_smagorinsky_lilly_jl_L66": 0%....50%....100% - 51 passes
-==PROF== Profiling "set_smagorinsky_lilly_precomputed_quantities__FILE_ClimaAtmos_jl_src_parameterized_tendencies_les_sgs_models_smagorinsky_lilly_jl_L66": 0%....50%....100% - 51 passes
-==PROF== Profiling "set_smagorinsky_lilly_precomputed_quantities__FILE_ClimaAtmos_jl_src_parameterized_tendencies_les_sgs_models_smagorinsky_lilly_jl_L66": 0%....50%....100% - 51 passes
+==PROF== Profiling "set_smagorinsky_lilly_precomputed_quantities__FILE_ClimaAtmos_jl_src_parameterized_tendencies_les_sgs_models_smagorinsky_lilly_jl_L66": 0%....50%....100% - 50 passes
+==PROF== Profiling "set_smagorinsky_lilly_precomputed_quantities__FILE_ClimaAtmos_jl_src_parameterized_tendencies_les_sgs_models_smagorinsky_lilly_jl_L66": 0%....50%....100% - 50 passes
+==PROF== Profiling "set_smagorinsky_lilly_precomputed_quantities__FILE_ClimaAtmos_jl_src_parameterized_tendencies_les_sgs_models_smagorinsky_lilly_jl_L66": 0%....50%....100% - 50 passes
+==PROF== Profiling "set_smagorinsky_lilly_precomputed_quantities__FILE_ClimaAtmos_jl_src_parameterized_tendencies_les_sgs_models_smagorinsky_lilly_jl_L66": 0%....50%....100% - 50 passes
 ┌ Warning: CUDA runtime library `libcublasLt.so.13` was loaded from a system path, `/usr/local/cuda/lib64/libcublasLt.so.13`.
 │ This may cause errors.
 │ 
@@ -154,7 +154,7 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 [ Info: SLEVE mesh warp (eta=0.7, s=10.0)
 ┌ Info: Simulation info
 │   job_id = "default_config"
-└   output_dir = "output/default_config/output_0005"
+└   output_dir = "output/default_config/output_0011"
 ┌ Info: Simulation Grid: ExtrudedFiniteDifferenceGrid:
 │   horizontal:
 │     context: SingletonCommsContext using CUDADevice
@@ -162,20 +162,20 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │     quadrature: 4-point Gauss-Legendre-Lobatto quadrature
 │   vertical:
 └     mesh: 43-element IntervalMesh of IntervalDomain: z ∈ [0.0,30000.0] (:bottom, :top)
-[ Info: Allocating Y: 17.777 s (17854680 allocations: 837.65 MiB)
+[ Info: Allocating Y: 18.791 s (17853458 allocations: 837.7 MiB)
 [ Info: using deep atmosphere
-[ Info: Allocating cache (p): 180.313 s (220798326 allocations: 10.83 GiB)
+[ Info: Allocating cache (p): 167.158 s (220817410 allocations: 10.83 GiB)
 [ Info: Using ODE config: `ClimaTimeSteppers.ARS343`
-[ Info: ode_configuration: 1.034 s (1383922 allocations: 68.56 MiB)
+[ Info: ode_configuration: 1.102 s (1383920 allocations: 68.55 MiB)
 [ Info: Progress logging enabled
 [ Info: Checking NaNs in the state every 1024 steps
-[ Info: get_callbacks: 402.538 ms (402317 allocations: 20.55 MiB)
+[ Info: get_callbacks: 419.817 ms (402319 allocations: 20.57 MiB)
 [ Info: Saving accumulated diagnostics to disk with frequency: 
 [ Info: DictWriter: String[]
 [ Info: HDF5Writer: String[]
 [ Info: NetCDFWriter: ["rhoa_60d_inst", "ua_60d_inst", "va_60d_inst", "wa_60d_inst", "ta_60d_inst", "hus_60d_inst", "clw_60d_inst", "cli_60d_inst", "hussn_60d_inst", "husra_60d_inst"]
-[ Info: initializing diagnostics: 10.141 s (14948425 allocations: 1.51 GiB)
-[ Info: Prepared SciMLBase.CallbackSet callbacks: 13.985 ms (561 allocations: 27.34 KiB)
+[ Info: initializing diagnostics: 10.456 s (14948417 allocations: 1.51 GiB)
+[ Info: Prepared SciMLBase.CallbackSet callbacks: 14.915 ms (561 allocations: 27.34 KiB)
 [ Info: n_steps_per_cycle_per_cb (non diagnostics): [1024, 1, 360]
 [ Info: n_steps_per_cycle (non diagnostics): 46080
 ┌ Info: Jacobian algorithm: ManualSparseJacobian(
@@ -188,9 +188,9 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │   sgs_vertdiff_flag = ClimaAtmos.IgnoreDerivative(),
 │   approximate_solve_iters = 2,
 └ )
-[ Info: Define ode function: 2.321 s (1839780 allocations: 78.35 MiB)
-[ Info: init integrator: 58.492 s (18456666 allocations: 950.76 MiB)
-[ Info: Added diagnostics: 154.532 s (28801549 allocations: 12.63 GiB)
+[ Info: Define ode function: 2.433 s (1839765 allocations: 78.34 MiB)
+[ Info: init integrator: 37.625 s (18454769 allocations: 950.4 MiB)
+[ Info: Added diagnostics: 158.799 s (28801532 allocations: 12.63 GiB)
 [ Info: Compiling benchmark_step!...
 ┌ Info: Progress
 │   simulation_time = "30 seconds, 1 microsecond"
@@ -201,45 +201,45 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │   wall_time_spent = "0 seconds"
 │   percent_complete = "0.0%"
 │   estimated_sypd = "Inf"
-│   date_now = 2025-12-22T09:55:27.742
-└   estimated_finish_date = 2025-12-22T09:55:27.742
+│   date_now = 2025-12-22T12:27:58.941
+└   estimated_finish_date = 2025-12-22T12:27:58.941
 ┌ Info: Progress
 │   simulation_time = "1 minute, 2 microseconds"
 │   n_steps_completed = 2
-│   wall_time_per_step = "18 seconds, 438 milliseconds"
+│   wall_time_per_step = "18 seconds, 493 milliseconds"
 │   wall_time_total = "1 day, 20 hours"
 │   wall_time_remaining = "1 day, 20 hours"
-│   wall_time_spent = "36 seconds, 876 milliseconds"
+│   wall_time_spent = "36 seconds, 987 milliseconds"
 │   percent_complete = "0.0%"
-│   estimated_sypd = "0.004 (sdpd_estimate = 1.627)"
-│   date_now = 2025-12-22T09:55:46.172
-└   estimated_finish_date = 2025-12-24T06:10:15.172
+│   estimated_sypd = "0.004 (sdpd_estimate = 1.622)"
+│   date_now = 2025-12-22T12:28:17.434
+└   estimated_finish_date = 2025-12-24T08:50:46.434
 ┌ Info: Progress
 │   simulation_time = "2 minutes, 4 microseconds"
 │   n_steps_completed = 4
-│   wall_time_per_step = "9 seconds, 462 milliseconds"
-│   wall_time_total = "22 hours, 42 minutes"
-│   wall_time_remaining = "22 hours, 41 minutes"
-│   wall_time_spent = "37 seconds, 848 milliseconds"
+│   wall_time_per_step = "9 seconds, 495 milliseconds"
+│   wall_time_total = "22 hours, 47 minutes"
+│   wall_time_remaining = "22 hours, 46 minutes"
+│   wall_time_spent = "37 seconds, 981 milliseconds"
 │   percent_complete = "0.0%"
-│   estimated_sypd = "0.009 (sdpd_estimate = 3.171)"
-│   date_now = 2025-12-22T09:55:46.935
-└   estimated_finish_date = 2025-12-23T08:37:41.935
+│   estimated_sypd = "0.009 (sdpd_estimate = 3.159)"
+│   date_now = 2025-12-22T12:28:18.179
+└   estimated_finish_date = 2025-12-23T11:15:00.179
 ┌ Info: Progress
 │   simulation_time = "4 minutes, 8 microseconds"
 │   n_steps_completed = 8
-│   wall_time_per_step = "4 seconds, 918 milliseconds"
-│   wall_time_total = "11 hours, 48 minutes"
-│   wall_time_remaining = "11 hours, 47 minutes"
-│   wall_time_spent = "39 seconds, 350 milliseconds"
+│   wall_time_per_step = "4 seconds, 939 milliseconds"
+│   wall_time_total = "11 hours, 51 minutes"
+│   wall_time_remaining = "11 hours, 50 minutes"
+│   wall_time_spent = "39 seconds, 516 milliseconds"
 │   percent_complete = "0.1%"
 │   estimated_sypd = "0.017"
-│   date_now = 2025-12-22T09:55:48.438
-└   estimated_finish_date = 2025-12-22T21:43:28.438
+│   date_now = 2025-12-22T12:28:19.714
+└   estimated_finish_date = 2025-12-23T00:18:58.714
 [ Info: Running benchmark_step!...
 [ Info: Using external CUDA profiler
-[ Info: Ran step! with CUDA 5 times in 1.9325184 s, (386.504 ms per step)
-==PROF== Disconnected from process 2988134
+[ Info: Ran step! with CUDA 5 times in 1.8999501 s, (379.99 ms per step)
+==PROF== Disconnected from process 3246038
 ==WARNING== Failed to import the following source files:
 ==WARNING==  abstractarray.jl
 ==WARNING==  boot.jl

@@ -309,12 +309,12 @@ stages:
       size: 18386
     - path: .calkit/slurm/logs/mod-smag.out
       hash: md5
-      md5: 67b27234b36be1fd587c2aa8758184dd
-      size: 18388
+      md5: 40fe4892b570fc9ac0baaf3c45f98dc8
+      size: 17285
     - path: results/nsys
       hash: md5
-      md5: 57e508f652abf2f4450954c681164012.dir
-      size: 77463311
+      md5: 9d8adb81363f21cf5574eaf616c2a683.dir
+      size: 77379192
       nfiles: 12
     - path: scripts/summarize.py
       hash: md5
@@ -323,8 +323,8 @@ stages:
     outs:
     - path: results/summary.csv
       hash: md5
-      md5: b7acf0ed3b541443c822d0ca9338845d
-      size: 554
+      md5: 7385db81b56ed71331fd23ed1b5f2526
+      size: 568
   nsys-mod-const:
     cmd: calkit slurm batch --name nsys-mod-const --environment clima --dep 
       config/base.yml --dep config/const.yml --dep ClimaAtmos.jl-mod/src --dep 
@@ -837,13 +837,13 @@ stages:
     deps:
     - path: results/nsys/mod-smag.nsys-rep
       hash: md5
-      md5: 30a18bf83c4dd191e398a5be432229b3
-      size: 5328552
+      md5: 653a73648e0577287493ca3e6736281e
+      size: 5322257
     outs:
     - path: results/nsys/mod-smag.sqlite
       hash: md5
-      md5: abdb85279be0a661f783837760dcf410
-      size: 10821632
+      md5: 969674f4488fd8fd847d5365a96ce513
+      size: 10743808
   mod-smag:
     cmd: calkit slurm batch --name mod-smag --environment clima --dep 
       scripts/run.jl --dep config/base.yml --dep config/smag.yml --dep 
@@ -908,8 +908,8 @@ stages:
       size: 2082
     - path: ClimaAtmos.jl/src
       hash: md5
-      md5: 69be1adb1ac0ebc03ec8147b4a967097.dir
-      size: 1319225
+      md5: 01e1d1b04e003a8a54f22f5da3dc6465.dir
+      size: 1317233
       nfiles: 101
     - path: ClimaAtmos.jl/toml
       hash: md5
@@ -931,9 +931,9 @@ stages:
     outs:
     - path: .calkit/slurm/logs/ncu-baseline-smag.out
       hash: md5
-      md5: 138565e90824826cb73ceaf82cfaa534
-      size: 14367
+      md5: 8a58280025b0b24cbe40d8ecb6111d60
+      size: 14364
     - path: results/ncu/baseline-smag.ncu-rep
       hash: md5
-      md5: 7b5dbc27288c510e07dca8f278a3867e
-      size: 9040254
+      md5: 7b3416417adf4e508b9d9eb81b874784
+      size: 8969086
