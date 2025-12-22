@@ -289,3 +289,9 @@ pipeline:
       outputs:
         - path: results/summary.csv
           storage: git
+
+notebooks:
+  - path: notebooks/smag.ipynb
+    environment: clima
+    stage: smag-notebook # TODO: Create stage even if not in pipeline
+    executed_ipynb_storage: git
