@@ -20,86 +20,66 @@ environments:
 
 pipeline:
   stages:
-    # gen-smag-state:
-    #   kind: sbatch
-    #   environment: clima
-    #   script_path: scripts/run.sh
-    #   sbatch_options:
-    #     - --gpus=1
-    #     - --time=30
-    #   args:
-    #     - ClimaAtmos.jl/.buildkite
-    #     - scripts/gen_smag_state.jl
-    #   inputs:
-    #     - scripts/gen_smag_state.jl
-    #     - config/base.yml
-    #     - config/smag.yml
-    #     - ClimaAtmos.jl/src
-    #     - ClimaAtmos.jl/toml
-    #     - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
-    #   outputs:
-    #     - path: results/smag_fixture.jld2
-    #       storage: null
-    # nsys-baseline:
-    #   kind: sbatch
-    #   environment: clima
-    #   script_path: scripts/run-nsys.sh
-    #   sbatch_options:
-    #     - --gpus=1
-    #     - --time=60
-    #   args:
-    #     - results/nsys/baseline
-    #     - ClimaAtmos.jl/.buildkite
-    #     - config/base.yml
-    #     - config/smag.yml
-    #   inputs:
-    #     - config/base.yml
-    #     - config/smag.yml
-    #     - ClimaAtmos.jl/src
-    #     - ClimaAtmos.jl/toml
-    #     - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
-    #     - ClimaAtmos.jl/perf/benchmark_step.jl
-    #   outputs:
-    #     - results/nsys/baseline.nsys-rep
-    # nsys-baseline-to-sqlite:
-    #   kind: shell-command
-    #   environment: _system
-    #   command: nsys export results/nsys/baseline.nsys-rep -t sqlite
-    #     -o results/nsys/baseline.sqlite
-    #   inputs:
-    #     - results/nsys/baseline.nsys-rep
-    #   outputs:
-    #     - results/nsys/baseline.sqlite
-    # nsys-mod:
-    #   kind: sbatch
-    #   environment: clima
-    #   script_path: scripts/run-nsys.sh
-    #   sbatch_options:
-    #     - --gpus=1
-    #     - --time=60
-    #   args:
-    #     - results/nsys/mod
-    #     - ClimaAtmos.jl-mod/.buildkite
-    #     - config/base.yml
-    #     - config/smag.yml
-    #   inputs:
-    #     - config/base.yml
-    #     - config/smag.yml
-    #     - ClimaAtmos.jl-mod/src
-    #     - ClimaAtmos.jl-mod/toml
-    #     - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
-    #     - ClimaAtmos.jl/perf/benchmark_step.jl
-    #   outputs:
-    #     - results/nsys/mod.nsys-rep
-    # nsys-mod-to-sqlite:
-    #   kind: shell-command
-    #   environment: _system
-    #   command: nsys export results/nsys/mod.nsys-rep -t sqlite
-    #     -o results/nsys/mod.sqlite
-    #   inputs:
-    #     - results/nsys/mod.nsys-rep
-    #   outputs:
-    #     - results/nsys/mod.sqlite
+    nsys-baseline-smag:
+      kind: sbatch
+      environment: clima
+      script_path: scripts/run-nsys.sh
+      sbatch_options:
+        - --gpus=1
+        - --time=60
+      args:
+        - results/nsys/baseline-smag
+        - ClimaAtmos.jl/.buildkite
+        - config/base.yml
+        - config/smag.yml
+      inputs:
+        - config/base.yml
+        - config/smag.yml
+        - ClimaAtmos.jl/src
+        - ClimaAtmos.jl/toml
+        - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+        - ClimaAtmos.jl/perf/benchmark_step.jl
+      outputs:
+        - results/nsys/baseline-smag.nsys-rep
+    nsys-baseline-smag-to-sqlite:
+      kind: shell-command
+      environment: _system
+      command: nsys export results/nsys/baseline-smag.nsys-rep -t sqlite
+        -o results/nsys/baseline-smag.sqlite
+      inputs:
+        - results/nsys/baseline-smag.nsys-rep
+      outputs:
+        - results/nsys/baseline-smag.sqlite
+    nsys-mod-smag:
+      kind: sbatch
+      environment: clima
+      script_path: scripts/run-nsys.sh
+      sbatch_options:
+        - --gpus=1
+        - --time=60
+      args:
+        - results/nsys/mod-smag
+        - ClimaAtmos.jl-mod/.buildkite
+        - config/base.yml
+        - config/smag.yml
+      inputs:
+        - config/base.yml
+        - config/smag.yml
+        - ClimaAtmos.jl-mod/src
+        - ClimaAtmos.jl-mod/toml
+        - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
+        - ClimaAtmos.jl/perf/benchmark_step.jl
+      outputs:
+        - results/nsys/mod-smag.nsys-rep
+    nsys-mod-smag-to-sqlite:
+      kind: shell-command
+      environment: _system
+      command: nsys export results/nsys/mod-smag.nsys-rep -t sqlite
+        -o results/nsys/mod-smag.sqlite
+      inputs:
+        - results/nsys/mod-smag.nsys-rep
+      outputs:
+        - results/nsys/mod-smag.sqlite
     nsys-baseline-const:
       kind: sbatch
       environment: clima
@@ -130,36 +110,36 @@ pipeline:
         - results/nsys/baseline-const.nsys-rep
       outputs:
         - results/nsys/baseline-const.sqlite
-    nsys-mod-const:
-      kind: sbatch
-      environment: clima
-      script_path: scripts/run-nsys.sh
-      sbatch_options:
-        - --gpus=1
-        - --time=60
-      args:
-        - results/nsys/mod-const
-        - ClimaAtmos.jl-mod/.buildkite
-        - config/base.yml
-        - config/const.yml
-      inputs:
-        - config/base.yml
-        - config/const.yml
-        - ClimaAtmos.jl-mod/src
-        - ClimaAtmos.jl-mod/toml
-        - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
-        - ClimaAtmos.jl/perf/benchmark_step.jl
-      outputs:
-        - results/nsys/mod-const.nsys-rep
-    nsys-mod-const-to-sqlite:
-      kind: shell-command
-      environment: _system
-      command: nsys export results/nsys/mod-const.nsys-rep -t sqlite -o
-        results/nsys/mod-const.sqlite
-      inputs:
-        - results/nsys/mod-const.nsys-rep
-      outputs:
-        - results/nsys/mod-const.sqlite
+    # nsys-mod-const:
+    #   kind: sbatch
+    #   environment: clima
+    #   script_path: scripts/run-nsys.sh
+    #   sbatch_options:
+    #     - --gpus=1
+    #     - --time=60
+    #   args:
+    #     - results/nsys/mod-const
+    #     - ClimaAtmos.jl-mod/.buildkite
+    #     - config/base.yml
+    #     - config/const.yml
+    #   inputs:
+    #     - config/base.yml
+    #     - config/const.yml
+    #     - ClimaAtmos.jl-mod/src
+    #     - ClimaAtmos.jl-mod/toml
+    #     - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
+    #     - ClimaAtmos.jl/perf/benchmark_step.jl
+    #   outputs:
+    #     - results/nsys/mod-const.nsys-rep
+    # nsys-mod-const-to-sqlite:
+    #   kind: shell-command
+    #   environment: _system
+    #   command: nsys export results/nsys/mod-const.nsys-rep -t sqlite -o
+    #     results/nsys/mod-const.sqlite
+    #   inputs:
+    #     - results/nsys/mod-const.nsys-rep
+    #   outputs:
+    #     - results/nsys/mod-const.sqlite
     nsys-baseline-none:
       kind: sbatch
       environment: clima
@@ -254,7 +234,30 @@ pipeline:
         - ClimaAtmos.jl/src
         - ClimaAtmos.jl/toml
         - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
-    mod-const:
+    # mod-const:
+    #   kind: sbatch
+    #   environment: clima
+    #   sbatch_options:
+    #     - --gpus=1
+    #     - --time=60
+    #   script_path: scripts/run.sh
+    #   args:
+    #     - ClimaAtmos.jl-mod/.buildkite
+    #     - scripts/run.jl
+    #     - --job_id
+    #     - mod_const
+    #     - --config_file
+    #     - config/base.yml
+    #     - --config_file
+    #     - config/const.yml
+    #   inputs:
+    #     - scripts/run.jl
+    #     - config/base.yml
+    #     - config/const.yml
+    #     - ClimaAtmos.jl-mod/src
+    #     - ClimaAtmos.jl-mod/toml
+    #     - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
+    mod-smag:
       kind: sbatch
       environment: clima
       sbatch_options:
@@ -265,15 +268,15 @@ pipeline:
         - ClimaAtmos.jl-mod/.buildkite
         - scripts/run.jl
         - --job_id
-        - mod_const
+        - mod_smag
         - --config_file
         - config/base.yml
         - --config_file
-        - config/const.yml
+        - config/smag.yml
       inputs:
         - scripts/run.jl
         - config/base.yml
-        - config/const.yml
+        - config/smag.yml
         - ClimaAtmos.jl-mod/src
         - ClimaAtmos.jl-mod/toml
         - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
@@ -285,7 +288,8 @@ pipeline:
         - results/nsys
         - from_stage_outputs: baseline-none
         - from_stage_outputs: baseline-const
-        - from_stage_outputs: mod-const
+        - from_stage_outputs: mod-smag
+        - from_stage_outputs: baseline-smag
       outputs:
         - path: results/summary.csv
           storage: git

@@ -1,4 +1,73 @@
 stages:
+  nsys-baseline-smag:
+    cmd: calkit slurm batch --name nsys-baseline-smag --environment 
+      clima --dep config/base.yml --dep config/smag.yml --dep 
+      ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml --dep 
+      ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml --dep 
+      ClimaAtmos.jl/perf/benchmark_step.jl --out 
+      results/nsys/baseline-smag.nsys-rep -s --gpus=1 -s --time=60 -- 
+      scripts/run-nsys.sh results/nsys/baseline-smag 
+      ClimaAtmos.jl/.buildkite config/base.yml config/smag.yml
+    deps:
+      - scripts/run-nsys.sh
+      - config/base.yml
+      - config/smag.yml
+      - ClimaAtmos.jl/src
+      - ClimaAtmos.jl/toml
+      - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+      - ClimaAtmos.jl/perf/benchmark_step.jl
+    outs:
+      - results/nsys/baseline-smag.nsys-rep:
+          persist: true
+      - .calkit/slurm/logs/nsys-baseline-smag.out:
+          cache: false
+          persist: true
+    desc: Automatically generated from the 'nsys-baseline-smag' stage 
+      in calkit.yaml. Changes made here will be overwritten.
+  nsys-baseline-smag-to-sqlite:
+    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/baseline-smag.nsys-rep
+      -t sqlite -o results/nsys/baseline-smag.sqlite"'
+    deps:
+      - results/nsys/baseline-smag.nsys-rep
+    outs:
+      - results/nsys/baseline-smag.sqlite
+    desc: Automatically generated from the 
+      'nsys-baseline-smag-to-sqlite' stage in calkit.yaml. Changes 
+      made here will be overwritten.
+  nsys-mod-smag:
+    cmd: calkit slurm batch --name nsys-mod-smag --environment clima 
+      --dep config/base.yml --dep config/smag.yml --dep 
+      ClimaAtmos.jl-mod/src --dep ClimaAtmos.jl-mod/toml --dep 
+      ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml --dep 
+      ClimaAtmos.jl/perf/benchmark_step.jl --out 
+      results/nsys/mod-smag.nsys-rep -s --gpus=1 -s --time=60 -- 
+      scripts/run-nsys.sh results/nsys/mod-smag 
+      ClimaAtmos.jl-mod/.buildkite config/base.yml config/smag.yml
+    deps:
+      - scripts/run-nsys.sh
+      - config/base.yml
+      - config/smag.yml
+      - ClimaAtmos.jl-mod/src
+      - ClimaAtmos.jl-mod/toml
+      - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
+      - ClimaAtmos.jl/perf/benchmark_step.jl
+    outs:
+      - results/nsys/mod-smag.nsys-rep:
+          persist: true
+      - .calkit/slurm/logs/nsys-mod-smag.out:
+          cache: false
+          persist: true
+    desc: Automatically generated from the 'nsys-mod-smag' stage in 
+      calkit.yaml. Changes made here will be overwritten.
+  nsys-mod-smag-to-sqlite:
+    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/mod-smag.nsys-rep
+      -t sqlite -o results/nsys/mod-smag.sqlite"'
+    deps:
+      - results/nsys/mod-smag.nsys-rep
+    outs:
+      - results/nsys/mod-smag.sqlite
+    desc: Automatically generated from the 'nsys-mod-smag-to-sqlite' 
+      stage in calkit.yaml. Changes made here will be overwritten.
   nsys-baseline-const:
     cmd: calkit slurm batch --name nsys-baseline-const --environment 
       clima --dep config/base.yml --dep config/const.yml --dep 
@@ -34,40 +103,6 @@ stages:
     desc: Automatically generated from the 
       'nsys-baseline-const-to-sqlite' stage in calkit.yaml. Changes 
       made here will be overwritten.
-  nsys-mod-const:
-    cmd: calkit slurm batch --name nsys-mod-const --environment clima 
-      --dep config/base.yml --dep config/const.yml --dep 
-      ClimaAtmos.jl-mod/src --dep ClimaAtmos.jl-mod/toml --dep 
-      ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml --dep 
-      ClimaAtmos.jl/perf/benchmark_step.jl --out 
-      results/nsys/mod-const.nsys-rep -s --gpus=1 -s --time=60 -- 
-      scripts/run-nsys.sh results/nsys/mod-const 
-      ClimaAtmos.jl-mod/.buildkite config/base.yml config/const.yml
-    deps:
-      - scripts/run-nsys.sh
-      - config/base.yml
-      - config/const.yml
-      - ClimaAtmos.jl-mod/src
-      - ClimaAtmos.jl-mod/toml
-      - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
-      - ClimaAtmos.jl/perf/benchmark_step.jl
-    outs:
-      - results/nsys/mod-const.nsys-rep:
-          persist: true
-      - .calkit/slurm/logs/nsys-mod-const.out:
-          cache: false
-          persist: true
-    desc: Automatically generated from the 'nsys-mod-const' stage in 
-      calkit.yaml. Changes made here will be overwritten.
-  nsys-mod-const-to-sqlite:
-    cmd: ' bash --noprofile --norc -c "nsys export results/nsys/mod-const.nsys-rep
-      -t sqlite -o results/nsys/mod-const.sqlite"'
-    deps:
-      - results/nsys/mod-const.nsys-rep
-    outs:
-      - results/nsys/mod-const.sqlite
-    desc: Automatically generated from the 'nsys-mod-const-to-sqlite' 
-      stage in calkit.yaml. Changes made here will be overwritten.
   nsys-baseline-none:
     cmd: calkit slurm batch --name nsys-baseline-none --environment 
       clima --dep config/base.yml --dep ClimaAtmos.jl/src --dep 
@@ -168,27 +203,27 @@ stages:
           persist: true
     desc: Automatically generated from the 'baseline-smag' stage in 
       calkit.yaml. Changes made here will be overwritten.
-  mod-const:
-    cmd: calkit slurm batch --name mod-const --environment clima --dep
-      scripts/run.jl --dep config/base.yml --dep config/const.yml 
-      --dep ClimaAtmos.jl-mod/src --dep ClimaAtmos.jl-mod/toml --dep 
+  mod-smag:
+    cmd: calkit slurm batch --name mod-smag --environment clima --dep 
+      scripts/run.jl --dep config/base.yml --dep config/smag.yml --dep
+      ClimaAtmos.jl-mod/src --dep ClimaAtmos.jl-mod/toml --dep 
       ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s 
       --time=60 -- scripts/run.sh ClimaAtmos.jl-mod/.buildkite 
-      scripts/run.jl --job_id mod_const --config_file config/base.yml 
-      --config_file config/const.yml
+      scripts/run.jl --job_id mod_smag --config_file config/base.yml 
+      --config_file config/smag.yml
     deps:
       - scripts/run.sh
       - scripts/run.jl
       - config/base.yml
-      - config/const.yml
+      - config/smag.yml
       - ClimaAtmos.jl-mod/src
       - ClimaAtmos.jl-mod/toml
       - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
     outs:
-      - .calkit/slurm/logs/mod-const.out:
+      - .calkit/slurm/logs/mod-smag.out:
           cache: false
           persist: true
-    desc: Automatically generated from the 'mod-const' stage in 
+    desc: Automatically generated from the 'mod-smag' stage in 
       calkit.yaml. Changes made here will be overwritten.
   summarize:
     cmd: calkit xenv -n py --no-check -- python scripts/summarize.py
@@ -198,7 +233,8 @@ stages:
       - .calkit/env-locks/py
       - .calkit/slurm/logs/baseline-none.out
       - .calkit/slurm/logs/baseline-const.out
-      - .calkit/slurm/logs/mod-const.out
+      - .calkit/slurm/logs/mod-smag.out
+      - .calkit/slurm/logs/baseline-smag.out
     outs:
       - results/summary.csv:
           cache: false
