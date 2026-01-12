@@ -6,8 +6,8 @@ git_repo_url: https://github.com/petebachant/clima-horizontal-diffusion
 questions:
   - Why does horizontal diffusion slow down ClimaAtmos so much, and is there
     anything we can do about it?
-
   - What is the computational cost of constant horizontal diffusion?
+
 environments:
   clima:
     kind: slurm
