@@ -68,7 +68,7 @@ bubble: false
 advection_test: false
 check_conservation: false
 reproducibility_test: false
-check_nan_every: 1024
+check_nan_every: 4096
 perf_summary: false
 #
 # SLEVE

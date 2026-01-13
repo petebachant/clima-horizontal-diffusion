@@ -208,3 +208,5 @@ __marimo__/
 
 output
 results/smag_fixture.jld2
+
+results/uh_debug_mod_smag.jld2

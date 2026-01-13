@@ -212,10 +212,12 @@ stages:
     cmd: calkit slurm batch --name baseline-smag --environment clima 
       --dep scripts/run.jl --dep config/base.yml --dep config/smag.yml
       --dep ClimaAtmos.jl/src --dep ClimaAtmos.jl/toml --dep 
-      ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s 
-      --time=60 -- scripts/run.sh ClimaAtmos.jl/.buildkite 
-      scripts/run.jl --job_id baseline_smag --config_file 
-      config/base.yml --config_file config/smag.yml
+      ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml --out 
+      results/uh_debug_baseline_smag.jld2 -s --gpus=1 -s --time=60 -s 
+      --export=CLIMA_DEBUG_UH_FILE="results/uh_debug_baseline_smag.jld2"
+      -- scripts/run.sh ClimaAtmos.jl/.buildkite scripts/run.jl 
+      --job_id baseline_smag --config_file config/base.yml 
+      --config_file config/smag.yml
     deps:
       - scripts/run.sh
       - scripts/run.jl
@@ -225,6 +227,9 @@ stages:
       - ClimaAtmos.jl/toml
       - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
     outs:
+      - results/uh_debug_baseline_smag.jld2:
+          cache: false
+          persist: true
       - .calkit/slurm/logs/baseline-smag.out:
           cache: false
           persist: true
@@ -234,10 +239,12 @@ stages:
     cmd: calkit slurm batch --name mod-smag --environment clima --dep 
       scripts/run.jl --dep config/base.yml --dep config/smag.yml --dep
       ClimaAtmos.jl-mod/src --dep ClimaAtmos.jl-mod/toml --dep 
-      ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml -s --gpus=1 -s 
-      --time=60 -- scripts/run.sh ClimaAtmos.jl-mod/.buildkite 
-      scripts/run.jl --job_id mod_smag --config_file config/base.yml 
-      --config_file config/smag.yml
+      ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml --out 
+      results/uh_debug_mod_smag.jld2 -s --gpus=1 -s --time=60 -s 
+      --export=CLIMA_DEBUG_UH_FILE="results/uh_debug_mod_smag.jld2" --
+      scripts/run.sh ClimaAtmos.jl-mod/.buildkite scripts/run.jl 
+      --job_id mod_smag --config_file config/base.yml --config_file 
+      config/smag.yml
     deps:
       - scripts/run.sh
       - scripts/run.jl
@@ -247,6 +254,9 @@ stages:
       - ClimaAtmos.jl-mod/toml
       - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
     outs:
+      - results/uh_debug_mod_smag.jld2:
+          cache: false
+          persist: true
       - .calkit/slurm/logs/mod-smag.out:
           cache: false
           persist: true
@@ -260,7 +270,9 @@ stages:
       - .calkit/env-locks/py
       - .calkit/slurm/logs/baseline-none.out
       - .calkit/slurm/logs/baseline-const.out
+      - results/uh_debug_mod_smag.jld2
       - .calkit/slurm/logs/mod-smag.out
+      - results/uh_debug_baseline_smag.jld2
       - .calkit/slurm/logs/baseline-smag.out
     outs:
       - results/summary.csv:

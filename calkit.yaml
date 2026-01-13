@@ -246,6 +246,7 @@ pipeline:
       sbatch_options:
         - --gpus=1
         - --time=60
+        - --export=CLIMA_DEBUG_UH_FILE="results/uh_debug_baseline_smag.jld2"
       script_path: scripts/run.sh
       args:
         - ClimaAtmos.jl/.buildkite
@@ -263,6 +264,9 @@ pipeline:
         - ClimaAtmos.jl/src
         - ClimaAtmos.jl/toml
         - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+      outputs:
+        - path: results/uh_debug_baseline_smag.jld2
+          storage: null
     # mod-const:
     #   kind: sbatch
     #   environment: clima
@@ -292,6 +296,7 @@ pipeline:
       sbatch_options:
         - --gpus=1
         - --time=60
+        - --export=CLIMA_DEBUG_UH_FILE="results/uh_debug_mod_smag.jld2"
       script_path: scripts/run.sh
       args:
         - ClimaAtmos.jl-mod/.buildkite
@@ -309,6 +314,9 @@ pipeline:
         - ClimaAtmos.jl-mod/src
         - ClimaAtmos.jl-mod/toml
         - ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
+      outputs:
+        - path: results/uh_debug_mod_smag.jld2
+          storage: null
     summarize:
       kind: python-script
       environment: py
