@@ -9,6 +9,7 @@ Random.seed!(1234)
 import ClimaAtmos as CA
 import CUDA
 import SciMLBase: step!
+import JLD2
 
 redirect_stderr(IOContext(stderr, :stacktrace_types_limited => Ref(false)))
 import YAML
@@ -66,3 +67,11 @@ e = CUDA.@elapsed begin
 end
 
 @info "Ran step! $n_steps times in $e s, ($(CA.prettytime(e/n_steps*1e9)) per step)"
+
+# Extract horizontal momentum field and save to JLD2 for debugging
+uh_file = get(ENV, "CLIMA_DEBUG_UH_FILE", nothing)
+if uh_file !== nothing
+    @info "Saving horizontal momentum field to $uh_file"
+    uh = integrator.u.c.uₕ
+    JLD2.@save uh_file uh
+end
