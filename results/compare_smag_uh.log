@@ -1,0 +1,60 @@
+┌ Warning: type CUDA.DeviceMemory does not exist in workspace; reconstructing
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:588
+┌ Warning: type CUDA.CuDevice does not exist in workspace; reconstructing
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:588
+┌ Warning: type CUDA.CuContext does not exist in workspace; reconstructing
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:588
+┌ Warning: custom serialization of Ptr{CUDA.CUctx_st} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: type CUDA.CuPtr{Nothing} does not exist in workspace; reconstructing
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:472
+┌ Warning: custom serialization of CUDA.CuArray{Float32,5,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: custom serialization of CUDA.CuArray{Tuple{Int64, Int64, Int64, Int64, Bool},1,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: custom serialization of CUDA.CuArray{Tuple{Int64, Int64},1,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: custom serialization of CUDA.CuArray{Int64,1,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: custom serialization of CUDA.CuArray{Tuple{Bool, Int64, Int64},1,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: custom serialization of CUDA.CuArray{Float32,4,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: custom serialization of CUDA.CuArray{Float32,3,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: custom serialization of CUDA.CuArray{Float32,2,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: type CUDA.DeviceMemory does not exist in workspace; reconstructing
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:588
+┌ Warning: type CUDA.CuDevice does not exist in workspace; reconstructing
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:588
+┌ Warning: type CUDA.CuContext does not exist in workspace; reconstructing
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:588
+┌ Warning: custom serialization of Ptr{CUDA.CUctx_st} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: type CUDA.CuPtr{Nothing} does not exist in workspace; reconstructing
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:472
+┌ Warning: custom serialization of CUDA.CuArray{Float32,5,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: custom serialization of CUDA.CuArray{Tuple{Int64, Int64, Int64, Int64, Bool},1,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: custom serialization of CUDA.CuArray{Tuple{Int64, Int64},1,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: custom serialization of CUDA.CuArray{Int64,1,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: custom serialization of CUDA.CuArray{Tuple{Bool, Int64, Int64},1,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: custom serialization of CUDA.CuArray{Float32,4,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: custom serialization of CUDA.CuArray{Float32,3,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+┌ Warning: custom serialization of CUDA.CuArray{Float32,2,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
+└ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
+[ Info: NaNs in baseline: 2113536, NaNs in mod: 0
+[ Info: Finite values in baseline: 0, Finite values in mod: 2113536
+[ Info: No finite differences found
+[ Info: Baseline shape: (43, 4, 4, 2, 1536)
+[ Info: Mod shape: (43, 4, 4, 2, 1536)
+[ Info: Maximum difference: NaN
+[ Info: max_diff is NaN - checking if diff field is all zeros or has issues
+[ Info: First few values of diff: Float32[NaN, NaN, NaN, NaN, NaN]

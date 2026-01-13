@@ -949,3 +949,24 @@ stages:
       hash: md5
       md5: 7b3416417adf4e508b9d9eb81b874784
       size: 8969086
+  compare-smag-uh:
+    cmd: ' bash --noprofile --norc -c "julia --project=ClimaAtmos.jl/.buildkite scripts/compare_smag_uh.jl
+      > results/compare_smag_uh.log 2>&1"'
+    deps:
+    - path: ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+      hash: md5
+      md5: 960b94f8e8dc62e1ef00310b21171099
+      size: 106103
+    - path: results/uh_debug_baseline_smag.jld2
+      hash: md5
+      md5: 9d62c5f25b37d3a7eb517b1972905bd9
+      size: 400109159
+    - path: results/uh_debug_mod_smag.jld2
+      hash: md5
+      md5: 68b58f5d0a158f9b98ec457a43c61c8e
+      size: 400109159
+    outs:
+    - path: results/compare_smag_uh.log
+      hash: md5
+      md5: 0b3cd54f299caa7d351f234d188174b8
+      size: 10878
