@@ -648,17 +648,17 @@ stages:
     deps:
     - path: ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
       hash: md5
-      md5: 960b94f8e8dc62e1ef00310b21171099
-      size: 106103
+      md5: df19ea2e062492bd33320a88f157b19b
+      size: 118197
     - path: ClimaAtmos.jl/src
       hash: md5
-      md5: 01e1d1b04e003a8a54f22f5da3dc6465.dir
-      size: 1317233
+      md5: e4a1840b32a418e20fec6abd574c1858.dir
+      size: 1322795
       nfiles: 101
     - path: ClimaAtmos.jl/toml
       hash: md5
-      md5: f6943f469c23e41ed04469503e7b9563.dir
-      size: 11921
+      md5: 329a6bf6d39a05b7702627366bc2b0b9.dir
+      size: 17207
       nfiles: 36
     - path: config/base.yml
       hash: md5
@@ -679,8 +679,8 @@ stages:
     outs:
     - path: .calkit/slurm/logs/baseline-smag.out
       hash: md5
-      md5: 74e2baf64fb1468afe3709316b59945a
-      size: 17197
+      md5: 4f42d3631f2da6a67db61ce5b2e3271e
+      size: 17526
     - path: results/uh_debug_baseline_smag.jld2
       hash: md5
       md5: 9d62c5f25b37d3a7eb517b1972905bd9
@@ -862,17 +862,17 @@ stages:
     deps:
     - path: ClimaAtmos.jl-mod/.buildkite/Manifest-v1.11.toml
       hash: md5
-      md5: 960b94f8e8dc62e1ef00310b21171099
-      size: 106103
+      md5: df19ea2e062492bd33320a88f157b19b
+      size: 118197
     - path: ClimaAtmos.jl-mod/src
       hash: md5
-      md5: 1565c3dd012d05593b689e751a4dc6aa.dir
-      size: 1318725
+      md5: 8cb8b5ddc65d429e8acd34bf9f31e59c.dir
+      size: 1324292
       nfiles: 101
     - path: ClimaAtmos.jl-mod/toml
       hash: md5
-      md5: f6943f469c23e41ed04469503e7b9563.dir
-      size: 11921
+      md5: 329a6bf6d39a05b7702627366bc2b0b9.dir
+      size: 17207
       nfiles: 36
     - path: config/base.yml
       hash: md5
@@ -893,11 +893,11 @@ stages:
     outs:
     - path: .calkit/slurm/logs/mod-smag.out
       hash: md5
-      md5: 1ec4e2b69e418102fcb21507410ffd1f
-      size: 17199
+      md5: b6614df37daa0ca1809b5328877dffeb
+      size: 53804
     - path: results/uh_debug_mod_smag.jld2
       hash: md5
-      md5: 68b58f5d0a158f9b98ec457a43c61c8e
+      md5: d5715c97505c4ca8cd5076dd497d730f
       size: 400109159
   ncu-baseline-smag:
     cmd: calkit slurm batch --name ncu-baseline-smag --environment clima --dep 
@@ -955,18 +955,18 @@ stages:
     deps:
     - path: ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
       hash: md5
-      md5: 960b94f8e8dc62e1ef00310b21171099
-      size: 106103
+      md5: df19ea2e062492bd33320a88f157b19b
+      size: 118197
     - path: results/uh_debug_baseline_smag.jld2
       hash: md5
       md5: 9d62c5f25b37d3a7eb517b1972905bd9
       size: 400109159
     - path: results/uh_debug_mod_smag.jld2
       hash: md5
-      md5: 68b58f5d0a158f9b98ec457a43c61c8e
+      md5: d5715c97505c4ca8cd5076dd497d730f
       size: 400109159
     outs:
     - path: results/compare_smag_uh.log
       hash: md5
-      md5: 0b3cd54f299caa7d351f234d188174b8
-      size: 10878
+      md5: cf25498f3d45076edd361ba8c94b3423
+      size: 11064
