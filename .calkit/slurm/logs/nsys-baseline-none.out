@@ -35,9 +35,9 @@ Status `~/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/.buildkite/Project.tom
 ⌃ [052768ef] CUDA v5.8.5
   [13f3f980] CairoMakie v0.15.8
   [29b5916a] ClimaAnalysis v0.5.20
-  [b2c96348] ClimaAtmos v0.32.0 `..`
+  [b2c96348] ClimaAtmos v0.33.1 `..`
   [3a4d1b5c] ClimaComms v0.6.10
-⌃ [d414da3d] ClimaCore v0.14.43
+  [d414da3d] ClimaCore v0.14.45
   [c2caaa1d] ClimaCoreSpectra v0.1.4
   [d934ef94] ClimaCoreTempestRemap v0.3.18
 ⌅ [1ecacbb8] ClimaDiagnostics v0.2.15
@@ -64,9 +64,9 @@ Status `~/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/.buildkite/Project.tom
 ⌅ [aa65fe97] SnoopCompile v3.1.4
 ⌅ [e2b509da] SnoopCompileCore v3.0.0
   [10745b16] Statistics v1.11.1
-  [2913bbd2] StatsBase v0.34.9
+⌃ [2913bbd2] StatsBase v0.34.9
   [ddb6d928] YAML v0.4.16
-  [9c32591e] Poppler_jll v24.6.0+0
+⌃ [9c32591e] Poppler_jll v24.6.0+0
   [9abbd945] Profile v1.11.0
   [9a3f8284] Random v1.11.0
   [8dfed614] Test v1.11.0
@@ -109,6 +109,8 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 └ @ CUDA ~/.julia/packages/CUDA/TPbi4/src/initialization.jl:218
 ┌ Warning: Failed to convert `config_dict["vert_diff"] = false` to default type String, keeping original value
 └ @ ClimaAtmos ~/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/src/solver/yaml_helper.jl:78
+┌ Warning: The configuration passed to ClimaAtmos contains unused keys: prescribe_ozone, co2_model
+└ @ ClimaAtmos ~/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/src/solver/yaml_helper.jl:89
 ┌ Info: Making AtmosConfig with config files: 
 │    /home/pbachant/calkit/clima-horizontal-diffusion/ClimaAtmos.jl/src/solver/../../config/default_configs/default_config.yml
 └    config/base.yml
@@ -134,7 +136,7 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │ 
 │                             `water`::`ClimaAtmos.AtmosWater{ClimaAtmos.NonEquilMoistModel, ClimaAtmos.Microphysics1Moment, ClimaAtmos.GridScaleCloud, ClimaAtmos.Explicit, Nothing}`
 │                         `scm_setup`::`ClimaAtmos.SCMSetup{Nothing, Nothing, Nothing, Bool, Nothing}`
-│                         `radiation`::`ClimaAtmos.AtmosRadiation{Nothing, ClimaAtmos.IdealizedOzone, Nothing, ClimaAtmos.IdealizedInsolation}`
+│                         `radiation`::`ClimaAtmos.AtmosRadiation{Nothing, ClimaAtmos.IdealizedInsolation}`
 │                          `turbconv`::`ClimaAtmos.AtmosTurbconv{ClimaAtmos.EDMFXModel{ClimaAtmos.PiGroupsEntrainment, ClimaAtmos.BuoyancyVelocityDetrainment, Val{true}, Val{true}, Val{true}, Val{false}, Val{false}, ClimaAtmos.SmoothMinimumBlending}, Nothing, ClimaAtmos.Explicit, ClimaAtmos.Explicit, ClimaAtmos.Explicit, ClimaAtmos.Explicit, ClimaAtmos.Explicit, Nothing, Nothing, Nothing}`
 │                   `prescribed_flow`::`Nothing`
 │                      `gravity_wave`::`ClimaAtmos.AtmosGravityWave{Nothing, Nothing}`
@@ -146,7 +148,7 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 [ Info: SLEVE mesh warp (eta=0.7, s=10.0)
 ┌ Info: Simulation info
 │   job_id = "default_config"
-└   output_dir = "output/default_config/output_0021"
+└   output_dir = "output/default_config/output_0004"
 ┌ Info: Simulation Grid: ExtrudedFiniteDifferenceGrid:
 │   horizontal:
 │     context: SingletonCommsContext using CUDADevice
@@ -154,22 +156,22 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │     quadrature: 4-point Gauss-Legendre-Lobatto quadrature
 │   vertical:
 └     mesh: 43-element IntervalMesh of IntervalDomain: z ∈ [0.0,30000.0] (:bottom, :top)
-[ Info: Allocating Y: 13.087 s (17834991 allocations: 838.03 MiB)
+[ Info: Allocating Y: 13.425 s (17889021 allocations: 840.19 MiB)
 [ Info: using deep atmosphere
-[ Info: Allocating cache (p): 74.022 s (136010917 allocations: 7.05 GiB)
+[ Info: Allocating cache (p): 74.639 s (135940239 allocations: 7.05 GiB)
 [ Info: Using ODE config: `ClimaTimeSteppers.ARS343`
-[ Info: ode_configuration: 783.258 ms (1383750 allocations: 68.54 MiB)
+[ Info: ode_configuration: 846.927 ms (1354664 allocations: 67.19 MiB)
 [ Info: Progress logging enabled
-[ Info: Checking NaNs in the state every 1024 steps
-[ Info: get_callbacks: 292.201 ms (402322 allocations: 20.59 MiB)
+[ Info: Checking NaNs in the state every 4096 steps
+[ Info: get_callbacks: 343.711 ms (401206 allocations: 20.5 MiB)
 [ Info: Saving accumulated diagnostics to disk with frequency: 
 [ Info: DictWriter: String[]
 [ Info: HDF5Writer: String[]
 [ Info: NetCDFWriter: ["rhoa_60d_inst", "ua_60d_inst", "va_60d_inst", "wa_60d_inst", "ta_60d_inst", "hus_60d_inst", "clw_60d_inst", "cli_60d_inst", "hussn_60d_inst", "husra_60d_inst"]
-[ Info: initializing diagnostics: 6.934 s (14973971 allocations: 1.51 GiB)
-[ Info: Prepared SciMLBase.CallbackSet callbacks: 10.639 ms (561 allocations: 27.34 KiB)
-[ Info: n_steps_per_cycle_per_cb (non diagnostics): [1024, 1, 360]
-[ Info: n_steps_per_cycle (non diagnostics): 46080
+[ Info: initializing diagnostics: 7.346 s (14386016 allocations: 1.48 GiB)
+[ Info: Prepared SciMLBase.CallbackSet callbacks: 10.721 ms (561 allocations: 27.34 KiB)
+[ Info: n_steps_per_cycle_per_cb (non diagnostics): [4096, 1, 360]
+[ Info: n_steps_per_cycle (non diagnostics): 184320
 ┌ Info: Jacobian algorithm: ManualSparseJacobian(
 │   topography_flag = ClimaAtmos.UseDerivative(),
 │   diffusion_flag = ClimaAtmos.IgnoreDerivative(),
@@ -180,9 +182,9 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │   sgs_vertdiff_flag = ClimaAtmos.IgnoreDerivative(),
 │   approximate_solve_iters = 2,
 └ )
-[ Info: Define ode function: 1.589 s (1839778 allocations: 78.35 MiB)
-[ Info: init integrator: 15.819 s (18085944 allocations: 923.39 MiB)
-[ Info: Added diagnostics: 119.192 s (28839432 allocations: 12.64 GiB)
+[ Info: Define ode function: 1.625 s (1839484 allocations: 78.34 MiB)
+[ Info: init integrator: 15.678 s (18057686 allocations: 920.34 MiB)
+[ Info: Added diagnostics: 123.343 s (28722410 allocations: 12.63 GiB)
 [ Info: Compiling benchmark_step!...
 ┌ Info: Progress
 │   simulation_time = "30 seconds, 1 microsecond"
@@ -193,47 +195,47 @@ Info Packages marked with ⌃ and ⌅ have new versions available. Those with �
 │   wall_time_spent = "0 seconds"
 │   percent_complete = "0.0%"
 │   estimated_sypd = "Inf"
-│   date_now = 2025-12-18T17:50:36.703
-└   estimated_finish_date = 2025-12-18T17:50:36.703
+│   date_now = 2026-01-13T09:24:28.896
+└   estimated_finish_date = 2026-01-13T09:24:28.896
 ┌ Info: Progress
 │   simulation_time = "1 minute, 2 microseconds"
 │   n_steps_completed = 2
-│   wall_time_per_step = "15 seconds, 223 milliseconds"
-│   wall_time_total = "1 day, 12 hours"
-│   wall_time_remaining = "1 day, 12 hours"
-│   wall_time_spent = "30 seconds, 447 milliseconds"
+│   wall_time_per_step = "15 seconds, 501 milliseconds"
+│   wall_time_total = "1 day, 13 hours"
+│   wall_time_remaining = "1 day, 13 hours"
+│   wall_time_spent = "31 seconds, 3 milliseconds"
 │   percent_complete = "0.0%"
-│   estimated_sypd = "0.005 (sdpd_estimate = 1.971)"
-│   date_now = 2025-12-18T17:50:51.926
-└   estimated_finish_date = 2025-12-20T06:22:34.925
+│   estimated_sypd = "0.005 (sdpd_estimate = 1.935)"
+│   date_now = 2026-01-13T09:24:44.412
+└   estimated_finish_date = 2026-01-14T22:36:27.412
 ┌ Info: Progress
 │   simulation_time = "2 minutes, 4 microseconds"
 │   n_steps_completed = 4
-│   wall_time_per_step = "7 seconds, 690 milliseconds"
-│   wall_time_total = "18 hours, 27 minutes"
-│   wall_time_remaining = "18 hours, 26 minutes"
-│   wall_time_spent = "30 seconds, 762 milliseconds"
+│   wall_time_per_step = "7 seconds, 835 milliseconds"
+│   wall_time_total = "18 hours, 48 minutes"
+│   wall_time_remaining = "18 hours, 47 minutes"
+│   wall_time_spent = "31 seconds, 342 milliseconds"
 │   percent_complete = "0.0%"
-│   estimated_sypd = "0.011"
-│   date_now = 2025-12-18T17:50:52.088
-└   estimated_finish_date = 2025-12-19T12:17:49.088
+│   estimated_sypd = "0.01"
+│   date_now = 2026-01-13T09:24:44.575
+└   estimated_finish_date = 2026-01-14T04:12:33.575
 ┌ Info: Progress
 │   simulation_time = "4 minutes, 8 microseconds"
 │   n_steps_completed = 8
-│   wall_time_per_step = "3 seconds, 883 milliseconds"
-│   wall_time_total = "9 hours, 19 minutes"
-│   wall_time_remaining = "9 hours, 18 minutes"
-│   wall_time_spent = "31 seconds, 65 milliseconds"
+│   wall_time_per_step = "3 seconds, 954 milliseconds"
+│   wall_time_total = "9 hours, 29 minutes"
+│   wall_time_remaining = "9 hours, 28 minutes"
+│   wall_time_spent = "31 seconds, 636 milliseconds"
 │   percent_complete = "0.1%"
 │   estimated_sypd = "0.021"
-│   date_now = 2025-12-18T17:50:52.391
-└   estimated_finish_date = 2025-12-19T03:09:32.391
+│   date_now = 2026-01-13T09:24:44.869
+└   estimated_finish_date = 2026-01-13T18:53:40.869
 [ Info: Running benchmark_step!...
 [ Info: Using external CUDA profiler
 Capture range started in the application.
 Capture range ended in the application.
-Generating '/tmp/nsys-report-dcde.qdstrm'
+Generating '/tmp/nsys-report-eb0f.qdstrm'
 [1/1] [0%                          ] baseline-none.nsys-repProcessing events...
-[1/1] [0%                          ] baseline-none.nsys-rep[1/1] [6%                          ] baseline-none.nsys-rep[1/1] [6%                          ] baseline-none.nsys-rep[1/1] [8%                          ] baseline-none.nsys-rep[1/1] [9%                          ] baseline-none.nsys-rep[1/1] [=16%                        ] baseline-none.nsys-rep[1/1] [===22%                      ] baseline-none.nsys-rep[1/1] [=====29%                    ] baseline-none.nsys-rep[1/1] [=======36%                  ] baseline-none.nsys-rep[1/1] [========42%                 ] baseline-none.nsys-rep[1/1] [==========49%               ] baseline-none.nsys-rep[1/1] [============55%             ] baseline-none.nsys-rep[1/1] [==============62%           ] baseline-none.nsys-rep[1/1] [================69%         ] baseline-none.nsys-rep[1/1] [==================75%       ] baseline-none.nsys-rep[1/1] [===================82%      ] baseline-none.nsys-rep[1/1] [=====================89%    ] baseline-none.nsys-rep[1/1] [=======================95%  ] baseline-none.nsys-rep[1/1] [========================97% ] baseline-none.nsys-rep[1/1] [========================98% ] baseline-none.nsys-rep[1/1] [========================100%] baseline-none.nsys-rep[1/1] [========================100%] baseline-none.nsys-rep
+[1/1] [0%                          ] baseline-none.nsys-rep[1/1] [8%                          ] baseline-none.nsys-rep[1/1] [6%                          ] baseline-none.nsys-rep[1/1] [5%                          ] baseline-none.nsys-rep[1/1] [9%                          ] baseline-none.nsys-rep[1/1] [=15%                        ] baseline-none.nsys-rep[1/1] [===22%                      ] baseline-none.nsys-rep[1/1] [=====29%                    ] baseline-none.nsys-rep[1/1] [======35%                   ] baseline-none.nsys-rep[1/1] [========42%                 ] baseline-none.nsys-rep[1/1] [==========48%               ] baseline-none.nsys-rep[1/1] [============55%             ] baseline-none.nsys-rep[1/1] [==============62%           ] baseline-none.nsys-rep[1/1] [================68%         ] baseline-none.nsys-rep[1/1] [==================75%       ] baseline-none.nsys-rep[1/1] [===================82%      ] baseline-none.nsys-rep[1/1] [=====================88%    ] baseline-none.nsys-rep[1/1] [=======================95%  ] baseline-none.nsys-rep[1/1] [========================97% ] baseline-none.nsys-rep[1/1] [========================98% ] baseline-none.nsys-rep[1/1] [========================100%] baseline-none.nsys-rep[1/1] [========================100%] baseline-none.nsys-rep
 Generated:
 	/home/pbachant/calkit/clima-horizontal-diffusion/results/nsys/baseline-none.nsys-rep
