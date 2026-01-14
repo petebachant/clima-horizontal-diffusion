@@ -58,7 +58,7 @@ Y₀ = deepcopy(integrator.u);
 # Step once to compile
 step!(integrator)
 
-n_steps = 2048
+n_steps = 1024
 
 e = CUDA.@elapsed begin
     for n in 1:n_steps

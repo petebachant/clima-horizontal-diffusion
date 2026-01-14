@@ -1,8 +1,3 @@
-Precompiling ClimaCore...
-   1260.3 ms  ✓ HDF5_jll
-   5252.6 ms  ✓ HDF5
-   7755.4 ms  ✓ ClimaCore
-  3 dependencies successfully precompiled in 15 seconds. 138 already precompiled.
 ┌ Warning: type CUDA.DeviceMemory does not exist in workspace; reconstructing
 └ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:588
 ┌ Warning: type CUDA.CuDevice does not exist in workspace; reconstructing
@@ -55,11 +50,12 @@ Precompiling ClimaCore...
 └ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
 ┌ Warning: custom serialization of CUDA.CuArray{Float32,2,JLD2.ReconstructedStatic{:DeviceMemory, (:dev, :ctx, :ptr, :bytesize, :async), Tuple{JLD2.ReconstructedStatic{:CuDevice, (:handle,), Tuple{Int32}}, JLD2.ReconstructedStatic{:CuContext, (:handle, :id), Tuple{Nothing, UInt64}}, JLD2.ReconstructedPrimitive{Symbol("CuPtr{Nothing}"), UInt64}, Int64, Bool}}} encountered, but the type does not exist in the workspace; the data will be read unconverted
 └ @ JLD2 ~/.julia/packages/JLD2/hbsZG/src/data/reconstructing_datatypes.jl:112
-[ Info: NaNs in baseline: 2113536, NaNs in mod: 0
-[ Info: Finite values in baseline: 0, Finite values in mod: 2113536
-[ Info: No finite differences found
+[ Info: NaNs in baseline: 0, NaNs in mod: 0
+[ Info: Finite values in baseline: 2113536, Finite values in mod: 2113536
+[ Info: Maximum difference (finite values only): 989222.25
 [ Info: Baseline shape: (43, 4, 4, 2, 1536)
 [ Info: Mod shape: (43, 4, 4, 2, 1536)
-[ Info: Maximum difference: NaN
-[ Info: max_diff is NaN - checking if diff field is all zeros or has issues
-[ Info: First few values of diff: Float32[NaN, NaN, NaN, NaN, NaN]
+┌ Warning: Assignment to `max_diff` in soft scope is ambiguous because a global variable by the same name exists: `max_diff` will be treated as a new local. Disambiguate by using `local max_diff` to suppress this warning or `global max_diff` to assign to the existing global variable.
+└ @ ~/calkit/clima-horizontal-diffusion/scripts/compare_smag_uh.jl:38
+[ Info: Maximum difference: 989222.25
+[ Info: Fields differ by: 989222.25
