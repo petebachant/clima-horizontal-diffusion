@@ -973,8 +973,16 @@ stages:
       hash: md5
       md5: 6dcdad2cb029ae6b6946f756cf8eadb1
       size: 400109159
+    - path: scripts/compare_smag_uh.jl
+      hash: md5
+      md5: b633d263fa1f552bb0f7cba2fcd2fd67
+      size: 4358
     outs:
+    - path: figures/smag-uh-diff.png
+      hash: md5
+      md5: 052275e7bccf4be3d983f185d18f7c7e
+      size: 151621
     - path: results/compare_smag_uh.log
       hash: md5
-      md5: d3620b314e82ff7f7fb9717835b43d70
-      size: 11159
+      md5: 212664f183f3715397d6eb50104e3262
+      size: 11367

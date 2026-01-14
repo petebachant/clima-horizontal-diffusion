@@ -269,8 +269,12 @@ stages:
       - results/uh_debug_baseline_smag.jld2
       - results/uh_debug_mod_smag.jld2
       - ClimaAtmos.jl/.buildkite/Manifest-v1.11.toml
+      - scripts/compare_smag_uh.jl
     outs:
       - results/compare_smag_uh.log:
+          cache: false
+          persist: false
+      - figures/smag-uh-diff.png:
           cache: false
           persist: false
     desc: Automatically generated from the 'compare-smag-uh' stage in 

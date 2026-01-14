@@ -55,7 +55,18 @@
 [ Info: Maximum difference (finite values only): 989222.25
 [ Info: Baseline shape: (43, 4, 4, 2, 1536)
 [ Info: Mod shape: (43, 4, 4, 2, 1536)
-┌ Warning: Assignment to `max_diff` in soft scope is ambiguous because a global variable by the same name exists: `max_diff` will be treated as a new local. Disambiguate by using `local max_diff` to suppress this warning or `global max_diff` to assign to the existing global variable.
-└ @ ~/calkit/clima-horizontal-diffusion/scripts/compare_smag_uh.jl:38
 [ Info: Maximum difference: 989222.25
 [ Info: Fields differ by: 989222.25
+[ Info: Mean difference: -2.5441194
+[ Info: Mean absolute error: 720.46234
+[ Info: RMSE: 8133.358
+[ Info: Median absolute difference: 77.103134
+[ Info: Std dev of difference: 8133.359
+[ Info: Maximum absolute difference location:
+[ Info:   Value: 989222.25
+[ Info:   Indices: CartesianIndex(2, 3, 3, 1, 534)
+[ Info:   Baseline value at max: 2.2650768e6
+[ Info:   Modified value at max: 3.254299e6
+[ Info:   Difference at max: -989222.25
+[ Info:   Dimension breakdown: z=2, x=3, y=3, component=1, time=534
+[ Info: Saved difference analysis to figures/smag-uh-diff.png
